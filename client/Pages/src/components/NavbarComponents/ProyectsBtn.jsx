@@ -1,9 +1,10 @@
 import React from 'react'
+import { Navbar } from '../../Pages/Navbar'
 
 export const ProyectsBtn = () => {
   return (
     <>
-        <h4>Proyectos</h4>
+      <Navbar />
     </>
   )
 }

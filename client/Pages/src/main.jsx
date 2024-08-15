@@ -10,6 +10,7 @@
 
 import { StrictMode, Suspense, lazy } from 'react';
 import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom'
 import './App.css';
 
 // Función para introducir un retraso artificial
@@ -33,10 +34,12 @@ const Loader = () => {
 
 // Renderizado del componente
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <Suspense fallback={<Loader />}>
-      <App />
-    </Suspense>
-  </StrictMode>,
+  <BrowserRouter>
+    <StrictMode>
+      <Suspense fallback={<Loader />}>
+        <App />
+      </Suspense>
+    </StrictMode>
+  </BrowserRouter>,
 );
 

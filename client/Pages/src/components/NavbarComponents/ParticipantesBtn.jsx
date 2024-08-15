@@ -1,7 +1,11 @@
 import React from 'react'
+import { Navbar } from '../../Pages/Navbar'
 
 export const ParticipantesBtn = () => {
   return (
-    <div>ParticipantesBtn</div>
+    <>
+      <Navbar />
+      <h1>Participantes</h1>
+    </>
   )
 }
