@@ -4,7 +4,7 @@ import { CardButtonHome } from './CardButtonHome'
 export const CardsLogHome = ({ description }) => {
   return (
     <>
-    <article className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+    <article className="max-w-md mx-auto bg-zinc-50	 rounded-xl shadow-md overflow-hidden">
         <figure>
             <img className="h-48 w-full object-cover" src="#" alt="Ong Img for Button" />
         </figure>

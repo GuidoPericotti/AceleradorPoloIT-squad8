@@ -1,3 +1,4 @@
+
 import "./App.css"
 import { CompanyBtn } from "./components/NavbarComponents/CompanyBtn";
 import { ContactBtn } from "./components/NavbarComponents/ContactBtn";
@@ -10,11 +11,12 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 
 function App() {
-  
+
 
   return (
     <>
-      <Routes>
+     
+       <Routes>
         <Route path="/" element={ <Home />}></Route>
         <Route path="/empresas" element={<CompanyBtn/>}></Route>
         <Route path="/proyectos" element={<ProyectsBtn/>}></Route>
@@ -22,7 +24,7 @@ function App() {
         <Route path="/mentores" element={<MentoresBtn/>}></Route>
         <Route path="/contact" element={<ContactBtn/>}></Route>
         <Route path="/*" element={<Navigate to='/'/>}></Route>
-      </Routes>
+      </Routes> 
     </>
   )
 }
