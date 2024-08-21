@@ -22,13 +22,7 @@ export const Navbar = ({ darkMode, setDarkMode }) => {
         <div className="flex items-center justify-between w-full h-16">
           <NavLink to='/' className="flex-shrink-0">
             <img src={Logo} alt="logo image" />
-            </NavLink>
-          <div className="p-2 bg-zinc-50 dark:bg-gray-900">
-            <ToggleSwitch
-              isChecked={darkMode}
-              onChange={handleToggleDarkMode}
-            />
-          </div>
+          </NavLink>
           <div className="flex-grow"></div>
           <ul className="hidden md:flex space-x-6">
             <li><ButtonOng /></li>
@@ -39,6 +33,12 @@ export const Navbar = ({ darkMode, setDarkMode }) => {
             <li><NavLink to='/contact'>Contacto</NavLink></li>
           </ul>
           <div className="flex-grow"></div>
+          <div className="p-2 bg-zinc-50 mr-5 dark:bg-gray-900">
+            <ToggleSwitch
+              isChecked={darkMode}
+              onChange={handleToggleDarkMode}
+            />
+          </div>
           <div className="hidden md:flex items-center">
             <Login />
           </div>

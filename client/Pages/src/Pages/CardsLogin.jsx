@@ -1,14 +1,15 @@
 import React from 'react'
-import { CardsLogHome } from '../components/CardsComponentsHome/CardsLogHome'
+import { CardsLogHome } from '../components/CardsComponentsHome/CardsLogHome';
+import Company from '../assets/company.jpg';
+import Ong from '../assets/ong.jpg';
 
-export const CardsLogin = () => {
+export const CardsLogin = ({ darkMode }) => {
   return (
     <>
-    <section className='flex gap-4 mt-44 mb-9'>
-        <CardsLogHome description="ONGS" />
-        <CardsLogHome description="Empresas" />
-    </section>
-    
+      <section className={`flex flex-col md:flex-row items-end justify-center content-start ${darkMode ? 'bg-gray-900' : 'bg-white'} pt-20`}>
+        <CardsLogHome src={Company} description="ONGS" darkMode={darkMode} className="gap-4 block flex-grow-0 flex-shrink flex-auto self-auto order-none mb-3"/>
+        <CardsLogHome src={Ong} description="Empresas" darkMode={darkMode} className="gap-4 block flex-grow-0 flex-shrink flex-auto self-auto order-none"/>
+      </section>
     </>
   )
 }
