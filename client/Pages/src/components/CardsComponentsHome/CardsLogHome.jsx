@@ -37,10 +37,10 @@ export const CardsLogHome = ({ src, description, darkMode, className }) => {
       </figure>
       <section className="p-8">
         <header>
-          <h3 className={`uppercase tracking-wide text-sm font-semibold ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+          <h3 className="uppercase tracking-wide text-sm font-semibold">
             Company retreats
           </h3>
-          <h2 className={`block mt-1 text-lg leading-tight font-medium ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+          <h2 className="block mt-1 text-lg leading-tight font-medium ">
             <a href="#">Incredible accommodation for your team</a>
           </h2>
         </header>

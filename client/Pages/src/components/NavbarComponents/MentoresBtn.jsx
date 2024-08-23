@@ -3,8 +3,6 @@ import { Navbar } from '../../Pages/Navbar'
 import { Login } from './Login'
 
 export const MentoresBtn = () => {
-  
-   
   // darkMode function
   const [darkMode, setDarkMode] = useState(() => {
     const savedMode = localStorage.getItem('darkMode');

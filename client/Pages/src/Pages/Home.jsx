@@ -9,8 +9,13 @@ import { CompanySupport } from "../components/CompanySupport/CompanySupport";
 
 export const Home = () => {
   const [darkMode, setDarkMode] = useState(() => {
-    const savedMode = localStorage.getItem('darkMode');
-    return savedMode ? JSON.parse(savedMode) : false;
+    try {
+      const savedMode = localStorage.getItem('darkMode');
+      return savedMode !== null ? JSON.parse(savedMode) : false;
+    } catch (error) {
+      console.error("Error parsing JSON:", error);
+      return false;
+    }
   });
 
   useEffect(() => {

@@ -8,6 +8,7 @@ import { ParticipantesBtn } from "./components/NavbarComponents/ParticipantesBtn
 import { ProyectsBtn } from "./components/NavbarComponents/ProyectsBtn";
 import { Home } from "./Pages/Home";
 import { Routes, Route, Navigate } from "react-router-dom";
+import { OngPage } from "./Pages/OngPage";
 
 
 
@@ -20,6 +21,7 @@ function App() {
       
        <Routes>
         <Route path="/" element={ <Home />}></Route>
+        <Route path="/ong" element={ <OngPage />}></Route>
         <Route path="/empresas" element={<CompanyBtn/>}></Route>
         <Route path="/proyectos" element={<ProyectsBtn/>}></Route>
         <Route path="/participantes" element={<ParticipantesBtn/>}></Route>

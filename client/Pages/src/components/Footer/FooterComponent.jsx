@@ -1,9 +1,9 @@
 import React from 'react';
 
-export const FooterComponent = () => {
+export const FooterComponent = ({darkMode}) => {
   return (
     <>
-      <footer className="bg-white text-gray-800 p-10">
+      <footer className={`bg-white text-gray-800 p-10 ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'}`}>
 
         <div className="flex justify-around">
           <nav>

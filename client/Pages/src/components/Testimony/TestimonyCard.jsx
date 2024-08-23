@@ -18,7 +18,7 @@ export const TestimonyCard = ({ darkMode }) => {
       .catch(error => console.error('Error fetching user:', error));
   }, []);
 
-  if (!user) return <div>Loading...</div>;
+  if (!user) return <p>Loading...</p>;
 
   return (
     <article

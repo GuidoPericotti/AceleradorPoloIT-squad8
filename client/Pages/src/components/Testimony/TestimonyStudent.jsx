@@ -40,24 +40,24 @@ export const TestimonyStudent = ({Title}) => {
   
     return (
     <>
-    <section className="mt-20 overflow-hidden">
-      <h3 className="text-lg font-bold text-center mb-10">
-        {Title}
-      </h3>
-      <div className="relative w-full overflow-hidden">
-        <div
-          ref={scrollRef}
-          className="flex w-full"
-          style={{ width: `${duplicatedTestimonies.length * (22 / 3)}%` }} // Ajusta el ancho total del contenedor
-        >
-          {duplicatedTestimonies.map((_, index) => (
-            <div key={index} className="w-96 px-1.5 flex-shrink-0">
-              <TestimonyCard />
-            </div>
-          ))}
+    <section className="pt-20 overflow-hidden">
+  <h3 className="text-lg font-bold text-center mb-10">
+    {Title}
+  </h3>
+  <div className="relative w-full overflow-hidden">
+    <div
+      ref={scrollRef}
+      className="flex w-full"
+      style={{ width: `${duplicatedTestimonies.length * (22 / 3)}%` }}
+    >
+      {duplicatedTestimonies.map((_, index) => (
+        <div key={index} className="w-96 px-1.5 flex-shrink-0">
+          <TestimonyCard />
         </div>
-      </div>
-    </section>
+      ))}
+    </div>
+  </div>
+</section>
     </>
   )
 }

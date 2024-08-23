@@ -25,7 +25,7 @@ export const Navbar = ({ darkMode, setDarkMode }) => {
           </NavLink>
           <div className="flex-grow"></div>
           <ul className="hidden md:flex space-x-6">
-            <li><ButtonOng /></li>
+            <li><NavLink to='/ong'>Ong</NavLink></li>
             <li><NavLink to='/empresas'>Empresas</NavLink></li>
             <li><NavLink to='/proyectos'>Proyectos</NavLink></li>
             <li><NavLink to='/participantes'>Participantes</NavLink></li>
@@ -54,7 +54,7 @@ export const Navbar = ({ darkMode, setDarkMode }) => {
         {isOpen && (
           <div className="md:hidden">
             <ul className="flex flex-col items-start space-y-4 mt-2">
-              <li><NavLink><ButtonOng /></NavLink></li>
+              <li><NavLink to='/empresas'>Ong</NavLink></li>
               <li><NavLink to='/empresas'>Empresas</NavLink></li>
               <li><NavLink to='/proyectos'>Proyectos</NavLink></li>
               <li><NavLink to='/participantes'>Participantes</NavLink></li>
