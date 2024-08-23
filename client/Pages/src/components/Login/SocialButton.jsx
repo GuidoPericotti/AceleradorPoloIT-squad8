@@ -10,8 +10,8 @@ const SocialButton = ({ icon, alt }) => {
           src={icon} 
           alt={alt} 
           className="" 
-          height="32px" 
-          width="32px" 
+          height="64px" 
+          width="64px" 
         />
       </a>
     </div>

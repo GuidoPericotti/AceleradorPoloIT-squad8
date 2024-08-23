@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { NavLink } from 'react-router-dom';
 import { CardButtonHome } from './CardButtonHome';
 
 export const CardsLogHome = ({ src, description, darkMode, className }) => {
@@ -44,7 +45,7 @@ export const CardsLogHome = ({ src, description, darkMode, className }) => {
             <a href="#">Incredible accommodation for your team</a>
           </h2>
         </header>
-        <CardButtonHome description={description} />
+        <NavLink to='/signin'><CardButtonHome description={description} /></NavLink>
       </section>
     </article>
   );

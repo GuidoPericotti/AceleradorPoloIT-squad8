@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
  import { Navbar } from './Navbar'
-import { LogOng } from '../components/Ong/LogOng';
+import { LogOng } from '../components/Login/LogOng';
 
 export const OngPage = () => {
   const [darkMode, setDarkMode] = useState(() => {

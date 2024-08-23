@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Logo from '../../src/assets/logo.svg';
-import { ButtonOng } from '../components/NavbarComponents/ButtonOng';
+//import { ButtonOng } from '../components/NavbarComponents/ButtonOng';
 import { Login } from '../components/NavbarComponents/Login';
 import { NavLink } from 'react-router-dom';
 import { ToggleSwitch } from '../components/NavbarComponents/ToggleSwitch';
@@ -20,8 +20,8 @@ export const Navbar = ({ darkMode, setDarkMode }) => {
     <header className="fixed top-0 w-full z-50 bg-zinc-50 dark:bg-gray-900 shadow rounded-md">
       <nav className="mt-2 ml-3 mr-3 text-black dark:text-white">
         <div className="flex items-center justify-between w-full h-16">
-          <NavLink to='/' className="flex-shrink-0">
-            <img src={Logo} alt="logo image" />
+          <NavLink to='/' className="flex-shrink-0 w-16 h-16 bg-transparent">
+            <img src="https://media.licdn.com/dms/image/v2/C4E0BAQF7uvigqKkweg/company-logo_200_200/company-logo_200_200/0/1630570162567/polo_it_de_buenos_aires_logo?e=2147483647&v=beta&t=s4wtzh9g-uMs5Lv1h-dmdvXytqhqCMkh1L314tzUc4Q" alt="Polo-it icon" />
           </NavLink>
           <div className="flex-grow"></div>
           <ul className="hidden md:flex space-x-6">
@@ -40,7 +40,7 @@ export const Navbar = ({ darkMode, setDarkMode }) => {
             />
           </div>
           <div className="hidden md:flex items-center">
-            <Login />
+            <NavLink to='/Login'><Login /></NavLink>
           </div>
           <button
             onClick={toggleMenu}
