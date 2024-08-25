@@ -21,8 +21,8 @@ function App() {
       
       <Routes>
         <Route path="/" element={ <Home />}></Route>
-        <Route path="/login" element={ <LogOng />}></Route>
-        <Route path="/signin" element={<LogOng showNameField={false} />}></Route>
+        <Route path="/signin" element={ <LogOng showNameField={false}/>}></Route>
+        <Route path="/login" element={<LogOng />}></Route>
         <Route path="/empresas" element={<CompanyBtn/>}></Route>
         <Route path="/proyectos" element={<ProyectsBtn/>}></Route>
         <Route path="/participantes" element={<ParticipantesBtn/>}></Route>
