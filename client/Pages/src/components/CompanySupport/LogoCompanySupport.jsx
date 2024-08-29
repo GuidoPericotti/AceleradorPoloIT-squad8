@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 export const LogoCompanySupport = ({ Company, darkMode }) => {
   return (
     <div className={`flex flex-col items-center space-y-4 p-4 ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'}`}>

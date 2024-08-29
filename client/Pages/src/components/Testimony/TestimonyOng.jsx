@@ -1,11 +1,11 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { TestimonyCard } from './TestimonyCard';
+import { testimonies } from './testimonies'; // Importa el JSON desde el archivo testimonies.js
 
-export const TestimonyOng = ({Title}) => {
+export const TestimonyOng = ({ Title }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollRef = useRef(null);
-  const testimonies = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]; // Reemplaza con datos reales o genera dinámicamente
 
   // Duplica el array para crear el efecto de bucle infinito
   const duplicatedTestimonies = [...testimonies, ...testimonies];
@@ -39,23 +39,22 @@ export const TestimonyOng = ({Title}) => {
 
   return (
     <section className="pt-20 overflow-hidden">
-  <h3 className="text-lg font-bold text-center mb-10">
-    {Title}
-  </h3>
-  <div className="relative w-full overflow-hidden">
-    <div
-      ref={scrollRef}
-      className="flex w-full"
-      style={{ width: `${duplicatedTestimonies.length * (22 / 3)}%` }}
-    >
-      {duplicatedTestimonies.map((_, index) => (
-        <div key={index} className="w-96 px-1.5 flex-shrink-0">
-          <TestimonyCard />
+      <h3 className="text-lg font-bold text-center mb-10">
+        {Title}
+      </h3>
+      <div className="relative w-full overflow-hidden">
+        <div
+          ref={scrollRef}
+          className="flex w-full"
+          style={{ width: `${duplicatedTestimonies.length * (22 / 3)}%` }}
+        >
+          {duplicatedTestimonies.map((_, index) => (
+            <div key={index} className="w-96 px-1.5 flex-shrink-0">
+              <TestimonyCard darkMode={false} index={index % testimonies.length} />
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
-  </div>
-</section>
-
+      </div>
+    </section>
   );
 };

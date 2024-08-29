@@ -51,6 +51,7 @@ export const Navbar = ({ darkMode, setDarkMode }) => {
             </svg>
           </button>
         </div>
+        {/* Responsive navbar */}
         {isOpen && (
           <div className="md:hidden">
             <ul className="flex flex-col items-start space-y-4 mt-2">
@@ -62,7 +63,7 @@ export const Navbar = ({ darkMode, setDarkMode }) => {
               <li><NavLink to='/contact'>Contacto</NavLink></li>
             </ul>
             <div className="mt-4">
-              <Login />
+            <NavLink to='/Login'><Login /></NavLink>
             </div>
           </div>
         )}

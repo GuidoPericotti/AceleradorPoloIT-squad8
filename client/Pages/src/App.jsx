@@ -8,7 +8,8 @@ import { ParticipantesBtn } from "./components/NavbarComponents/ParticipantesBtn
 import { ProyectsBtn } from "./components/NavbarComponents/ProyectsBtn";
 import { Home } from "./Pages/Home";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { LogOng } from "./components/Login/LogOng";
+import  LogOng  from "./components/Login/LogOng";
+import { OngPage } from "./Pages/OngPage";
 
 
 
@@ -22,7 +23,7 @@ function App() {
       <Routes>
         <Route path="/" element={ <Home />}></Route>
         <Route path="/signin" element={ <LogOng showNameField={false}/>}></Route>
-        <Route path="/login" element={<LogOng />}></Route>
+        <Route path="/login" element={<OngPage />}></Route>
         <Route path="/empresas" element={<CompanyBtn/>}></Route>
         <Route path="/proyectos" element={<ProyectsBtn/>}></Route>
         <Route path="/participantes" element={<ParticipantesBtn/>}></Route>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
  import { Navbar } from './Navbar'
-import { LogOng } from '../components/Login/LogOng';
+import  LogOng  from '../components/Login/LogOng';
 
 export const OngPage = () => {
   const [darkMode, setDarkMode] = useState(() => {
@@ -25,8 +25,10 @@ export const OngPage = () => {
   
   return (
     <>
-      <Navbar darkMode={darkMode} setDarkMode={setDarkMode}/>    
-      <LogOng darkMode={darkMode} setDarkMode={setDarkMode}/>
+      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />    
+      <div className="pt-20">
+        <LogOng darkMode={darkMode} setDarkMode={setDarkMode}/>
+      </div>
     </>
   )
 }

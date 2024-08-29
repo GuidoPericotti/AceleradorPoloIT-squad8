@@ -30,23 +30,25 @@ export const CardsLogHome = ({ src, description, darkMode, className }) => {
   }, [darkMode]); // Agregar darkMode como dependencia
   return (
     <article
-      ref={cardRef}
-      className={`w-full max-w-md mx-auto bg-zinc-50 rounded-xl shadow-md overflow-hidden transform transition-all duration-700 ease-in-out opacity-0 translate-y-10 ${className} ${darkMode ? 'bg-gray-700' : 'bg-white'}`}
-    >
-      <figure>
-        <img className="h-48 w-full object-cover" src={src} alt="Ong Img for Button" />
-      </figure>
-      <section className="p-8">
-        <header>
-          <h3 className="uppercase tracking-wide text-sm font-semibold">
-            Company retreats
-          </h3>
-          <h2 className="block mt-1 text-lg leading-tight font-medium ">
-            <a href="#">Incredible accommodation for your team</a>
-          </h2>
-        </header>
-        <NavLink to='/signin'><CardButtonHome description={description} /></NavLink>
-      </section>
-    </article>
+  ref={cardRef}
+  className={`w-full max-w-md mx-auto rounded-xl shadow-md overflow-hidden transform transition-all duration-700 ease-in-out opacity-0 translate-y-10 ${className} ${darkMode ? 'bg-gray-700' : 'bg-white'}`}
+>
+  <figure>
+    <img className="h-48 w-full object-cover" src={src} alt="Ong Img for Button" />
+  </figure>
+  <section className="p-8 bg-transparent">
+    <header className='bg-transparent'>
+      <h3 className="uppercase tracking-wide text-sm font-semibold">
+        Company retreats
+      </h3>
+      <h2 className="block mt-1 text-lg leading-tight font-medium">
+        <a href="#">Incredible accommodation for your team</a>
+      </h2>
+    </header>
+    <NavLink to='/signin'>
+      <CardButtonHome description={description} />
+    </NavLink>
+  </section>
+</article>
   );
 };

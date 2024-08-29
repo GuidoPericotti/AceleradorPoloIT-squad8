@@ -1,4 +1,3 @@
-// FooterComponent.jsx
 import React from 'react';
 import FooterNav from './FooterNav';
 
@@ -33,12 +32,12 @@ export const FooterComponent = ({ darkMode }) => {
   ];
 
   return (
-    <footer className={`bg-white text-gray-800 p-10 ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'}`}>
+    <footer className={`p-10 ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'}`}>
       <div className="container mx-auto">
         <div className="flex flex-wrap justify-around gap-6">
-          <FooterNav title="Use cases" links={useCasesLinks} />
-          <FooterNav title="Explore" links={exploreLinks} />
-          <FooterNav title="Resources" links={resourcesLinks} />
+          <FooterNav title="Use cases" links={useCasesLinks} darkMode={darkMode} />
+          <FooterNav title="Explore" links={exploreLinks} darkMode={darkMode} />
+          <FooterNav title="Resources" links={resourcesLinks} darkMode={darkMode} />
         </div>
       </div>
     </footer>
