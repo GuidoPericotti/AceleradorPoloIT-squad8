@@ -11,13 +11,13 @@ const LocationSelector = () => {
       <InputLocation
         selectedCountry={selectedCountry}
         onCountryChange={setSelectedCountry}
-        className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+        className="block w-full mt-1 border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:border-indigo-500 dark:focus:border-indigo-400 focus:ring-indigo-500 dark:focus:ring-indigo-400 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-300"
       />
 
       {/* El componente InputProvincias muestra las provincias basadas en el país seleccionado */}
       <InputProvincias
         selectedCountry={selectedCountry}
-        className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+        className="block w-full mt-1 border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:border-indigo-500 dark:focus:border-indigo-400 focus:ring-indigo-500 dark:focus:ring-indigo-400 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-300"
       />
     </div>
   );

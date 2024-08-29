@@ -1,3 +1,4 @@
+
 import React from 'react';
 import InputField from './InputField';
 
@@ -17,7 +18,7 @@ const EmailInput = ({ value, onChange, register, trigger }) => {
         }
       })}
       onBlur={() => trigger('email')}
-      className="peer block w-full appearance-none rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-700 placeholder-transparent focus:border-sky-500 focus:outline-none focus:ring-0"
+      className="peer block w-full appearance-none rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-gray-700 dark:text-gray-300 placeholder-transparent focus:border-sky-500 dark:focus:border-sky-300 focus:outline-none focus:ring-0"
     />
   );
 };
