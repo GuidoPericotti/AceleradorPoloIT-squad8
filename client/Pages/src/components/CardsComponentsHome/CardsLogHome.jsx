@@ -47,7 +47,7 @@ export const CardsLogHome = ({ src, description, darkMode, className }) => {
             <a href="#">Incredible accommodation for your team</a>
           </h2>
         </header>
-        <NavLink to='/signin'>
+        <NavLink to='/LoginIniciado'>
           <CardButtonHome description={description} />
         </NavLink>
       </section>

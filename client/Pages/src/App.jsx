@@ -40,7 +40,6 @@ import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 import { Home } from "./Pages/Home";
-import LogOng from "./components/Login/LogOng";
 import { OngPage } from "./Pages/OngPage";
 import  ONGEmpresaLogin  from "./components/Login/ONGEmpresaLogin";
 import { CompanyBtn } from "./components/NavbarComponents/CompanyBtn";
@@ -48,6 +47,8 @@ import { ContactBtn } from "./components/NavbarComponents/ContactBtn";
 import { MentoresBtn } from "./components/NavbarComponents/MentoresBtn";
 import { ParticipantesBtn } from "./components/NavbarComponents/ParticipantesBtn";
 import { ProyectsBtn } from "./components/NavbarComponents/ProyectsBtn";
+import { LoginIniciado } from "./components/Login/LoginIniciado";
+import { OngClient } from "./Pages/OngClient";
 
 function App() {
 
@@ -56,13 +57,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/ongempresa" element={<ONGEmpresaLogin />} />
-        <Route path="/logong" element={<LogOng />} />
+        <Route path="/LoginIniciado" element={<LoginIniciado />} />
         <Route path="/login" element={<OngPage />} />
         <Route path="/empresas" element={<CompanyBtn />} />
         <Route path="/proyectos" element={<ProyectsBtn />} />
         <Route path="/participantes" element={<ParticipantesBtn />} />
         <Route path="/mentores" element={<MentoresBtn />} />
         <Route path="/contact" element={<ContactBtn />} />
+        <Route path="/OngClient" element={<OngClient />} />
         <Route path="/*" element={<Navigate to="/" />} />
       </Routes>
     </>

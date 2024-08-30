@@ -25,7 +25,7 @@ export const Navbar = ({ darkMode, setDarkMode }) => {
           </NavLink>
           <div className="flex-grow"></div>
           <ul className="hidden md:flex space-x-6">
-            <li><NavLink to='/ong'>Ong</NavLink></li>
+            <li><NavLink to='/OngClient'>Ong</NavLink></li>
             <li><NavLink to='/empresas'>Empresas</NavLink></li>
             <li><NavLink to='/proyectos'>Proyectos</NavLink></li>
             <li><NavLink to='/participantes'>Participantes</NavLink></li>
