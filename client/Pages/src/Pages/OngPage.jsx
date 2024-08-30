@@ -35,6 +35,7 @@
 import React, { useEffect, useState } from 'react';
 import { Navbar } from './Navbar';
 import LogOng from '../components/Login/LogOng';
+import AuthPage from '../components/Login/AuthPage';
 
 export const OngPage = () => {
   const [darkMode, setDarkMode] = useState(() => {
@@ -60,7 +61,7 @@ export const OngPage = () => {
     <>
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />    
       <div className={`pt-20 min-h-screen ${darkMode ? 'bg-gray-900' : 'bg-white'}`}>
-        <LogOng darkMode={darkMode} setDarkMode={setDarkMode} />
+        <AuthPage darkMode={darkMode} setDarkMode={setDarkMode} />
       </div>
     </>
   );

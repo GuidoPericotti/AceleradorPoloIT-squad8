@@ -1,19 +1,4 @@
-// import React, { forwardRef } from 'react';
 
-// const InputField = forwardRef(({ type, placeholder, ariaLabel, value, onChange, className, ...rest }, ref) => (
-//   <input
-//     type={type}
-//     placeholder={placeholder}
-//     aria-label={ariaLabel}
-//     value={value}
-//     onChange={onChange}
-//     ref={ref}
-//     className={className}
-//     {...rest}
-//   />
-// ));
-
-// export default InputField;
 import React, { forwardRef } from 'react';
 
 const InputField = forwardRef(({ type, ariaLabel, value, onChange, className, label, ...rest }, ref) => (
