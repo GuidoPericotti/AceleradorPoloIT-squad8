@@ -29,19 +29,19 @@ const createAdminUser = (req,res) => {
 const updateAdminUser = (req, res) => {
     const {id} = req.params;
     const {user, password} = req.body;
-    const sql = 'UPDATE cliente SET user = ?, password = ? WHERE id = ?';
+    const sql = 'UPDATE admin_user SET user = ?, password = ? WHERE id = ?';
     db.query(sql,[user, password, id], (err, result) => {
         if (err) throw err;
-        res.json({ mensaje: "Cliente actualizado correctamente"});
+        res.json({ mensaje: "Administrador actualizado correctamente"});
     });
 };
 
 const deleteAdminUser = (req, res) => {
     const {id} = req.params;
-    const sql = 'DELETE FROM cliente WHERE id = ?';
+    const sql = 'DELETE FROM admin_user WHERE id = ?';
     db.query(sql,[id], (err, result) => {
         if (err) throw err;
-        res.json({ mensaje: "Cliente eliminado correctamente"});
+        res.json({ mensaje: "Administrador eliminado correctamente"});
     });
 };
 
