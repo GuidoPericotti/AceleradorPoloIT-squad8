@@ -3,31 +3,6 @@
 @tailwind utilities;
 
 
-/* @layer components {
-  .loader {
-    @apply h-[15px] aspect-[4] grid bg-no-repeat bg-[length:25%_100%];
-    background-image: 
-      radial-gradient(farthest-side at left, #000 90%, transparent),
-      radial-gradient(farthest-side at right, #000 90%, transparent);
-  }
-
-  .loader:before,
-  .loader:after {
-    content: "";
-    @apply h-[inherit] aspect-square mx-auto rounded-full;
-    grid-area: 1/1;
-    transform-origin: -100% 50%;
-    @apply bg-black;
-    animation: l49 1s infinite linear;
-  }
-
-  .loader:after {
-    transform-origin: 200% 50%;
-    --s: -1;
-    animation-delay: -0.5s;
-  }
-} */
-
 .loader::before,
   .loader::after {
     content: "";
@@ -77,6 +52,32 @@ scrollbar-color: #888 #f1f1f1;
 
 
 
+/*Para animacion Empresas*/
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in-left-1 {
+  animation: fadeIn 1s ease-in-out 0.1s forwards;
+}
+
+.fade-in-left-2 {
+  animation: fadeIn 1s ease-in-out 0.1s forwards;
+}
+
+.fade-in-left-3 {
+  animation: fadeIn 1s ease-in-out 0.1s forwards;
+}
+
+.fade-in-icon {
+  animation: fadeIn 1s ease-in-out 0.2s forwards;
+}
 
 
   @keyframes l49 {

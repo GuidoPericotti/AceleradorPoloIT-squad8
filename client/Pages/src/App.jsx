@@ -49,6 +49,7 @@ import { ParticipantesBtn } from "./components/NavbarComponents/ParticipantesBtn
 import { ProyectsBtn } from "./components/NavbarComponents/ProyectsBtn";
 import { LoginIniciado } from "./components/Login/LoginIniciado";
 import { OngClient } from "./Pages/OngClient";
+import { AdminPage } from "./Pages/AdminPage";
 
 function App() {
 
@@ -65,6 +66,7 @@ function App() {
         <Route path="/mentores" element={<MentoresBtn />} />
         <Route path="/contact" element={<ContactBtn />} />
         <Route path="/OngClient" element={<OngClient />} />
+       <Route path="/Admin" element={<AdminPage />} />   {/*Se añade vista admin para modificacion */}
         <Route path="/*" element={<Navigate to="/" />} />
       </Routes>
     </>

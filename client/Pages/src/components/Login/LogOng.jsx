@@ -113,7 +113,14 @@ const LogOng = () => {
           </form>
         </div>
       </div>
-      {showModal && <ModalLogin onClose={handleModalClose} />}
+      {showModal && (
+        <ModalLogin
+          onClose={handleModalClose}
+          title="¡Formulario enviado con éxito!"
+          message="Serás redirigido a la página de inicio."
+          buttonText="Aceptar"
+        />
+      )}
     </main>
   );
 };

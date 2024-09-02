@@ -7,6 +7,16 @@ export default {
   ],
   theme: {
     extend: {
+      keyframes: {
+        zoom: {
+          '0%': { transform: 'scale(0.9)', opacity: '0' },
+          '100%': { transform: 'scale(1)', opacity: '1' },
+        },
+      },
+      animation: {
+        'zoom': 'zoom 0.3s ease-out', // Puedes ajustar el tiempo y la función de tiempo según tu preferencia
+        'zoom2': 'zoom 1s ease-out', // Puedes ajustar el tiempo y la función de tiempo según tu preferencia
+      },
       colors: {
         'primary': '#3490dc',
         'secondary': '#ffed4a',
@@ -14,7 +24,6 @@ export default {
       },
     },
   },
- 
   plugins: [
     function ({ addUtilities }) {
       addUtilities({
@@ -40,4 +49,3 @@ export default {
     },
   ],
 }
-

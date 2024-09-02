@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Logo from '../../src/assets/logo.svg';
 //import { ButtonOng } from '../components/NavbarComponents/ButtonOng';
 import { Login } from '../components/NavbarComponents/Login';
 import { NavLink } from 'react-router-dom';
@@ -31,7 +30,8 @@ export const Navbar = ({ darkMode, setDarkMode }) => {
             <li><NavLink to='/participantes'>Participantes</NavLink></li>
             <li><NavLink to='/mentores'>Mentores</NavLink></li>
             <li><NavLink to='/contact'>Contacto</NavLink></li>
-          </ul>
+            <li><NavLink to='/admin'>Admin</NavLink></li>  {/* se añade vista admin temporal para ver la creacion */}
+            </ul>
           <div className="flex-grow"></div>
           <div className="p-2 bg-zinc-50 mr-5 dark:bg-gray-900">
             <ToggleSwitch
@@ -61,6 +61,7 @@ export const Navbar = ({ darkMode, setDarkMode }) => {
               <li><NavLink to='/participantes'>Participantes</NavLink></li>
               <li><NavLink to='/mentores'>Mentores</NavLink></li>
               <li><NavLink to='/contact'>Contacto</NavLink></li>
+             <li><NavLink to='/admin'>Admin</NavLink></li>  {/* se añade vista admin temporal para ver la creacion */}
             </ul>
             <div className="mt-4">
             <NavLink to='/Login'><Login /></NavLink>

@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Navbar } from '../../Pages/Navbar'
+import { EmpresasClient } from '../EmpresasClient/EmpresasClient';
+import { CompanySupport } from '../CompanySupport/CompanySupport';
+import { Footer } from '../../Pages/Footer';
 
 export const CompanyBtn = () => {
   
@@ -21,6 +24,9 @@ export const CompanyBtn = () => {
   return (
     <>
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode}/> 
+      <EmpresasClient />
+      <CompanySupport Company="Confían en nosotros"/>
+      <Footer />
     </>
   )
 }

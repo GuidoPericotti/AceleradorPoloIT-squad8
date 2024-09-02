@@ -12,10 +12,10 @@ export const TestimonyCard = ({ darkMode, index }) => {
 
   return (
     <article
-      className={`w-full max-w-sm bg-transparent rounded shadow-md overflow-hidden mb-6 ${darkMode ? 'bg-gray-700' : 'bg-white'}`}
+      className={`w-80 bg-transparent rounded-lg shadow-md overflow-hidden ${darkMode ? 'bg-gray-700' : 'bg-white'} transition-transform duration-500`}
     >
       <figure>
-        <img className="h-48 w-full object-cover" src={user.image} alt={`${user.name}`} />
+        <img className="h-48 w-full object-cover rounded-t-lg" src={user.image} alt={`${user.name}`} />
       </figure>
       <section className="p-6">
         <header>
