@@ -231,7 +231,7 @@ connection.query("SHOW DATABASES LIKE 'acelerador_db'", (err, results) => {
         )`;
     
     //Run query
-    connection.query(sqlCreateTableTecnologias, (err, result) => {
+    connection.query(sqlCreateTableEspecializacion, (err, result) => {
         if (err) {
             console.error('Error creando la tabla: ' + err.message);
             return;
