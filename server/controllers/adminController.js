@@ -1,5 +1,6 @@
 const db = require('../db/db.js');
 
+//Obtener todos los usuarios admin
 const getAllAdminAccess = (req,res) => {
     const sql = "SELECT * FROM admin_user";
     db.query(sql, (err,results) => {
@@ -8,6 +9,7 @@ const getAllAdminAccess = (req,res) => {
     });
 };
 
+//Obtener admin por ID
 const getAdminById = (req,res) => {
     const {id} = req.params;
     const sql = 'SELECT * FROM admin_user WHERE id=?';
@@ -17,15 +19,17 @@ const getAdminById = (req,res) => {
     });
 };
 
+//Crear nuevo usuario
 const createAdminUser = (req,res) => {
     const {user, password} = req.body;
-    const sql = 'INSERT INTO admin_user (user, password) VALUES (?, ?)';
+    const sql = 'INSERT INTO admin_user (nombre_admin, apellido_admin, email_admin, password_admin) VALUES (?, ?, ?, ?)';
     db.query(sql, [user, password], (err, result) => {
         if (err) throw err;
         res.json({ mensaje: "Administrador creado correctamente", idAdmin: result.insertId });
     });
 };
 
+//Editar usuario
 const updateAdminUser = (req, res) => {
     const {id} = req.params;
     const {user, password} = req.body;
@@ -36,6 +40,7 @@ const updateAdminUser = (req, res) => {
     });
 };
 
+//Eliminar usuario
 const deleteAdminUser = (req, res) => {
     const {id} = req.params;
     const sql = 'DELETE FROM admin_user WHERE id = ?';

@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const adminController = require('../controllers/adminController.js');
 const adminOngController = require ('../controllers/adminControllerONG.js');
+const adminEmpresasController = require ('../controllers/adminControllerEmpresa.js');
 
 //Rutas para gestionar usuarios administradores
 router.get('/', adminController.getAllAdminAccess);
@@ -17,5 +18,13 @@ router.post('/ongs/:id/rechazar', adminOngController.rejectOng);
 router.get('/ongs/:id', adminOngController.getOngById);
 router.put('/ongs/:id', adminOngController.updateOng);
 router.delete('/ongs/:id', adminOngController.deleteOng);
+//Rutas para gestionar empresas
+router.get('/empresas/postulantes', adminEmpresasController.getAllEmpresasPostulantes);
+router.get('/empresas/participantes', adminEmpresasController.getAllEmpresasParticipantes);
+router.post('/ongs/:id/aceptar', adminEmpresasController.acceptEmpresa);
+router.post('/empresas/:id/rechazar', adminEmpresasController.rejectEmpresa);
+router.get('/empresas/:id', adminEmpresasController.getEmpresaById);
+router.put('/empresas/:id', adminEmpresasController.updateEmpresa);
+router.delete('/empresas/:id', adminEmpresasController.deleteEmpresa);
 
 module.exports = router;
