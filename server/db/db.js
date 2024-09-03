@@ -15,8 +15,6 @@ connection.connect((err) => {
     }
     console.log('Conexión con la base de datos exitosa.');
 
-})
-
 //Check bd exist
 connection.query("SHOW DATABASES LIKE 'acelerador_db'", (err, results) => {
     if (err) {
@@ -26,6 +24,7 @@ connection.query("SHOW DATABASES LIKE 'acelerador_db'", (err, results) => {
 
     if (results.length > 0) {
         console.log('La base de datos ya existe.');
+        useDBandRunQueries();
     } else {
         //Create bd if not exist
         connection.query("CREATE DATABASE acelerador_db", (err, results) => {
@@ -34,17 +33,24 @@ connection.query("SHOW DATABASES LIKE 'acelerador_db'", (err, results) => {
                 return;
             }
             console.log('Base de datos creada con éxito.');
+            useDBandRunQueries();
         });
     }
+    });
+});
 
-    // Select bd for use
-        connection.query('USE acelerador_db', (err) => {
-            if (err) {
-                console.error('Error al seleccionar Acelerador_DB. ',err);
-                return;
-            }
-            console.log('Base de datos seleccionada correctamente.');
-
+function useDBandRunQueries() {
+     // Select bd for use
+     connection.query('USE acelerador_db', (err) => {
+        if (err) {
+            console.error('Error al seleccionar Acelerador_DB. ',err);
+            return;
+        }
+        console.log('Base de datos seleccionada correctamente.');
+        // Call function to run queries
+        runAllQueries();
+    });
+}
 
     //Create tables
 
@@ -56,17 +62,7 @@ connection.query("SHOW DATABASES LIKE 'acelerador_db'", (err, results) => {
         apellido_admin VARCHAR(50) NOT NULL,
         email_admin VARCHAR(50) NOT NULL UNIQUE,
         password_admin VARCHAR(50) NOT NULL
-        )`;
-    
-    //Run query
-    connection.query(sqlCreateTableAdmin, (err, result) => {
-        if (err) {
-            console.error('Error creando la tabla: ' + err.message);
-            return;
-        }
-        console.log('Tabla creada o ya existe');
-        connection.end(); //Close conection
-        });
+    )`;
 
     //Create table tipoOrg
         const sqlCreateTableTipoOrg = `
@@ -75,16 +71,6 @@ connection.query("SHOW DATABASES LIKE 'acelerador_db'", (err, results) => {
         nombreTipo_org VARCHAR (50) UNIQUE
     )`
     
-    //Run query
-    connection.query(sqlCreateTableTipoOrg, (err, result) => {
-        if (err) {
-            console.error('Error creando la tabla: ' + err.message);
-            return;
-        }
-        console.log('Tabla creada o ya existe');
-        connection.end(); //Close conection
-        });
-
     //Create Table ongs
         const sqlCreateTableOngs = `
             CREATE TABLE IF NOT EXISTS ongs(
@@ -98,19 +84,8 @@ connection.query("SHOW DATABASES LIKE 'acelerador_db'", (err, results) => {
             descripcion_org VARCHAR(150),
             fechaCreacion_org DATETIME DEFAULT CURRENT_TIMESTAMP(),
             tipoOrg_id INT NOT NULL,
-            FOREIGN KEY ('tipoOrg_id') REFERENCES tipoOrg ('tipoOrg_id')
-        )`;
-    
-    //Run query
-    connection.query(sqlCreateTableOngs, (err, result) => {
-        if (err) {
-            console.error('Error creando la tabla: ' + err.message);
-            return;
-        }
-        console.log('Tabla creada o ya existe');
-        connection.end(); //Close conection
-        });
-    });
+            FOREIGN KEY (tipoOrg_id) REFERENCES tipoOrg (tipoOrg_id)
+    )`;
 
     //Create table cursos
     const sqlCreateTableCursos = `
@@ -122,52 +97,22 @@ connection.query("SHOW DATABASES LIKE 'acelerador_db'", (err, results) => {
             descripcion_org VARCHAR(150),
             docente_curso VARCHAR(50) NOT NULL,
             organizacion_id INT NOT NULL,
-            FOREIGN KEY ('organizacion_id') REFERENCES ongs ('organizacion_id')
-        )`;
-    
-    //Run query
-    connection.query(sqlCreateTableCursos, (err, result) => {
-        if (err) {
-            console.error('Error creando la tabla: ' + err.message);
-            return;
-        }
-        console.log('Tabla creada o ya existe');
-        connection.end(); //Close conection
-    });
+            FOREIGN KEY (organizacion_id) REFERENCES ongs (organizacion_id)
+    )`;
 
     //Create table perfiles
     const sqlCreateTablePerfiles = `
             CREATE TABLE IF NOT EXISTS perfiles(
             perfil_id INT AUTO_INCREMENT PRIMARY KEY,
             nombre_perfil VARCHAR (50) NOT NULL UNIQUE
-        )`;
-
-    //Run query
-    connection.query(sqlCreateTablePerfiles, (err, result) =>{
-        if(err) {
-            console.error('Error creando la tabla: ' + err.message);
-            return
-        }
-        console.log('Tabla creada o ya existe');
-            connection.end();//Close connection
-    });
+    )`;
 
     //Create table condiciones
     const sqlCreateTableCondiciones = `
             CREATE TABLE IF NOT EXISTS condiciones(
             condicion_id INT AUTO_INCREMENT PRIMARY KEY,
             nombre_condicion VARCHAR (50) NOT NULL UNIQUE
-        )`;
-
-    //Run query
-    connection.query(sqlCreateTableCondiciones, (err, result) =>{
-        if(err) {
-            console.error('Error creando la tabla: ' + err.message);
-            return
-        }
-        console.log('Tabla creada o ya existe');
-            connection.end();//Close connection
-    });
+    )`;
 
     //Create table estudiantes
     const sqlCreateTableEstudiantes = `
@@ -183,20 +128,10 @@ connection.query("SHOW DATABASES LIKE 'acelerador_db'", (err, results) => {
             perfil_id INT NOT NULL,
             condicion_id INT NOT NULL,
             curso_id INT NOT NULL,
-            FOREIGN KEY ('curso_id') REFERENCES cursos ('curso_id'),
-            FOREIGN KEY ('perfil_id') REFERENCES perfiles ('perfil_id'),
-            FOREIGN KEY ('condicion_id') REFERENCES condiciones ('condicion_id')
-        )`;
-    
-    //Run query
-    connection.query(sqlCreateTableEstudiantes, (err, result) => {
-        if (err) {
-            console.error('Error creando la tabla: ' + err.message);
-            return;
-        }
-        console.log('Tabla creada o ya existe');
-        connection.end(); //Close conection
-    });
+            FOREIGN KEY (curso_id) REFERENCES cursos (curso_id),
+            FOREIGN KEY (perfil_id) REFERENCES perfiles (perfil_id),
+            FOREIGN KEY (condicion_id) REFERENCES condiciones (condicion_id)
+    )`;
 
     //Create Table empresas
     const sqlCreateTableEmpresas = `
@@ -211,34 +146,14 @@ connection.query("SHOW DATABASES LIKE 'acelerador_db'", (err, results) => {
             descripcion_empresa VARCHAR(150),
             fechaCreacion_empresa DATETIME DEFAULT CURRENT_TIMESTAMP(),
             tipoOrg_id INT NOT NULL,
-            FOREIGN KEY ('tipoOrg_id') REFERENCES tipoOrg ('tipoOrg_id')
-        )`;
-
-    //Run query
-    connection.query(sqlCreateTableEmpresas, (err, result) => {
-        if (err) {
-            console.error('Error creando la tabla: ' + err.message);
-            return;
-        }
-        console.log('Tabla creada o ya existe');
-        connection.end(); //Close conection
-    });
+            FOREIGN KEY (tipoOrg_id) REFERENCES tipoOrg (tipoOrg_id)
+    )`;
 
     //Create table especializacion
     const sqlCreateTableEspecializacion = `
             CREATE TABLE IF NOT EXISTS especializacion(
             especializacion_id INT AUTO_INCREMENT PRIMARY KEY
         )`;
-    
-    //Run query
-    connection.query(sqlCreateTableEspecializacion, (err, result) => {
-        if (err) {
-            console.error('Error creando la tabla: ' + err.message);
-            return;
-        }
-        console.log('Tabla creada o ya existe');
-        connection.end(); //Close conection
-    });
 
     //Create table tecnologias
     const sqlCreateTableTecnologias = `
@@ -246,18 +161,8 @@ connection.query("SHOW DATABASES LIKE 'acelerador_db'", (err, results) => {
             tecnologia_id INT AUTO_INCREMENT PRIMARY KEY,
             nombre_tecnologia VARCHAR(50) NOT NULL UNIQUE,
             especializacion_id INT NOT NULL,
-            FOREIGN KEY ('especializacion_id') REFERENCES especializacion ('especializacion_id')
-        )`;
-    
-    //Run query
-    connection.query(sqlCreateTableTecnologias, (err, result) => {
-        if (err) {
-            console.error('Error creando la tabla: ' + err.message);
-            return;
-        }
-        console.log('Tabla creada o ya existe');
-        connection.end(); //Close conection
-    });
+            FOREIGN KEY (especializacion_id) REFERENCES especializacion (especializacion_id)
+    )`;
 
     //Create table mentores
     const sqlCreateTableMentores = `
@@ -267,40 +172,20 @@ connection.query("SHOW DATABASES LIKE 'acelerador_db'", (err, results) => {
             apellido_mentor VARCHAR(50) NOT NULL,
             dni_mentor VARCHAR(8) NOT NULL UNIQUE,
             telefono_mentor VARCHAR(10) NOT NULL UNIQUE,
-            edad_mentor INT NOY NULL,
+            edad_mentor INT NOT NULL,
             email_mentor VARCHAR(50) NOT NULL UNIQUE,
             disponibilidad_mentor BOOLEAN DEFAULT false,
             empresa_id INT NOT NULL,
             especializacion_id INT NOT NULL,
-            FOREIGN KEY ('empresa_id') REFERENCES empresas ('empresa_id'),
-            FOREIGN KEY ('especializacion_id') REFERENCES especializacion ('especializacion_id')
-        )`;
-    
-    //Run query
-    connection.query(sqlCreateTableMentores, (err, result) => {
-        if (err) {
-            console.error('Error creando la tabla: ' + err.message);
-            return;
-        }
-        console.log('Tabla creada o ya existe');
-        connection.end(); //Close conection
-    });
+            FOREIGN KEY (empresa_id) REFERENCES empresas (empresa_id),
+            FOREIGN KEY (especializacion_id) REFERENCES especializacion (especializacion_id)
+    )`;
     
     //Create table squads
     const sqlCreateTableSquads = `
             CREATE TABLE IF NOT EXISTS squads(
             squad_id INT AUTO_INCREMENT PRIMARY KEY
-        )`;
-
-    //Run query
-    connection.query(sqlCreateTableSquads, (err, result) => {
-        if (err) {
-            console.error('Error creando la tabla: ' + err.message);
-            return;
-        }
-        console.log('Tabla creada o ya existe');
-        connection.end(); //Close conection
-    });    
+    )`;  
 
     //Create table miembros_estudiantes
     const sqlCreateTableMiembrosEstudiantes = `
@@ -308,37 +193,140 @@ connection.query("SHOW DATABASES LIKE 'acelerador_db'", (err, results) => {
     miembroEstudiante_id INT AUTO_INCREMENT PRIMARY KEY,
     estudiante_id INT NOT NULL,
     squad_id INT NOT NULL,
-    FOREIGN KEY ('estudiante_id') REFERENCES estudiantes ('estudiante_id'),
-    FOREIGN KEY ('squad_id') REFERENCES squads ('squad_id)
+    FOREIGN KEY (estudiante_id) REFERENCES estudiantes (estudiante_id),
+    FOREIGN KEY (squad_id) REFERENCES squads (squad_id)
     )`;
 
-    //Run query
-    connection.query(sqlCreateTableMiembrosEstudiantes, (err, result) => {
-        if (err) {
-            console.error('Error creando la tabla: ' + err.message);
-            return;
-        }
-        console.log('Tabla creada o ya existe');
-        connection.end(); //Close conection
-    }); 
-    
     //Create table miembros_mentores
     const sqlCreateTableMiembrosMentores = `
             CREATE TABLE IF NOT EXISTS miembros_mentores(
             miembroMentor_id INT AUTO_INCREMENT PRIMARY KEY,
             mentor_id INT NOT NULL,
             squad_id INT NOT NULL,
-            FOREIGN KEY ('mentor_id') REFERENCES mentores ('mentor_id'),
-            FOREIGN KEY ('squad_id') REFERENCES squads ('squad_id)
-        )`;
+            FOREIGN KEY (mentor_id) REFERENCES mentores (mentor_id),
+            FOREIGN KEY (squad_id) REFERENCES squads (squad_id)
+    )`;
 
-    //Run query
-    connection.query(sqlCreateTableMiembrosMentores, (err, result) => {
-        if (err) {
-            console.error('Error creando la tabla: ' + err.message);
+    //Run queries
+    function runAllQueries() {
+        connection.query(sqlCreateTableAdmin, (err, result) => {
+            if (err) {
+                console.error('Error creando la tabla admin_user: ' + err.message);
+                return;
+            }
+            console.log('Tabla admin_user creada o ya existe');
+            });
+
+        connection.query(sqlCreateTableTipoOrg, (err, result) => {
+            if (err) {
+                console.error('Error creando la tabla tipoOrg: ' + err.message);
+                return;
+            }
+            console.log('Tabla tipoOrg creada o ya existe');
+             });
+
+        connection.query(sqlCreateTableOngs, (err, result) => {
+            if (err) {
+                console.error('Error creando la tabla ongs: ' + err.message);
+                return;
+            }
+        console.log('Tabla ongs creada o ya existe');
+        });
+
+        connection.query(sqlCreateTableCursos, (err, result) => {
+            if (err) {
+            console.error('Error creando la tabla cursos: ' + err.message);
             return;
         }
-        console.log('Tabla creada o ya existe');
-        connection.end(); //Close conection
-    });
-});
+        console.log('Tabla cursos creada o ya existe');
+        });
+
+        connection.query(sqlCreateTablePerfiles, (err, result) =>{
+            if(err) {
+                console.error('Error creando la tabla perfiles: ' + err.message);
+                return;
+            }
+        console.log('Tabla perfiles creada o ya existe');
+        });
+
+        connection.query(sqlCreateTableCondiciones, (err, result) =>{
+            if(err) {
+                console.error('Error creando la tabla condiciones: ' + err.message);
+                return;
+            }
+            console.log('Tabla condiciones creada o ya existe');
+        });
+
+        connection.query(sqlCreateTableEstudiantes, (err, result) => {
+            if (err) {
+                console.error('Error creando la tabla estudiantes: ' + err.message);
+                return;
+            }
+            console.log('Tabla estudiantes creada o ya existe');
+        });
+
+        connection.query(sqlCreateTableEmpresas, (err, result) => {
+            if (err) {
+                console.error('Error creando la tabla empresas: ' + err.message);
+                return;
+            }
+            console.log('Tabla empresas creada o ya existe');
+        });
+
+        connection.query(sqlCreateTableEspecializacion, (err, result) => {
+            if (err) {
+                console.error('Error creando la tabla especializacion: ' + err.message);
+                return;
+            }
+        console.log('Tabla especializacion creada o ya existe');
+        });
+
+        connection.query(sqlCreateTableTecnologias, (err, result) => {
+            if (err) {
+                console.error('Error creando la tabla tecnologias: ' + err.message);
+                return;
+            }
+        console.log('Tabla tecnologias creada o ya existe');
+        });
+
+        connection.query(sqlCreateTableMentores, (err, result) => {
+            if (err) {
+                console.error('Error creando la tabla mentores: ' + err.message);
+                return;
+            }
+        console.log('Tabla mentores creada o ya existe');
+        });
+    
+        connection.query(sqlCreateTableSquads, (err, result) => {
+            if (err) {
+                console.error('Error creando la tabla squads: ' + err.message);
+                return;
+            }
+        console.log('Tabla squads creada o ya existe');
+        });  
+
+        connection.query(sqlCreateTableMiembrosEstudiantes, (err, result) => {
+            if (err) {
+                console.error('Error creando la tabla miembros estudiantes: ' + err.message);
+                return;
+            }
+            console.log('Tabla miembros estudiantes creada o ya existe');
+        });
+
+        connection.query(sqlCreateTableMiembrosMentores, (err, result) => {
+            if (err) {
+                console.error('Error creando la tabla miembros mentores: ' + err.message);
+                return;
+            }
+            console.log('Tabla miembros mentores creada o ya existe');
+        });
+
+        connection.end((err) => {
+            if (err) {
+                console.error('Error al cerrar la conexión: ' + err.message);
+            } else {
+                console.log('Conexión cerrada.');
+            }
+        }
+    )};
+
