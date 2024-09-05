@@ -1,10 +1,10 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import SocialButton from './SocialButton';
-import EmailInput from './EmailInput';
-import InputField from './InputField';
-import PasswordInput from './PasswordInput';
-import { FormButton } from './FormButton';
+import SocialButton from './LoginComponents/SocialButton';
+import EmailInput from './LoginComponents/EmailInput';
+import InputField from './LoginComponents/InputField';
+import PasswordInput from './LoginComponents/PasswordInput';
+import { FormButton } from './LoginComponents/FormButton';
 
 export const LoginIniciado = () => {
   const {

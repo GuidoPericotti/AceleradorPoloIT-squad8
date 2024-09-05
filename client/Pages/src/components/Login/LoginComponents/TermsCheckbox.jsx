@@ -7,7 +7,7 @@ const TermsCheckbox = forwardRef(({ ...rest }, ref) => (
       ref={ref} // Aplica el ref aquí
       {...rest}
     />
-    <label>Acepto los términos y condiciones</label>
+    <label className='text-sm'>Acepto los<a className='font-bold'> Términos y Condiciones</a></label>
   </div>
 ));
 

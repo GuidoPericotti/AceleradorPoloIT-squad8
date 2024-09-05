@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormButton } from '../../components/Login/FormButton';
+import { FormButton } from '../Login/LoginComponents/FormButton';
 import { IconOngTestimony } from './IconOngTestimony';
 
 export const OngClientTestimony = () => {

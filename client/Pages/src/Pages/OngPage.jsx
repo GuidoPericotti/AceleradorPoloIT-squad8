@@ -34,7 +34,6 @@
 // }
 import React, { useEffect, useState } from 'react';
 import { Navbar } from './Navbar';
-import LogOng from '../components/Login/LogOng';
 import AuthPage from '../components/Login/AuthPage';
 
 export const OngPage = () => {

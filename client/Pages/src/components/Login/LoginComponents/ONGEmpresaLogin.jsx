@@ -1,6 +1,7 @@
 
 import React from 'react';
 
+// Componente de seleccion si ONG o Empresa
 const ONGEmpresaLogin = ({ onOptionChange }) => {
   return (
     <div className="pb-10">
