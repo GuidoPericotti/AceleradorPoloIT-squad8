@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import CreateCourseModal from './CreateCourseModal';
+import DashboardCard from './Dashboard/DashboardCard';
+import DashboardModal from './Dashboard/DashboardModal';
 import PersonalCourses from './PersonalCourses';
 import Students from './Students/Students';
 
@@ -16,35 +17,32 @@ const DashboardLayout = () => {
   };
 
   return (
-    <div className="p-6 pt-24">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-[120] h-28">
-        <div
-          className="bg-blue-500 text-white p-4 rounded-lg cursor-pointer text-center pt-10"
-          onClick={() => handleCardClick('createCourse')}
-        >
-          Crear Curso
-        </div>
-        <div
-          className="bg-green-500 text-white p-4 rounded-lg cursor-pointer text-center pt-10"
-          onClick={() => handleCardClick('personalCourses')}
-        >
-          Cursos Personales
-        </div>
-        <div
-          className="bg-purple-500 text-white p-4 rounded-lg cursor-pointer text-center pt-10"
-          onClick={() => handleCardClick('students')}
-        > 
-          Estudiantes
-        </div>
-      </div>
-
-      {isModalOpen && <CreateCourseModal onClose={() => setIsModalOpen(false)} />}
-
-      <div className="mt-6">
-        {activeSection === 'personalCourses' && <PersonalCourses />}
-        {activeSection === 'students' && <Students />}
-      </div>
+    <div className="pt-24">
+    <div className='grid place-items-center'>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-[800px] h-28">
+      <DashboardCard
+        title="Crear Curso"
+        bgColor="bg-blue-500"
+        onClick={() => handleCardClick('createCourse')}
+      />
+      <DashboardCard
+        title="Cursos Personales"
+        bgColor="bg-green-500"
+        onClick={() => handleCardClick('personalCourses')}
+      />
     </div>
+    </div>
+
+  {/* Modal for creating courses */}
+  <DashboardModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+
+  {/* Active section rendering */}
+  <div className="mt-6 w-full max-w-[800px]">
+    {activeSection === 'personalCourses' && <PersonalCourses />}
+    {activeSection === 'students' && <Students />}
+  </div>
+</div>
+
   );
 };
 

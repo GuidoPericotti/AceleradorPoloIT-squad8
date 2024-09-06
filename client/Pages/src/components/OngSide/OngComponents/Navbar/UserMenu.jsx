@@ -17,7 +17,7 @@ export const UserMenu = () => {
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             />
             <ul
-                className={`absolute z-[1000] float-left m-0 min-w-max list-none overflow-hidden rounded-lg border-none bg-white text-left text-base shadow-lg dark:bg-gray-900 ${isDropdownOpen ? "block" : "hidden"}`}
+                className={`absolute z-[1000] mt-44 -ml-32 left-0 min-w-max list-none overflow-hidden rounded-lg border-none bg-white text-left text-base shadow-lg dark:bg-gray-900 ${isDropdownOpen ? "block" : "hidden"}`}
                 aria-labelledby="dropdownMenuButton1"
             >
                 <li>

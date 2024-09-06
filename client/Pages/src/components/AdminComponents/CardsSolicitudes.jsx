@@ -55,9 +55,9 @@ export const CardsSolicitudes = ({ tipo }) => {
         </div>
 
         {/* Botones separados y centrados */}
-        <div className="flex justify-between mt-4">
-          <ButtonCardAdmin nombre="Ver más" />
-          <ButtonCardAdmin nombre="Aceptar" />
+        <div className="mt-4">
+          <ButtonCardAdmin nombre="Ver más"/>
+          {/* <ButtonCardAdmin nombre="Aceptar" /> */}
         </div>
       </div>
 

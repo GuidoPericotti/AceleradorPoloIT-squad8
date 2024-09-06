@@ -9,15 +9,15 @@ export const CardPrincipal = () => {
 
   // Datos de ejemplo para CardsSolicitudes
   const allCards = [
-    { id: 1, tipo: 'ONG' },
-    { id: 2, tipo: 'Empresa' },
-    { id: 3, tipo: 'ONG' },
-    { id: 4, tipo: 'Empresa' },
-    { id: 5, tipo: 'ONG' },
-    { id: 6, tipo: 'Empresa' },
-    { id: 7, tipo: 'ONG' },
-    { id: 8, tipo: 'Empresa' },
-    { id: 9, tipo: 'ONG' }
+    { id: 1, tipo: 'Aprobado', Nombre: 'ONG' },
+    { id: 2, tipo: 'Rechazado', Nombre: 'ONG' },
+    { id: 3, tipo: 'Pendiente', Nombre: 'ONG' },
+    { id: 4, tipo: 'Aprobado', Nombre: 'Empresa' },
+    { id: 5, tipo: 'Rechazado', Nombre: 'Empresa' },
+    { id: 6, tipo: 'Pendiente', Nombre: 'Empresa' },
+    { id: 7, tipo: 'Aprobado', Nombre: 'ONG' },
+    { id: 8, tipo: 'Rechazado', Nombre: 'Empresa' },
+    { id: 9, tipo: 'Pendiente', Nombre: 'Empresa' }
   ];
 
   // Filtrar las tarjetas según el estado del filtro
@@ -42,16 +42,22 @@ export const CardPrincipal = () => {
       <section className="mt-8 flex justify-center w-full">
         <div className="flex space-x-4">
           <ButtonOngEmpresa 
-            nombre="ONG" 
-            filterType="ONG" 
+            nombre="Pendiente" 
+            filterType="Pendiente" 
             currentFilter={filter} 
-            onClick={() => handleFilterChange('ONG')} 
+            onClick={() => handleFilterChange('Pendiente')} 
           />
           <ButtonOngEmpresa 
-            nombre="Empresa" 
-            filterType="Empresa" 
+            nombre="Aprobado" 
+            filterType="Aprobado" 
             currentFilter={filter} 
-            onClick={() => handleFilterChange('Empresa')} 
+            onClick={() => handleFilterChange('Aprobado')} 
+          />
+          <ButtonOngEmpresa 
+            nombre="Rechazado" 
+            filterType="Rechazado" 
+            currentFilter={filter} 
+            onClick={() => handleFilterChange('Rechazado')} 
           />
         </div>
       </section>
@@ -60,7 +66,7 @@ export const CardPrincipal = () => {
       <section className="mt-16 w-full px-12 mb-5">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
           {filteredCards.map(card => (
-            <CardsSolicitudes key={card.id} tipo={card.tipo} /> // Pasa el tipo como prop
+            <CardsSolicitudes key={card.id} tipo={card.Nombre} /> // Pasa el tipo como prop
           ))}
         </div>
       </section>

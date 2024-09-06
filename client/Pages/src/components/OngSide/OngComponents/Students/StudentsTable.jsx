@@ -195,42 +195,42 @@ export const StudentsTable = () => {
         <table className="min-w-full text-left text-sm whitespace-nowrap">
           <thead className="uppercase tracking-wider border-b-2 dark:border-neutral-600">
             <tr>
-              <th scope="col" className="px-6 py-4">Product</th>
-              <th scope="col" className="px-6 py-4">Price</th>
+              <th scope="col" className="px-6 py-4">Apellido</th>
+              <th scope="col" className="px-6 py-4">Nombre</th>
               <th scope="col" className="px-6 py-4">Stock</th>
               <th scope="col" className="px-6 py-4">Status</th>
             </tr>
           </thead>
           <tbody>
             <tr className="border-b dark:border-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-600">
-              <th scope="row" className="px-6 py-4">Handbag</th>
-              <td className="px-6 py-4">$129.99</td>
+              <th scope="row" className="px-6 py-4">Vallejos</th>
+              <td className="px-6 py-4">Sergio</td>
               <td className="px-6 py-4">30</td>
-              <td className="px-6 py-4">In Stock</td>
+              <td className="px-6 py-4">Online</td>
             </tr>
             <tr className="border-b dark:border-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-600">
-              <th scope="row" className="px-6 py-4">Shoes</th>
-              <td className="px-6 py-4">$89.50</td>
+              <th scope="row" className="px-6 py-4">Liporace</th>
+              <td className="px-6 py-4">Andres</td>
               <td className="px-6 py-4">25</td>
-              <td className="px-6 py-4">In Stock</td>
+              <td className="px-6 py-4">Offline</td>
             </tr>
             <tr className="border-b dark:border-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-600">
-              <th scope="row" className="px-6 py-4">Bedding Set</th>
-              <td className="px-6 py-4">$69.99</td>
+              <th scope="row" className="px-6 py-4">Gonzalez</th>
+              <td className="px-6 py-4">Rocio</td>
               <td className="px-6 py-4">40</td>
-              <td className="px-6 py-4">In Stock</td>
+              <td className="px-6 py-4">Online</td>
             </tr>
             <tr className="border-b dark:border-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-600">
-              <th scope="row" className="px-6 py-4">Dining Table</th>
-              <td className="px-6 py-4">$449.99</td>
+              <th scope="row" className="px-6 py-4">Lo celso</th>
+              <td className="px-6 py-4">Gio</td>
               <td className="px-6 py-4">5</td>
-              <td className="px-6 py-4">In Stock</td>
+              <td className="px-6 py-4">Offline</td>
             </tr>
             <tr className="border-b dark:border-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-600">
-              <th scope="row" className="px-6 py-4">Soap Set</th>
-              <td className="px-6 py-4">$24.95</td>
+              <th scope="row" className="px-6 py-4">Martinez</th>
+              <td className="px-6 py-4">Lautaro</td>
               <td className="px-6 py-4">50</td>
-              <td className="px-6 py-4">In Stock</td>
+              <td className="px-6 py-4">Online</td>
             </tr>
           </tbody>
         </table>
@@ -273,3 +273,4 @@ export const StudentsTable = () => {
     </section>
   );
 }
+
