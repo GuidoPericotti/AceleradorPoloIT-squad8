@@ -40,8 +40,8 @@ connection.query("SHOW DATABASES LIKE 'acelerador_db'", (err, results) => {
 });
 
 function useDBandRunQueries() {
-     // Select bd for use
-     connection.query('USE acelerador_db', (err) => {
+    // Select bd for use
+    connection.query('USE acelerador_db', (err) => {
         if (err) {
             console.error('Error al seleccionar Acelerador_DB. ',err);
             return;
@@ -225,7 +225,7 @@ function useDBandRunQueries() {
                 return;
             }
             console.log('Tabla tipoOrg creada o ya existe');
-             });
+            });
 
         connection.query(sqlCreateTableOngs, (err, result) => {
             if (err) {
@@ -331,4 +331,3 @@ function useDBandRunQueries() {
             }
         }
     )};
-
