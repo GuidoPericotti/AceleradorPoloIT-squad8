@@ -34,5 +34,5 @@ const updateOngUser = (req, res) => {
 module.exports = {
     getOngById,
     createOngUser,
-    updateOngUserr
+    updateOngUser
 };
