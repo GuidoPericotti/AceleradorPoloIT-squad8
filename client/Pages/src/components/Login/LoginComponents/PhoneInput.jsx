@@ -5,7 +5,7 @@ const PhoneInput = ({ value, onChange }) => {
   return (
     <div className="mb-4">
       <p className="block font-medium text-gray-500 dark:text-gray-400 text-sm mb-1">
-        Número de teléfono
+        Teléfono de contacto
       </p>
 
       <InputField
@@ -16,6 +16,7 @@ const PhoneInput = ({ value, onChange }) => {
         onChange={onChange}
         pattern="[0-9]{10}"
         maxLength="10"
+        id="Telefono"
       />
     </div>
   );

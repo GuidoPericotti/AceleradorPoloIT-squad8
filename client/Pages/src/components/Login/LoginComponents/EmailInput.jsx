@@ -51,6 +51,7 @@ const EmailInput = ({ value, onChange, register, trigger }) => {
             message: 'El formato del email es incorrecto'
           }
         })}
+        id="Email"
         onBlur={() => trigger('email')}
         className="block w-full appearance-none rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-gray-700 dark:text-gray-300 focus:border-sky-500 dark:focus:border-sky-300 focus:outline-none focus:ring-0"
       />

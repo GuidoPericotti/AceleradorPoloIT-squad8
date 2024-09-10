@@ -17,32 +17,32 @@ const DashboardLayout = () => {
   };
 
   return (
-    <div className="pt-24">
-    <div className='grid place-items-center'>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-[800px] h-28">
-      <DashboardCard
-        title="Crear Curso"
-        bgColor="bg-blue-500"
-        onClick={() => handleCardClick('createCourse')}
-      />
-      <DashboardCard
-        title="Cursos Personales"
-        bgColor="bg-green-500"
-        onClick={() => handleCardClick('personalCourses')}
-      />
+    <div className="relative pt-24">
+      {/* Adjust z-index and layout to avoid content overlapping the sidebar */}
+      <div className={`grid place-items-center ${isModalOpen ? 'z-0' : 'z-10'}`}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-[800px] h-28">
+          <DashboardCard
+            title="Crear Curso"
+            bgColor="bg-blue-500"
+            onClick={() => handleCardClick('createCourse')}
+          />
+          <DashboardCard
+            title="Cursos Personales"
+            bgColor="bg-green-500"
+            onClick={() => handleCardClick('personalCourses')}
+          />
+        </div>
+      </div>
+
+      {/* Modal for creating courses */}
+      <DashboardModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+
+      {/* Active section rendering */}
+      <div className="mt-6 w-full max-w-[800px]">
+        {activeSection === 'personalCourses' && <PersonalCourses />}
+        {activeSection === 'students' && <Students />}
+      </div>
     </div>
-    </div>
-
-  {/* Modal for creating courses */}
-  <DashboardModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-
-  {/* Active section rendering */}
-  <div className="mt-6 w-full max-w-[800px]">
-    {activeSection === 'personalCourses' && <PersonalCourses />}
-    {activeSection === 'students' && <Students />}
-  </div>
-</div>
-
   );
 };
 

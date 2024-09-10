@@ -1,39 +1,56 @@
-import React from 'react';
-import logo from "../../../../assets/logo.svg";
+import React, { useState } from 'react';
 
-const navItems = ["home", "settings", "build", "cloud", "mail", "bookmark"];
+export const SidebarOng = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [organization, setOrganization] = useState('');
+  const [date, setDate] = useState('');
 
-export const SidebarOng = ({ isOpen, setIsOpen }) => {
   return (
-    <section className="bg-[#17132a]">
-      <aside className={`fixed top-0 left-0 h-full transition-[width] duration-400  ${isOpen ? "w-[120px] bg-[#4f2cd4]" : "w-[56px]"}`}>
-        <div className="absolute top-0 left-0 w-[120px]">
-          <header className="flex items-center h-[64px] px-[6px]  pt-14">
-            <button
-              type="button"
-              className="w-[44px] h-[72px] grid place-items-center text-[#f9f9f9]"
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              
-            </button>
-          </header>
-          <nav className="grid gap-[2px] p-[6px] pt-12">
-            <img src={logo} className={`pl-8 ${isOpen ? "opacity-100" : "opacity-0"} transition-opacity duration-450`} />
-            {navItems.map((item) => (
-              <button
-                key={item}
-                type="button"
-                className={`flex gap-[12px] items-center h-[44px] w-[44px] text-[16px] capitalize leading-[1] px-[12px] rounded-[8px] text-[#f9f9f9] font-poppins transition-opacity duration-300 ${
-                  isOpen ? "w-24 opacity-100" : "opacity-0"
-                } hover:bg-[rgba(0,0,0,0.3)]`}
-              >
-                <span className="material-symbols-outlined"></span>
-                <p>{item}</p>
-              </button>
-            ))}
-          </nav>
+    <section className="bg-gray-100 w-[200px] h-full fixed pt-20">
+      <div className="p-4">
+        {/* Input de filtro por nombre */}
+        <div className="mb-4">
+          <label htmlFor="search" className="block text-sm text-gray-700 font-bold">Filtrar por nombre</label>
+          <input
+            type="text"
+            id="search"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="w-full px-2 py-1 mt-1 border rounded"
+            placeholder="Buscar por nombre"
+          />
         </div>
-      </aside>
+
+        {/* Formulario con select de Organización y Fecha */}
+        <form>
+          {/* Select de organización */}
+          <div className="mb-4">
+            <label htmlFor="organization" className="block text-sm text-gray-700"></label>
+            <select
+              id="organization"
+              value={organization}
+              onChange={(e) => setOrganization(e.target.value)}
+              className="w-full px-2 py-1 mt-1 border rounded"
+            >
+              <option value="">Organización</option>
+              <option value="Empresa">Empresa</option>
+              <option value="ONG">ONG</option>
+            </select>
+          </div>
+
+          {/* Input de fecha */}
+          <div className="mb-4">
+            <label htmlFor="date" className="block text-sm text-gray-700">Fecha</label>
+            <input
+              type="date"
+              id="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+              className="w-full px-2 py-1 mt-1 border rounded"
+            />
+          </div>
+        </form>
+      </div>
     </section>
   );
 };

@@ -11,6 +11,7 @@
                placeholder="Describe tus canales digitales oficiales aquí..."
                aria-label="Canales Digitales Oficiales"
                rows="2"
+               id='CanalesComunicacion'
              />
      </>
    )

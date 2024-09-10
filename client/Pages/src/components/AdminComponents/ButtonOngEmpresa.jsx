@@ -9,7 +9,7 @@ export const ButtonOngEmpresa = ({ nombre, filterType, currentFilter, onClick })
 
   return (
     <button
-      className={`rounded-lg px-32 py-4 text-sm font-semibold border ${isSelected ? 'bg-gray-500 text-white border-slate-950 border-2' : 'btn-outline'}`}
+      className={`rounded-lg px-24 py-4 text-sm font-semibold border ${isSelected ? 'bg-gray-500 text-white border-slate-950 border-2' : 'btn-outline'}`}
       onClick={handleButtonClick}
     >
       {nombre}

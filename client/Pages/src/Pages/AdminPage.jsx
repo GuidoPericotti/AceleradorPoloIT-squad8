@@ -1,11 +1,13 @@
 import React from 'react'
-import { Navbar } from './Navbar'
 import { CardPrincipal } from '../components/AdminComponents/CardPrincipal'
 import { Footer } from './Footer'
+import { NavbarAdmin } from '../components/AdminComponents/NavbarAdmin'
+
+
 export const AdminPage = () => {
   return (
     <>
-        <Navbar />
+        <NavbarAdmin />
         <CardPrincipal />
         <Footer />
     </>
