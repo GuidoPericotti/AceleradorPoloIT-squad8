@@ -1,5 +1,5 @@
 import React from "react";
-  import { Routes, Route, Navigate } from "react-router-dom";
+  // import { Routes, Route, Navigate } from "react-router-dom";
   import "./App.css";
   import { Home } from "./Pages/Home";
   import { OngPage } from "./Pages/OngPage";
@@ -12,13 +12,13 @@ import React from "react";
   import { LoginIniciado } from "./components/Login/LoginIniciado";
   import { OngClient } from "./Pages/OngClient";
   import { AdminPage } from "./Pages/AdminPage";
-  // import { OngUserSide } from "./Pages/OngUserSide";
+  import { OngUserSide } from "./Pages/OngUserSide";
 function App() {
 
   return (
     <>
-     <Routes>
-        <Route path="/" element={<Home />} />
+     {/* <Routes> */}
+        {/* <Route path="/" element={<Home />} />
         <Route path="/ongempresa" element={<ONGEmpresaLogin />} />
         <Route path="/LoginIniciado" element={<LoginIniciado />} />
         <Route path="/login" element={<OngPage />} />
@@ -27,11 +27,11 @@ function App() {
         <Route path="/participantes" element={<ParticipantesBtn />} />
         <Route path="/mentores" element={<MentoresBtn />} />
         <Route path="/contact" element={<ContactBtn />} />
-        <Route path="/OngClient" element={<OngClient />} /> 
-        <Route path="/Admin" element={<AdminPage />} />   {/*Se añade vista admin para modificacion */}
+        <Route path="/OngClient" element={<OngClient />} />  */}
+        {/* <Route path="/Admin" element={<AdminPage />} />   Se añade vista admin para modificacion */}
         {/* <Route path="/*" element={<Navigate to="/" />} />  */}
-      </Routes>  
-      {/* <OngUserSide /> */}
+      {/* </Routes>   */}
+      <OngUserSide />
     </>
   );
 }

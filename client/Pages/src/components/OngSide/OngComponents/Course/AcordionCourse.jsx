@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { StudentsTable } from '../Students/StudentsTable';
 //import DashboardCard from '../Dashboard/DashboardCard';
 
-const AccordionWithTable = ({nroItem}) => {
+const AcordionCourse = ({ nroItem, darkMode, className }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleCardClick = () => {
@@ -15,16 +15,17 @@ const AccordionWithTable = ({nroItem}) => {
   
 
   return (
-   <div className="w-screen overflow-x-hidden">
+    <div className={`${darkMode ? 'bg-gray-700 text-white' : 'bg-white text-black'}`}>
+  <div className="w-screen overflow-x-hidden">
   {/* El acordeón */}
-  <div id="accordionExample" className="w-full">
-    <div className="rounded-t-lg border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-body-dark w-full">
-      <h2 className="mb-0" id="headingOne">
+  <div id="accordionExample" className="dark:bg-gray-700 w-full">
+    <div className="dark:bg-gray-700 rounded-t-lg border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-body-dark w-full">
+      <h2 className="dark:bg-gray-700 mb-0" id="headingOne">
         <button
           className={`group relative flex w-full items-center rounded-t-lg border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition hover:z-[2] focus:z-[3] focus:outline-none dark:bg-body-dark dark:text-white ${
             isOpen
-              ? 'bg-white text-primary shadow-border-b dark:bg-surface-dark dark:text-primary'
-              : ''
+              ? 'bg-gray-700 text-primary shadow-border-b dark:bg-gray-700 dark:text-white '
+              : 'dark:bg-gray-700 dark:text-white'
           }`}
           type="button"
           onClick={handleCardClick}
@@ -51,10 +52,10 @@ const AccordionWithTable = ({nroItem}) => {
       </h2>
       <div
         id="collapseOne"
-        className={`${isOpen ? 'block' : 'hidden'}`}
+        className={`${isOpen ? 'block' : 'hidden'} `}
         aria-labelledby="headingOne"
       >
-        <div className="px-5 py-4 w-full">
+        <div className="px-5 py-4 w-full dark:bg-gray-700">
           {/* Aquí puedes colocar la tabla */}
           <StudentsTable />
         </div>
@@ -62,10 +63,11 @@ const AccordionWithTable = ({nroItem}) => {
     </div>
   </div>
 </div>
+</div>
 
   
 
   );
 };
 
-export default AccordionWithTable;
+export default AcordionCourse;

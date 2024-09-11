@@ -30,12 +30,12 @@ export const Home = () => {
   return (
     <>
       <span>
-      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-      <HeroSection darkMode={darkMode} setDarkMode={setDarkMode} />
-      <CardsLogin darkMode={darkMode} setDarkMode={setDarkMode} />
-      <Testimony darkMode={darkMode} setDarkMode={setDarkMode} />
-      <CompanySupport darkMode={darkMode} setDarkMode={setDarkMode}/>
-      <Footer darkMode={darkMode} setDarkMode={setDarkMode} />
+        <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+        <HeroSection darkMode={darkMode} setDarkMode={setDarkMode} />
+        <CardsLogin darkMode={darkMode} setDarkMode={setDarkMode} />
+        <Testimony darkMode={darkMode} setDarkMode={setDarkMode} />
+        <CompanySupport darkMode={darkMode} setDarkMode={setDarkMode}/>
+        <Footer darkMode={darkMode} setDarkMode={setDarkMode} />
       </span>
     </>
   );

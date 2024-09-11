@@ -1,18 +1,26 @@
-import React, { useState } from 'react';
-import { NavbarOng } from './Navbar/NavbarOng';
-import { SidebarOng } from './Navbar/SidebarOng';
-import  DashboardLayout  from './DashboardLayout';
-//import { DashboardHome } from './CreateCourseModal';
+ import React, { useState, useEffect } from 'react';
+ import { NavbarOng } from './Navbar/NavbarOng';
+ import DashboardLayout from './DashboardLayout';
+
 
 export const LayoutOng = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(false); // Inicia en modo claro
+  const [isModalOpen, setIsModalOpen] = useState(false); // inicia el menu de ociones en foto de perfil
+   
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    localStorage.setItem('darkMode', JSON.stringify(darkMode));
+  }, [darkMode]);
 
   return (
-    <>
-      <NavbarOng isOpen={isOpen} setIsOpen={setIsOpen} />
-      <SidebarOng isOpen={isOpen} setIsOpen={setIsOpen} />
-      <DashboardLayout />
-
-    </>
+    <div className={`relative pt-14 ${darkMode ? 'dark' : ''}`}>
+      <NavbarOng isModalOpen={isModalOpen}  darkMode={darkMode} setDarkMode={setDarkMode} />
+      <DashboardLayout darkMode={darkMode} />
+    </div>
   );
 };

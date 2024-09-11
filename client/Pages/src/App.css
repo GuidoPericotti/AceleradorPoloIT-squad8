@@ -86,3 +86,10 @@ scrollbar-color: #888 #f1f1f1;
       transform: rotate(calc(var(--s, 1) * 1turn));
     }
   }
+
+/*navbar ongUser*/
+@media (max-width: 768px) {
+  .nombre-ong {
+    font-size: 0.875rem; /* Cambia el tamaño a más pequeño */
+  }
+}

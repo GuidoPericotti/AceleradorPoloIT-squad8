@@ -1,5 +1,5 @@
 import React from 'react';
-import CreateCourseModal from '../CreateCourseModal';
+import CreateCourseModal from '../CrearCurso/CreateCourseModal';
 
 const DashboardModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
