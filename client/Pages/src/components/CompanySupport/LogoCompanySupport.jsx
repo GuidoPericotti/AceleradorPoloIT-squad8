@@ -3,18 +3,17 @@ import React from 'react';
 export const LogoCompanySupport = ({ Company, darkMode }) => {
   return (
     <div
-      className={`flex flex-col items-center p-4 pt-32 pb-10 ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'}`}
+      className={`flex flex-col items-center p-4 pt-32 pb-10 dark:bg-dark-primary dark:text-white ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'}`}
     >
       <h3 className="text-lg font-bold text-center mb-10">{Company}</h3>
-      <div className="flex flex-wrap justify-center gap-8">
+      <div className="flex flex-wrap justify-center gap-12">
         {[
-          { href: 'https://www.figma.com', src: 'https://cdn.simpleicons.org/figma/black', alt: 'Figma Logo' },
-          { href: 'https://twitter.com', src: 'https://logo.clearbit.com/twitter.com', alt: 'Twitter Logo' },
-          { href: 'https://instagram.com', src: 'https://logo.clearbit.com/instagram.com', alt: 'Instagram Logo' },
-          { href: 'https://youtube.com', src: 'https://logo.clearbit.com/youtube.com', alt: 'Youtube Logo' },
-          { href: 'https://linkedin.com', src: 'https://logo.clearbit.com/linkedin.com', alt: 'LinkedIn Logo' },
-          { href: 'https://globant.com', src: 'https://logo.clearbit.com/globant.com', alt: 'Globant Logo' },
-          { href: 'https://disney.com', src: 'https://logo.clearbit.com/disney.com', alt: 'Disney Logo' },
+          { href: 'http://www.fgd.org.ar/', src: 'http://www.fgd.org.ar/wp-content/uploads/2019/03/logo-fgd.png', alt: 'Fundacion gestion y desarrollo Logo' },
+          { href: 'https://www.soysilvertech.org/', src: 'https://static.wixstatic.com/media/625bcd_c63599412e24454591eb9a4b3a862121~mv2.png/v1/crop/x_121,y_880,w_7758,h_2741/fill/w_171,h_45,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_auto/STECH-LOGOBLACK%20(1).png', alt: 'SilverTech Logo' },
+          { href: 'https://fondationforge.org/', src: 'https://fondationforge.org/assets/img/Fundacion-Forge-Logo.svg', alt: 'Fundacion Forge Logo' },
+          { href: 'https://fpintegrar.org/', src: 'https://fpintegrar.org/wp-content/uploads/2022/07/cropped-Logo-integrar-01-e1658586043646.png', alt: 'Fundacion integrar Logo' },
+          { href: 'https://fundacionempujar.org/', src: 'https://fundacionempujar.org/wp-content/uploads/2022/07/Logo-fundacion-EMPUJAR.png', alt: 'Fundacion Empujar Logo' },
+
         ].map((logo, index) => (
           <a
             key={index}
@@ -26,7 +25,7 @@ export const LogoCompanySupport = ({ Company, darkMode }) => {
             <img
               src={logo.src}
               alt={logo.alt}
-              className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-lg"
+              className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32"
             />
           </a>
         ))}
