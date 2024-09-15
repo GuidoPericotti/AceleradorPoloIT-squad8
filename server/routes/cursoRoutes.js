@@ -3,10 +3,10 @@ const router = express.Router();
 const cursosController = require('../controllers/cursosController');
 
 //Ong Routes
-router.get('/', controller.getAllCursos);
-router.get('/:id', controller.getCursoById);
-router.post('/', controller.createCurso);
-router.put('/:id', controller.updateCurso);
-router.delete('/:id', controller.deleteCurso);
+router.get('/', cursosController.getAllCursos);
+router.get('/:id', cursosController.getCursoById);
+router.post('/', cursosController.createCurso);
+router.put('/:id', cursosController.updateCurso);
+router.delete('/:id', cursosController.deleteCurso);
 
 module.exports = router;
