@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.loader::before,
+  .loader::after {
+    content: "";
+    @apply absolute inset-0 rounded-full bg-black;
+  }
+  
+  .loader::before {
+    box-shadow: -25px 0;
+    animation: l8-1 1s infinite linear;
+  }
+  
+  .loader::after {
+    transform: rotate(0deg) translateX(25px);
+    animation: l8-2 1s infinite linear;
+  }
+
+  @keyframes l8-1 {
+    100% { transform: translateX(25px); }
+  }
+  
+  @keyframes l8-2 {
+    100% { transform: rotate(-180deg) translateX(25px); }
+  }
+
+/* Estilo para el scrollbar */
+::-webkit-scrollbar {
+  width: 12px; /* Ancho del scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color del track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888; /* Color de la barra */
+  border-radius: 6px; /* Radio del borde */
+  border: 3px solid #f1f1f1; /* Espacio entre la barra y el track */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color de la barra al pasar el mouse */
+}
+
+/* Para navegadores Firefox */
+scrollbar-width: thin;
+scrollbar-color: #888 #f1f1f1;
+
+
+
+/*Para animacion Empresas*/
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in-left-1 {
+  animation: fadeIn 1s ease-in-out 0.1s forwards;
+}
+
+.fade-in-left-2 {
+  animation: fadeIn 1s ease-in-out 0.1s forwards;
+}
+
+.fade-in-left-3 {
+  animation: fadeIn 1s ease-in-out 0.1s forwards;
+}
+
+.fade-in-icon {
+  animation: fadeIn 1s ease-in-out 0.2s forwards;
+}
+
+
+  @keyframes l49 {
+    58%,
+    100% {
+      transform: rotate(calc(var(--s, 1) * 1turn));
+    }
+  }
+
+/*navbar ongUser*/
+@media (max-width: 768px) {
+  .nombre-ong {
+    font-size: 0.875rem; /* Cambia el tamaño a más pequeño */
+  }
+}
