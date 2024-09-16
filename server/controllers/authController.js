@@ -26,7 +26,7 @@ const login = async (req, res) => {
     // Buscar el usuario en la DB
     const user = await db.findUserByUsername(username);
     // Si no existe, tira error
-    if (!user) return res.status(404).send('User not found');
+    if (!user) return res.status(404).send('Usuario no existe');
     // Comparar password con la contraseña hasheada
     const passwordValid = bcrypt.compareSync(password, user.password);
     // Si no es válida, tira error
