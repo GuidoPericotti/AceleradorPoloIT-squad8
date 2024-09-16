@@ -13,6 +13,24 @@
                rows="2"
                id='CanalesComunicacion'
              />
+             <div className='pt-3'>
+              <textarea
+                className="dark:text-white peer block text-sm w-full appearance-none rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2 text-gray-700 focus:border-sky-500 dark:focus:border-sky-500 focus:outline-none focus:ring-0 font-medium"
+                placeholder="Describe tus canales digitales oficiales aquí..."
+                aria-label="Instagram"
+                rows="1"
+                id='CanalesComunicacion'
+              />
+             </div>
+             <div className='pt-3'>
+              <textarea
+                className="dark:text-white peer block text-sm w-full appearance-none rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2 text-gray-700 focus:border-sky-500 dark:focus:border-sky-500 focus:outline-none focus:ring-0 font-medium"
+                placeholder="Describe tus canales digitales oficiales aquí..."
+                aria-label="Instagram"
+                rows="1"
+                id='CanalesComunicacion'
+              />
+             </div>
      </>
    )
  }

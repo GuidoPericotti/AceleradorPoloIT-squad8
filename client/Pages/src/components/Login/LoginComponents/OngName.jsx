@@ -9,8 +9,8 @@ const OngName = ({ register, value }) => {
       <input
          id="Nombre"
          type="text"
-         ariaLabel="Nombre"
-        className="w-full px-3 py-2 mt-1 border rounded-lg"
+         aria-label="Nombre"
+        className="w-full px-3 py-2 mt-1 border rounded-lg dark:bg-gray-700 dark:border-gray-700"
       />
     </div>
   );
