@@ -27,7 +27,7 @@ router.post('/empresas/:id/rechazar', adminEmpresasController.rejectEmpresa);
 router.get('/empresas/:id', adminEmpresasController.getEmpresaById);
 router.put('/empresas/:id', adminEmpresasController.updateEmpresa);
 router.delete('/empresas/:id', adminEmpresasController.deleteEmpresa);
-//RUtas para gestionar mentores
+//Rutas para gestionar mentores
 router.get('/mentores', adminControllerMentor.getAllMentores);
 router.get('/mentores:id', adminMentoresController.getMentorById);
 router.post('/', adminMentoresController.createMentor);
