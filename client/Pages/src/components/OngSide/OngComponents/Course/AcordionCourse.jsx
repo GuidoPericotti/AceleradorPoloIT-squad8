@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { StudentsTable } from '../Students/StudentsTable';
 //import DashboardCard from '../Dashboard/DashboardCard';
 
-const AcordionCourse = ({ nroItem, darkMode, className }) => {
+const AcordionCourse = ({ nroItem, darkMode }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleCardClick = () => {

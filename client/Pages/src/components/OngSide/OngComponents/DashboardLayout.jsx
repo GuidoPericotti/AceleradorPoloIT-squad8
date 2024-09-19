@@ -25,7 +25,7 @@
 
    <div className={`relative ${isModalOpen ? 'filter blur-sm' : ''} ${darkMode ? 'bg-gray-600' : ''}`}>
      <section className="grid place-items-center z-10 pt-24">
-       <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-[800px] h-28 ${darkMode ? 'bg-gray-600' : ''}`}>
+       <div className={`grid grid-cols-1 admlg:grid-cols-2 gap-6 w-full max-w-[800px] h-28 ${darkMode ? 'bg-gray-600' : ''}`}>
          <DashboardCard
            title="Crear Curso"
            bgColor="bg-blue-500"

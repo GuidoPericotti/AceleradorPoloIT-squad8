@@ -12,12 +12,13 @@ import { ProyectsBtn } from "./components/NavbarComponents/ProyectsBtn";
 import { LoginIniciado } from "./components/Login/LoginIniciado";
 import { OngClient } from "./Pages/OngClient";
 import { AdminPage } from "./Pages/AdminPage";
-  // import { OngUserSide } from "./Pages/OngUserSide";
+import { OngUserSide } from "./Pages/OngUserSide";
+import { EmpresaSide } from "./Pages/EmpresaSide";
 function App() {
 
   return (
     <>
-     <Routes>
+     {/* <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/ongempresa" element={<ONGEmpresaLogin />} />
         <Route path="/LoginIniciado" element={<LoginIniciado />} />
@@ -28,10 +29,11 @@ function App() {
         <Route path="/mentores" element={<MentoresBtn />} />
         <Route path="/contact" element={<ContactBtn />} />
         <Route path="/OngClient" element={<OngClient />} /> 
-         <Route path="/Admin" element={<AdminPage />} />   {/*Se añade vista admin para modificacion */}
+         <Route path="/Admin" element={<AdminPage />} />   Se añade vista admin para modificacion
         <Route path="/*" element={<Navigate to="/" />} /> 
-      </Routes>  
+      </Routes>   */}
       {/* <OngUserSide /> */}
+      <EmpresaSide />
     </>
   );
 }

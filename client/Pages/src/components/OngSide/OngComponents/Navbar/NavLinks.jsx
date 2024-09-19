@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 export const NavLinks = () => {
   return (
-    <ul className="list-style-none flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4">
+    <ul className="list-style-none flex flex-col admlg:flex-row space-y-2 admlg:space-y-0 admlg:space-x-4">
       <li>
         <NavLink
           className="text-slate-500 flex items-center text-sm transition hover:text-secondary-600 dark:text-secondary-500 dark:hover:text-secondary-500/80"
