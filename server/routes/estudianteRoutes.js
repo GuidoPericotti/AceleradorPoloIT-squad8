@@ -2,11 +2,11 @@ const express = require ('express');
 const router = express.Router();
 const cursosController = require('../controllers/estudiantesController');
 
-//Ong Routes
-router.get('/', cursosController.getAllEstudiantes);
-router.get('/:id', cursosController.getEstudianteById);
-router.post('/', cursosController.createEstudiante);
-router.put('/:id', cursosController.updateEstudiante);
-router.delete('/:id', cursosController.deleteEstudiante);
+//Rutas para gestionar los estudiantes
+router.get('/', estudiantesController.getAllEstudiantes);
+router.get('/:id', estudiantesController.getEstudianteById);
+router.post('/', estudiantesController.createEstudiante);
+router.put('/:id', estudiantesController.updateEstudiante);
+router.delete('/:id', estudiantesController.deleteEstudiante);
 
 module.exports = router;
