@@ -10,6 +10,16 @@ const getAllCursos = (req,res) => {
     });
 };
 
+//Obtener datos de un curso
+const getCursoById = (req,res) => {
+    const {id} = req.params;
+    const sql = 'SELECT * FROM cursos WHERE curso_id=?';
+    db.query(sql,[id], (err, result) => {
+        if (err) throw err;
+        res.json(result);
+    });
+};
+
 //Crear nuevo curso
 const createCurso = (req,res) => {
     const {user, password} = req.body;

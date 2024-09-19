@@ -19,6 +19,16 @@ const getAllEstudiantes = (req, res) => {
     });
 };
 
+//Obtener datos de un estudiante
+const getEstudianteById = (req,res) => {
+    const {id} = req.params;
+    const sql = 'SELECT * FROM estudiantes WHERE estudiante_id=?';
+    db.query(sql,[id], (err, result) => {
+        if (err) throw err;
+        res.json(result);
+    });
+};
+
 // Editar los datos de un estudiante
 const updateMentor = (req, res) => {
     const { id } = req.params;
