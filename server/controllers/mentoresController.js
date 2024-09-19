@@ -25,7 +25,7 @@ const createMentor = (req,res) => {
     const sql = 'INSERT INTO mentores (nombre_mentor, apellido_mentor, dni_mentor, edad_mentor, telefono_mentor, email_mentor, tecnologia_mentor, tecnologiasec1_mentor,tecnologiasec2_mentor,tecnologiasec3_mentor) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
     db.query(sql, [user, password], (err, result) => {
         if (err) throw err;
-        res.json({ mensaje: "Estudiante creado correctamente", idEstudiante: result.insertId});
+        res.json({ mensaje: "Mentor creado correctamente", idMentor: result.insertId});
     });
 };
 
@@ -44,7 +44,7 @@ const updateMentor = (req, res) => {
 
 const deleteMentor = (req, res) => {
     const {id} = req.params;
-    const sql = 'DELETE FROM mentores WHERE id = ?';
+    const sql = 'DELETE FROM mentores WHERE mentor_id = ?';
     db.query(sql,[id], (err, result) => {
         if (err) throw err;
         res.json({ mensaje: "Mentor eliminado correctamente"});
