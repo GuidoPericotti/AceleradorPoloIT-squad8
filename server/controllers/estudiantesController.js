@@ -1,6 +1,6 @@
 const db = require('../db/db.js');
 
-//Obtener todos los estudiantes
+//Obtener todos los estudiantes de un curso
 const getAllEstudiantes = (req,res) => {
     const {id} = req.params;
     const sql = "SELECT * FROM estudiantes INNER JOIN cursos ON estudiantes.curso_id = cursos.curso_id WHERE estudiantes.curso_id = ?";
@@ -34,7 +34,7 @@ const updateEstudiante = (req, res) => {
     const {id} = req.params;
     const {nombre, apellido, dni, edad, telefono, email, perfil, condicion, disponibilidad} = req.body;
     const sql = 'UPDATE cursos SET nombre = ?, apellido = ?, dni = ?, edad = ?, telefono = ?, email = ?, perfil = ?, condicion = ?, disponibilidad = ?';
-    db.query(sql,[nombre, fechaCreacion, fechaCierre, docente, id], (err, result) => {
+    db.query(sql,[nombre_estudiante, apellido_estudiante, dni_estudiante, edad_estudiante, telefono_estudiante, email_estudiante, curso_id, perfil_id, condicion_id], (err, result) => {
         if (err) throw err;
         res.json({ mensaje: "Estudiante actualizado correctamente"});
     });
