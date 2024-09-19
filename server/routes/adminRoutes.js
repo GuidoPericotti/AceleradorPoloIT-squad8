@@ -3,7 +3,9 @@ const router = express.Router();
 const adminController = require('../controllers/adminController.js');
 const adminOngController = require ('../controllers/adminControllerONG.js');
 const adminEmpresasController = require ('../controllers/adminControllerEmpresa.js');
-const adminMentoresController = require ('../controllers/adminControllerMentor.js')
+const adminMentoresController = require ('../controllers/adminControllerMentor.js');
+const adminCursosController = require ('../controllers/adminControllerCursos.js');
+const adminEstudiantesController = require ('../controllers/adminControllerEstudiantes.js');
 
 //Rutas para gestionar usuarios administradores
 router.get('/', adminController.getAllAdminAccess);
@@ -33,6 +35,17 @@ router.get('/mentores:id', adminMentoresController.getMentorById);
 router.post('/', adminMentoresController.createMentor);
 router.put('/mentores:id', adminMentoresController.updateMentor);
 router.delete('/mentores:id', adminMentoresController.deleteMentor);
-
+//Rutas para gestionar cursos
+router.get('/cursos', adminControllerCursos.getAllCursos);
+router.get('cursos:id', adminControllerCursos.getCursosById);
+router.post('/', adminControllerCursos.createCurso);
+router.put('cursos:id', adminControllerCursos.updateCurso);
+router.delete('/cursos:id', adminControllerCursos.deleteCursos);
+//Rutas para gestionar estudiantes
+router.get('/estudiantes',adminControllerEstudiantes.getAllEstudiantes);
+router.get('estudiantes:id',adminControllerEstudiantes.getEstudianteById);
+router.post('/',adminControllerEstudiantes.createEstudiante);
+router.put('estudiantes:id',adminControllerEstudiantes.updateEstudiante);
+router.delete('estudiantes:id',adminControllerEstudiantes.deleteEstudiante);
 
 module.exports = router;
