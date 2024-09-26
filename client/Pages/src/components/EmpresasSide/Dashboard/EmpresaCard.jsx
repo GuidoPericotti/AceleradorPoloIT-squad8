@@ -1,23 +1,26 @@
-import React from 'react'
+import React from 'react';
+import { InformacionPersonalEmpresa } from '../Dashboard/CardInfoEmpresa/InformacionPersonalEmpresa';
+import { SubirFoto } from './SubirFoto';
+import { TitleEmpresaCard } from './TitleEmpresaCard';
 
 export const EmpresaCard = () => {
   return (
-    <div>
-        <div class="grid grid-cols-4 grid-rows-3 gap-0 parent">
-            <div class="col-span-4 row-start-1 row-end-2 bg-gray-300 div1">
-                <div className="bg-white shadow-md rounded-lg p-6">
-                    <h2 className="text-2xl font-bold mb-4">Perfil de Usuario</h2>
-                    <p>Aquí puedes ver y editar la información del perfil.</p>
-                </div>
-            </div>
-            
-            <div class="col-span-2 row-start-2 row-end-4 bg-gray-400 div2">
-                Div 2
-            </div>
-            <div class="col-span-2 row-start-2 row-end-4 bg-gray-500 div3">
-                Div 3
-            </div>
-        </div>
+    <div className="grid grid-cols-2 grid-rows-2 shadow-2xl">
+
+      {/* Contenedor del título */}
+      <div className="h-16 col-span-2 bg-slate-300 rounded-lg flex items-center justify-center">
+        <TitleEmpresaCard className="text-center"/>
+      </div>
+      
+      {/* Componente de información personal a la izquierda */}
+      <div className="col-start-1 bg-slate-200 p-4 -mt-[270px]">
+        <InformacionPersonalEmpresa />
+      </div>
+  
+      {/* Componente de subir foto a la derecha */}
+      <div className="col-start-2 bg-slate-200 p-4 -mt-[270px]">
+        <SubirFoto/>
+      </div>
     </div>
-  )
-}
+  );
+};

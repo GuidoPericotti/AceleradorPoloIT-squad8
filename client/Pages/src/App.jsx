@@ -14,6 +14,9 @@ import { OngClient } from "./Pages/OngClient";
 import { AdminPage } from "./Pages/AdminPage";
 import { OngUserSide } from "./Pages/OngUserSide";
 import { EmpresaSide } from "./Pages/EmpresaSide";
+import { TableEstudiantes } from "./components/EmpresasSide/Dashboard/TableEstudiantes";
+import { SidebarEmpresa } from "./components/EmpresasSide/Sidebar/SidebarEmpresa";
+
 function App() {
 
   return (
@@ -29,11 +32,17 @@ function App() {
         <Route path="/mentores" element={<MentoresBtn />} />
         <Route path="/contact" element={<ContactBtn />} />
         <Route path="/OngClient" element={<OngClient />} /> 
-         <Route path="/Admin" element={<AdminPage />} />   Se añade vista admin para modificacion
+         <Route path="/Admin" element={<AdminPage />} />   
         <Route path="/*" element={<Navigate to="/" />} /> 
-      </Routes>   */}
+      </Routes>    */}
       {/* <OngUserSide /> */}
       <EmpresaSide />
+      <Routes>
+      <Route path="/estudiantes" element={<TableEstudiantes />} />
+          {/* Puedes agregar la ruta para mentores también */}
+          <Route path="/mentores" element={<div>Vista de mentores</div>} />
+          <Route path="/" element={<SidebarEmpresa />} />
+      </Routes>
     </>
   );
 }
