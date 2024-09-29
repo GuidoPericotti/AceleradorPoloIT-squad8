@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { EmpresaCard } from './EmpresaCard';
+import { BienvenidaEmpresa } from './CardInfoEmpresa/BienvenidaEmpresa';
 
 export const DashboardEmpresa = ({ showProfileCard }) => {
   return (
@@ -10,11 +11,9 @@ export const DashboardEmpresa = ({ showProfileCard }) => {
       {showProfileCard ? (
         <EmpresaCard className='-pl-24' />
       ) : (
-        <h1 className="text-3xl font-bold pt-28 -pl-10">
-          ¡Bienvenido al Polo IT! <br />
-          Para continuar con esta aventura <br />
-          presiona en la seccion Perfil
-        </h1>
+        <div className="text-3xl font-bold pt-28 -pl-10">
+          <BienvenidaEmpresa />
+        </div>
       )}
     </div>
   );

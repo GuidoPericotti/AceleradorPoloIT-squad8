@@ -1,9 +1,9 @@
-import React from 'react'
+  import React from 'react';
 
 export const TableEstudiantes = () => {
   return (
-    <div>
-        tabla
+    <div className="bg-gray-700 mt-40 p-4 rounded-lg shadow">
+      tabla
     </div>
-  )
-}
+  );
+};

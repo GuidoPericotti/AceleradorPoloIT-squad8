@@ -30,6 +30,6 @@ createRoot(document.getElementById('root')).render(
         <App />
       </Suspense>
     </StrictMode>
-  </BrowserRouter>,
+  </BrowserRouter>
 );
 
