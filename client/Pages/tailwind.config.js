@@ -6,6 +6,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    screens: {
+      'adms': { 'max-width': '600px' },
+      'admlg': { 'min-width': '800px' }, // Breakpoint personalizado admlg
+
+
+    },
     extend: {
       keyframes: {
         zoom: {

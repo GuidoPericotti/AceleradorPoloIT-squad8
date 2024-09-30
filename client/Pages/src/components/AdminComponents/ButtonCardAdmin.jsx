@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {ModalInfo} from './ModalInfo'; // Importa el componente Modal
+import { ModalInfo } from './ModalInfo'; // Importa el componente Modal
 
 export const ButtonCardAdmin = ({ nombre }) => {
   const [isSelected, setIsSelected] = useState(false);
@@ -17,7 +17,7 @@ export const ButtonCardAdmin = ({ nombre }) => {
   return (
     <>
       <button
-        className={`w-72 rounded-lg mx-8 py-4 text-sm font-semibold border ${isSelected ? 'bg-gray-500 text-white border-slate-950 border-2' : 'btn-outline'}`}
+        className={`w-full lg:w-52 md:w-52 sm:w-40 rounded-lg mx-2 sm:mx-8 py-4 text-sm font-semibold border ${isSelected ? 'bg-gray-500 text-white border-slate-950 border-2' : 'btn-outline'}`}
         onClick={handleButtonClick}
       >
         {nombre}

@@ -39,79 +39,40 @@ export const StudentsTable = () => {
             <tr>
               <th scope="col" className="px-6 py-4">Apellido</th>
               <th scope="col" className="px-6 py-4">Nombre</th>
-              <th scope="col" className="px-6 py-4">Stock</th>
               <th scope="col" className="px-6 py-4">Status</th>
+              <th scope="col" className="px-6 py-4">Edición</th>
             </tr>
           </thead>
           <tbody>
-            <tr className="border-b dark:bg-gray-600 hover:bg-neutral-100 dark:hover:bg-neutral-600">
-              <th scope="row" className="px-6 py-4 dark:text-white">Vallejos</th>
-              <td className="px-6 py-4               dark:text-white">Sergio</td>
-              <td className="px-6 py-4 dark:text-white">30</td>
-              <td className="px-6 py-4 dark:text-white">Online</td>
-            </tr>
-            <tr className="border-b dark:bg-gray-600 hover:bg-neutral-100 dark:hover:bg-neutral-600">
-              <th scope="row" className="px-6 py-4 dark:text-white">Liporace</th>
-              <td className="px-6 py-4 dark:text-white">Andres</td>
-              <td className="px-6 py-4 dark:text-white">25</td>
-              <td className="px-6 py-4 dark:text-white">Offline</td>
-            </tr>
-            <tr className="border-b dark:bg-gray-600 hover:bg-neutral-100 dark:hover:bg-neutral-600">
-              <th scope="row" className="px-6 py-4 dark:text-white">Gonzalez</th>
-              <td className="px-6 py-4 dark:text-white">Rocio</td>
-              <td className="px-6 py-4 dark:text-white">40</td>
-              <td className="px-6 py-4 dark:text-white">Online</td>
-            </tr>
-            <tr className="border-b dark:bg-gray-600 hover:bg-neutral-100 dark:hover:bg-neutral-600">
-              <th scope="row" className="px-6 py-4 dark:text-white">Lo celso</th>
-              <td className="px-6 py-4 dark:text-white">Gio</td>
-              <td className="px-6 py-4 dark:text-white">5</td>
-              <td className="px-6 py-4 dark:text-white">Offline</td>
-            </tr>
-            <tr className="border-b dark:bg-gray-600 hover:bg-neutral-100 dark:hover:bg-neutral-600">
-              <th scope="row" className="px-6 py-4 dark:text-white">Martinez</th>
-              <td className="px-6 py-4 dark:text-white">Lautaro</td>
-              <td className="px-6 py-4 dark:text-white">50</td>
-              <td className="px-6 py-4 dark:text-white">Online</td>
-            </tr>
+            {[
+              { apellido: "Vallejos", nombre: "Sergio", status: "Mentor" },
+              { apellido: "Liporace", nombre: "Andres", status: "Desarrollador" },
+              { apellido: "Gonzalez", nombre: "Rocio", status: "QA" },
+              { apellido: "Lo celso", nombre: "Gio", status: "Diseñador" },
+              { apellido: "Martinez", nombre: "Lautaro", status: "Desarrolllador" },
+            ].map((student, index) => (
+              <tr key={index} className="border-b dark:bg-gray-600 hover:bg-neutral-100 dark:hover:bg-neutral-600">
+                <th scope="row" className="px-6 py-4 dark:text-white">{student.apellido}</th>
+                <td className="px-6 py-4 dark:text-white">{student.nombre}</td>
+                <td className="px-6 py-4 dark:text-white">{student.status}</td>
+                <td className="px-6 py-4 dark:text-white">
+                  <button className="text-blue-500 hover:text-blue-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 20h9" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M16.72 7.76L19.04 10.08M10.5 12l-1.72 1.72a2.5 2.5 0 0 1-.9.53l-4 1.5 1.5-4a2.5 2.5 0 0 1 .53-.9L12 10.5m0 0l7.76-7.76a2 2 0 1 1 2.83 2.83L12 10.5z" />
+                    </svg>
+                  </button>
+                  <button className="ml-4 text-red-500 hover:text-red-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
-
-        <nav className="mt-5 flex items-center justify-between text-sm" aria-label="Page navigation example">
-          <p className="dark:text-white">
-            Showing <strong>1-5</strong> of <strong>10</strong>
-          </p>
-          <ul className="list-style-none flex">
-            <li>
-              <a className="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 dark:text-white transition-all duration-300 hover:bg-neutral-100 dark:hover:bg-neutral-700" href="#!">
-                Previous
-              </a>
-            </li>
-            <li>
-              <a className="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 dark:text-white transition-all duration-300 hover:bg-neutral-100 dark:hover:bg-neutral-700" href="#!">
-                1
-              </a>
-            </li>
-            <li aria-current="page">
-              <a className="relative block rounded bg-blue-100 px-3 py-1.5 text-sm font-medium text-blue-700 transition-all duration-300" href="#!">
-                2
-                <span className="absolute -m-px h-px w-px overflow-hidden whitespace-nowrap border-0 p-0 [clip:rect(0,0,0,0)]">(current)</span>
-              </a>
-            </li>
-            <li>
-              <a className="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 dark:text-white transition-all duration-300 hover:bg-neutral-100 dark:hover:bg-neutral-700" href="#!">
-                3
-              </a>
-            </li>
-            <li>
-              <a className="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 dark:text-white transition-all duration-300 hover:bg-neutral-100 dark:hover:bg-neutral-700" href="#!">
-                Next
-              </a>
-            </li>
-          </ul>
-        </nav>
       </div>
     </section>
   );
-}
-
+};
