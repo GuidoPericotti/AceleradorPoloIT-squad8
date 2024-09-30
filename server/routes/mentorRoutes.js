@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const mentorController = require('../controllers/mentorController.js');
+const mentoresController = require('../controllers/mentoresController.js');
 
 //Rutas para gestionar mentores
 router.get('/', mentoresController.getAllMentores);

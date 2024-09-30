@@ -4,8 +4,8 @@ const adminController = require('../controllers/adminController.js');
 const adminOngController = require ('../controllers/adminControllerONG.js');
 const adminEmpresasController = require ('../controllers/adminControllerEmpresa.js');
 const adminMentoresController = require ('../controllers/adminControllerMentor.js');
-const adminCursosController = require ('../controllers/adminControllerCursos.js');
-const adminEstudiantesController = require ('../controllers/adminControllerEstudiantes.js');
+const adminControllerCursos = require ('../controllers/adminControllerCursos.js');
+const adminControllerEstudiantes = require ('../controllers/adminControllerEstudiantes.js');
 
 //Rutas para gestionar usuarios administradores
 router.get('/', adminController.getAllAdminAccess);
@@ -30,20 +30,20 @@ router.get('/empresas/:id', adminEmpresasController.getEmpresaById);
 router.put('/empresas/:id', adminEmpresasController.updateEmpresa);
 router.delete('/empresas/:id', adminEmpresasController.deleteEmpresa);
 //Rutas para gestionar mentores
-router.get('/mentores', adminControllerMentor.getAllMentores);
+router.get('/mentores', adminMentoresController.getAllMentores);
 router.get('/mentores:id', adminMentoresController.getMentorById);
 router.post('/', adminMentoresController.createMentor);
 router.put('/mentores:id', adminMentoresController.updateMentor);
 router.delete('/mentores:id', adminMentoresController.deleteMentor);
 //Rutas para gestionar cursos
 router.get('/cursos', adminControllerCursos.getAllCursos);
-router.get('cursos:id', adminControllerCursos.getCursosById);
+router.get('cursos:id', adminControllerCursos.getCursoById);
 router.post('/', adminControllerCursos.createCurso);
 router.put('cursos:id', adminControllerCursos.updateCurso);
-router.delete('/cursos:id', adminControllerCursos.deleteCursos);
+router.delete('/cursos:id', adminControllerCursos.deleteCurso);
 //Rutas para gestionar estudiantes
 router.get('/estudiantes',adminControllerEstudiantes.getAllEstudiantes);
-router.get('estudiantes:id',adminControllerEstudiantes.getEstudianteById);
+router.get('estudiantes:id',adminControllerEstudiantes.getEstudiantesById);
 router.post('/',adminControllerEstudiantes.createEstudiante);
 router.put('estudiantes:id',adminControllerEstudiantes.updateEstudiante);
 router.delete('estudiantes:id',adminControllerEstudiantes.deleteEstudiante);

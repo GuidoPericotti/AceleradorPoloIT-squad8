@@ -19,6 +19,16 @@ const getAllEstudiantes = (req, res) => {
     });
 };
 
+//Obtener admin por ID
+const getEstudiantesById = (req,res) => {
+    const {id} = req.params;
+    const sql = 'SELECT * FROM estudiantes WHERE id=?';
+    db.query(sql,[id], (err, result) => {
+        if (err) throw err;
+        res.json(result);
+    });
+};
+
 //Obtener datos de un estudiante
 const getEstudianteById = (req,res) => {
     const {id} = req.params;
@@ -30,7 +40,7 @@ const getEstudianteById = (req,res) => {
 };
 
 // Editar los datos de un estudiante
-const updateMentor = (req, res) => {
+const updateEstudiante = (req, res) => {
     const { id } = req.params;
     const { nombre_mentor, apellido_mentor, dni_mentor, telefono_mentor, edad_mentor, email_mentor, tecnologia_mentor, tecnologiasec1_mentor, tecnologiasec2_mentor, tecnologiasec3_mentor, disponibilidad_mentor} = req.body;
     const sql = 'UPDATE cursos SET nombre = ?, apellido = ?, dni = ?, edad = ?, telefono = ?, email = ?, perfil = ?, condicion = ?, disponibilidad = ?';
@@ -53,6 +63,7 @@ const deleteEstudiante = (req, res) => {
 module.exports = {
     createEstudiante,
     getAllEstudiantes,
+    getEstudiantesById,
     updateEstudiante,
     deleteEstudiante
 };

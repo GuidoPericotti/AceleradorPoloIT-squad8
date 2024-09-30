@@ -54,6 +54,7 @@ const deleteCurso = (req, res) => {
 
 module.exports = {
     getAllCursos,
+    getCursoById,
     createCurso,
     updateCurso,
     deleteCurso
