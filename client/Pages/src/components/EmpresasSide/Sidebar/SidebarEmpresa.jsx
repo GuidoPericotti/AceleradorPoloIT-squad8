@@ -8,10 +8,10 @@ export const SidebarEmpresa = ({ onProfileClick, onParticipantsChange }) => {
 
   useEffect(() => {
     // Actualizar el estado basado en la ruta actual
-    if (location.pathname === '/mentores') {
+    if (location.pathname === '/estudiantes') {
       setSelectedParticipant('mentores');
     } else if (location.pathname === '/estudiantes') {
-      setSelectedParticipant('estudiantes');
+      setSelectedParticipant('mentores');
     } else {
       setSelectedParticipant('');
     }
@@ -21,11 +21,11 @@ export const SidebarEmpresa = ({ onProfileClick, onParticipantsChange }) => {
     const selectedValue = event.target.value;
     setSelectedParticipant(selectedValue);
     
-    if (selectedValue === 'estudiantes') {
-      navigate('/estudiantes');
-      onParticipantsChange('estudiantes');
+    if (selectedValue === 'mentores') {
+      navigate('/Estudiantes');
+      onParticipantsChange('mentores');
     } else if (selectedValue === 'mentores') {
-      navigate('/mentores');
+      navigate('/Estudiantes');
       onParticipantsChange('mentores');
     } else {
       navigate('/');
@@ -82,8 +82,7 @@ export const SidebarEmpresa = ({ onProfileClick, onParticipantsChange }) => {
             onChange={handleParticipantsChange}
           >
             <option value="">Seleccione...</option>
-            <option value="mentores">Mentores</option>
-            <option value="estudiantes">Estudiantes</option>
+            <option value="mentores">Estudiantes</option>
           </select>
         </div>
       </div>

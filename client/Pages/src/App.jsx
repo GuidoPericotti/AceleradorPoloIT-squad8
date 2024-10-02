@@ -90,6 +90,7 @@ import { TableEstudiantes } from './components/EmpresasSide/Dashboard/TableEstud
 import { DashboardEmpresa } from './components/EmpresasSide/Dashboard/DashboardEmpresa';
 import { EmpresaSide } from './Pages/EmpresaSide';
 import { MentoresEmpresa } from './components/EmpresasSide/Dashboard/Mentores/MentoresEmpresa';
+import { PerfilDashboard } from './components/EmpresasSide/Dashboard/Perfil/PerfilDashboard';
 
 const App = () => {
   const [showProfile, setShowProfile] = useState(false);
@@ -112,17 +113,16 @@ const App = () => {
         onParticipantsChange={handleParticipantsChange}
       />
       <div className="flex-1">
-        {!selectedOption && <DashboardEmpresa showProfileCard={showProfile} />}
-        <Routes>
+        {!selectedOption 
+        && <DashboardEmpresa showProfileCard={showProfile} />
+        && <PerfilDashboard />
+        }
+        {/* <Routes>
           <Route
             path="/estudiantes"
-            element={selectedOption === 'estudiantes' && <TableEstudiantes />}
-          />
-          <Route
-            path="/mentores"
             element={selectedOption === 'mentores' && <MentoresEmpresa />}
           />
-        </Routes>
+        </Routes> */}
       </div>
     </div>
   );
