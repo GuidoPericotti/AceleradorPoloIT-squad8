@@ -1,25 +1,20 @@
-// import React from 'react';
 
-// const EditButton = () => {
-//   return (
-//     <div className="absolute right-5 top-40 p-3 bg-[#034aa6] rounded-lg border border-[#356eb8]">
-//       <button className="text-white font-normal text-base">Editar</button>
-//     </div>
-//   );
-// };
 
-// export default EditButton;
 import React from 'react';
 
-const EditButton = () => {
+const EditButton = ({ darkMode }) => {
   return (
     <div className="relative">
-      {/* Capa de fondo detrás del botón */}
-      <div className="absolute w-[1000px] h-60 bg-black rounded-lg p-3 z-0" />
-
-      {/* Botón de editar con ícono de cámara */}
-      <div className=" absolute right-5 top-40 p-3 bg-[#034aa6] rounded-lg border border-[#356eb8] flex items-center z-10">
-        {/* Ícono de cámara en SVG */}
+      <div className={`
+        absolute w-[1000px] h-60 rounded-lg p-3 z-0
+        ${darkMode ? 'bg-gray-900' : 'bg-black'}
+        transition-colors duration-300
+      `} />
+      <div className={`
+        absolute right-5 top-40 p-3 rounded-lg flex items-center z-10
+        ${darkMode ? 'bg-gray-700 border-gray-600' : 'bg-[#034aa6] border-[#356eb8]'}
+        border transition-colors duration-300
+      `}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="w-5 h-5 text-white mr-2"

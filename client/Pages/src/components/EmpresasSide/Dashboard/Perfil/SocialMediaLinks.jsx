@@ -1,39 +1,31 @@
+
 import React from 'react';
 
-const SocialMediaLinks = () => {
+const SocialMediaLinks = ({ darkMode }) => {
   return (
-    <section className="w-full text-center mt-28">
-      <h4 className="text-base font-semibold">Redes Oficiales</h4>
+    <nav className="w-full text-center mt-28">
+      <h4 className={`text-base font-semibold ${darkMode ? 'text-white' : 'text-[#1e1e1e]'}`}>
+        Redes Oficiales
+      </h4>
       <div className="flex justify-center mt-4 gap-12">
-        {/* Facebook */}
         <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-          <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+          <svg xmlns="http://www.w3.org/2000/svg" 
+               className={`w-12 h-12 ${darkMode ? 'text-blue-400' : 'text-blue-600'} transition-colors duration-300`} 
+               viewBox="0 0 24 24" 
+               fill="currentColor">
             <path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.894-4.785 4.66-4.785 1.325 0 2.464.099 2.795.144v3.24l-1.918.001c-1.503 0-1.793.714-1.793 1.761v2.309h3.587l-.467 3.622h-3.12V24h6.116C23.407 24 24 23.407 24 22.675V1.325C24 .593 23.407 0 22.675 0z" />
           </svg>
         </a>
-
-        {/* X (Twitter) */}
         <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-          <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M23.954 4.569c-.885.392-1.83.656-2.825.775a4.932 4.932 0 0 0 2.163-2.723 9.868 9.868 0 0 1-3.127 1.196 4.918 4.918 0 0 0-8.384 4.482c-4.086-.2-7.719-2.162-10.148-5.144a4.822 4.822 0 0 0-.665 2.475 4.915 4.915 0 0 0 2.188 4.096 4.897 4.897 0 0 1-2.229-.616v.061a4.916 4.916 0 0 0 3.946 4.827 4.908 4.908 0 0 1-2.224.084 4.918 4.918 0 0 0 4.6 3.42A9.868 9.868 0 0 1 0 19.54a13.94 13.94 0 0 0 7.548 2.213c9.058 0 14.01-7.504 14.01-14.01 0-.213-.004-.425-.014-.637a10.012 10.012 0 0 0 2.465-2.55z" />
-          </svg>
-        </a>
-
-        {/* Instagram */}
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-          <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-pink-600" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0c-3.313 0-3.741.014-5.041.073-1.303.059-2.203.257-2.985.547a5.945 5.945 0 0 0-2.162 1.414A5.946 5.946 0 0 0 .62 4.268c-.29.783-.488 1.682-.547 2.986C0 8.552 0 8.987 0 12s.014 3.448.073 5.041c.059 1.303.257 2.203.547 2.986a5.945 5.945 0 0 0 1.414 2.162 5.946 5.946 0 0 0 2.162 1.414c.783.29 1.682.488 2.986.547 1.3.059 1.729.073 5.041.073s3.448-.014 5.041-.073c1.303-.059 2.203-.257 2.986-.547a5.946 5.946 0 0 0 2.162-1.414 5.945 5.945 0 0 0 1.414-2.162c.29-.783.488-1.682.547-2.986.059-1.593.073-2.023.073-5.041s-.014-3.448-.073-5.041c-.059-1.303-.257-2.203-.547-2.986a5.945 5.945 0 0 0-1.414-2.162A5.945 5.945 0 0 0 19.733.62C18.95.33 18.05.132 16.747.073 15.448.014 15.02 0 12 0zm0 5.838a6.162 6.162 0 1 1 0 12.324 6.162 6.162 0 0 1 0-12.324zm0 2.178a3.985 3.985 0 1 0 0 7.97 3.985 3.985 0 0 0 0-7.97zm6.406-.888a1.44 1.44 0 1 0 0 2.882 1.44 1.44 0 0 0 0-2.882z" />
-          </svg>
-        </a>
-
-        {/* Ícono de planeta */}
-        <a href="https://example.com" target="_blank" rel="noopener noreferrer">
-          <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-green-500" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0C5.372 0 0 5.372 0 12c0 6.628 5.372 12 12 12 6.628 0 12-5.372 12-12C24 5.372 18.628 0 12 0zm0 22C6.486 22 2 17.514 2 12S6.486 2 12 2c.689 0 1.354.071 2 .201C13.5 3.229 13 4.552 13 6a4 4 0 0 0 4 4c.826 0 1.594-.25 2.229-.676A10.008 10.008 0 0 1 22 12c0 5.514-4.486 10-10 10z" />
+          <svg xmlns="http://www.w3.org/2000/svg" 
+               className={`w-12 h-12 ${darkMode ? 'text-blue-400' : 'text-blue-500'} transition-colors duration-300`} 
+               viewBox="0 0 24 24" 
+               fill="currentColor">
+            <path d="M23.954 4.569c-.885.392-1.83.656-2.825.775a4.932 4.932 0 0 0 2.163-2.723 9.868 9.868 0 0 1-3.127 1.196 4.918 4.918 0 0 0-8.384 4.482c-4.086-.2-7.719-2.162-10.148-5.144a4.822 4.822 0 0 0-.665 2.475 4.915 4.915 0 0 0 2.188 4.096 4.897 4.897 0 0 1-2.229-.616v.061a4.916 4.916 0 0 0 3.946 4.827 4.908 4.908 0 0 1-2.224.084 4.916 4.916 0 0 0 4.6 3.417 9.868 9.868 0 0 1-6.102 2.104c-.397 0-.788-.023-1.175-.068a13.913 13.913 0 0 0 7.548 2.212c9.054 0 14.002-7.502 14.002-14.002 0-.213-.005-.425-.014-.637a10.013 10.013 0 0 0 2.457-2.548z" />
           </svg>
         </a>
       </div>
-    </section>
+    </nav>
   );
 };
 

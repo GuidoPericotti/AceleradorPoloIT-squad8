@@ -95,6 +95,8 @@ import { PerfilDashboard } from './components/EmpresasSide/Dashboard/Perfil/Perf
 const App = () => {
   const [showProfile, setShowProfile] = useState(false);
   const [selectedOption, setSelectedOption] = useState('');
+  const [darkMode, setDarkMode] = useState(false);  // Estado para dark mode
+  
 
   const handleProfileClick = () => {
     setShowProfile(!showProfile);
@@ -107,22 +109,18 @@ const App = () => {
   };
 
   return (
-    <div className="flex">
+    <div className={`${darkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'} flex`}>
       <EmpresaSide
         onProfileClick={handleProfileClick}
         onParticipantsChange={handleParticipantsChange}
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
       />
       <div className="flex-1">
         {!selectedOption 
-        && <DashboardEmpresa showProfileCard={showProfile} />
-        && <PerfilDashboard />
+        && <DashboardEmpresa showProfileCard={showProfile} darkMode={darkMode} />
+        && <PerfilDashboard darkMode={darkMode} />
         }
-        {/* <Routes>
-          <Route
-            path="/estudiantes"
-            element={selectedOption === 'mentores' && <MentoresEmpresa />}
-          />
-        </Routes> */}
       </div>
     </div>
   );
