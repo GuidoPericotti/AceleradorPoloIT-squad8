@@ -30,28 +30,32 @@ export const InformacionPersonalEmpresa = () => {
         <div className="mb-4 mt-1">
             {/* Si no necesitas register, puedes llamarlo así */}
             <p className='mt-2'>Nombre de la empresa</p>
-            <InputField 
+            <InputField
+              id='nombre_empresa'
               className="mb-5 block w-full appearance-none rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-1 mt-2 text-gray-700 dark:text-gray-300 focus:border-sky-500 dark:focus:border-sky-500 focus:outline-none focus:ring-0"
             />
         </div>
         <div className="mb-4">
             {/* Si no necesitas register, puedes llamarlo así */}
             <p>Location</p>
-            <InputField 
+            <InputField
+              id='pais_empresa' 
               className="mb-5 block w-full appearance-none rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-1 mt-2 text-gray-700 dark:text-gray-300 focus:border-sky-500 dark:focus:border-sky-500 focus:outline-none focus:ring-0"
             />
         </div>
         <div className="mb-4">
             {/* Si no necesitas register, puedes llamarlo así */}
             <p>Número de teléfono</p>
-            <InputField 
+            <InputField
+              id='telefono_empresa' 
               className="mb-5 block w-full appearance-none rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-1 mt-2 text-gray-700 dark:text-gray-300 focus:border-sky-500 dark:focus:border-sky-500 focus:outline-none focus:ring-0"
             />
         </div>
         <div className="mb-4">
             {/* Si no necesitas register, puedes llamarlo así */}
             <p>Email</p>
-            <InputField 
+            <InputField
+              id='email_empresa'
               className="mb-5 block w-full appearance-none rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-1 mt-2 text-gray-700 dark:text-gray-300 focus:border-sky-500 dark:focus:border-sky-500 focus:outline-none focus:ring-0"
             />
         </div>
@@ -67,6 +71,7 @@ export const InformacionPersonalEmpresa = () => {
       </svg>
     </span> 
     <InputField
+      id='web_empresa'
       placeholder="Sitio Web"
       className="z-0 block w-full pl-10 appearance-none rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-1 mt-2 text-gray-700 dark:text-gray-300 focus:border-sky-500 dark:focus:border-sky-500 focus:outline-none focus:ring-0"
     />
@@ -81,6 +86,7 @@ export const InformacionPersonalEmpresa = () => {
       </svg>
     </span>
     <InputField
+      id='instagram_empresa'
       placeholder="Instagram"
       className="z-0 block w-full pl-10 appearance-none rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-1 mt-2 text-gray-700 dark:text-gray-300 focus:border-sky-500 dark:focus:border-sky-500 focus:outline-none focus:ring-0"
     />
@@ -95,6 +101,7 @@ export const InformacionPersonalEmpresa = () => {
       </svg>
     </span>
     <InputField
+      id='twitter_empresa'
       placeholder="Twitter"
       className="z-0 block w-full pl-10 appearance-none rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-1 mt-2 text-gray-700 dark:text-gray-300 focus:border-sky-500 dark:focus:border-sky-500 focus:outline-none focus:ring-0"
     />

@@ -16,7 +16,7 @@ const PhoneInput = ({ value, onChange }) => {
         onChange={onChange}
         pattern="[0-9]{10}"
         maxLength="10"
-        id="Telefono"
+        id="telefono_org"
       />
     </div>
   );

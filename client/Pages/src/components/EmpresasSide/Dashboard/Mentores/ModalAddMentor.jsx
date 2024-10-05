@@ -69,6 +69,19 @@ const ModalAddMentor = ({ isOpen, closeModal, addMentor, initialData }) => {
               value={formData.name}
               onChange={handleChange}
               required
+              id="nombre_mentor"
+            />
+          </div>
+          <div className="mb-2">
+            <label>Apellido</label>
+            <input
+              type="text"
+              name="name"
+              className="w-full p-2 border rounded"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              id="apellido_mentor"
             />
           </div>
 
@@ -81,6 +94,7 @@ const ModalAddMentor = ({ isOpen, closeModal, addMentor, initialData }) => {
               value={formData.mainTech}
               onChange={handleChange}
               required
+              id="tecnologia_mentor"
             />
           </div>
 
@@ -93,6 +107,7 @@ const ModalAddMentor = ({ isOpen, closeModal, addMentor, initialData }) => {
               value={formData.secondaryTech}
               onChange={handleChange}
               required
+              id="tecnologiasec1_mentor"
             />
           </div>
 
@@ -105,6 +120,7 @@ const ModalAddMentor = ({ isOpen, closeModal, addMentor, initialData }) => {
               value={formData.email}
               onChange={handleChange}
               required
+              id="email_mentor"
             />
           </div>
 
@@ -117,18 +133,20 @@ const ModalAddMentor = ({ isOpen, closeModal, addMentor, initialData }) => {
               value={formData.dni}
               onChange={handleChange}
               required
+              id="dni_mentor"
             />
           </div>
 
           <div className="mb-2">
-            <label>Fecha de Nacimiento</label>
+            <label>Edad</label>
             <input
-              type="date"
-              name="birthDate"
+              type="text"
+              name="age"
               className="w-full p-2 border rounded"
-              value={formData.birthDate}
+              value={formData.age}
               onChange={handleChange}
               required
+              id="edad_mentor"
             />
           </div>
 
@@ -141,6 +159,7 @@ const ModalAddMentor = ({ isOpen, closeModal, addMentor, initialData }) => {
               value={formData.phone}
               onChange={handleChange}
               required
+              id="telefono_mentor"
             />
           </div>
 

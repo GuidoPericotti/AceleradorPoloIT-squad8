@@ -79,7 +79,9 @@ const InputProvincias = forwardRef(({ selectedCountry }, ref) => {
           >
             <option value="">Selecciona una localidad</option>
             {localities.map((locality, index) => (
-              <option key={index} value={locality}>
+              <option key={index} value={locality}
+              id='provincia_org'
+              >
                 {locality}
               </option>
             ))}

@@ -3,18 +3,18 @@ const OngName = ({ register, value }) => {
   return (
     <div>
       <label 
-        htmlFor="name" 
+        htmlFor="nombre_org" 
         className="block text-gray-700 dark:text-gray-300"
-        id="name"
+        id="nombre_org"
         // Solo aplicamos register si está disponible
         {...(register ? register('name') : {})}
       >
         Nombre de la {value || ''}
       </label>
       <input
-        id="Nombre"
+        id="nombre_org"
         type="text"
-        aria-label="Nombre"
+        aria-label="nombre_org"
         className="w-full px-3 py-2 mt-1 border rounded-lg dark:bg-gray-700 dark:border-gray-700"
       />
     </div>

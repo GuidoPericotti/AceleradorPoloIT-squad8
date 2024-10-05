@@ -72,7 +72,7 @@ export const MentoresTable = () => {
       <table className="min-w-full text-left text-sm whitespace-nowrap">
         <thead className="uppercase tracking-wider border-b-2 dark:border-neutral-600">
           <tr>
-            <th className="px-3 py-4">Estudiantes</th>
+            <th className="px-3 py-4">Mentores</th>
             <th className="px-3 py-4">Tec. <br /> principal</th>
             <th className="px-3 py-4">Tec. <br /> secundaria</th>
             <th className="px-3 py-4">Email</th>

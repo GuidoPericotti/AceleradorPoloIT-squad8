@@ -105,7 +105,7 @@ export const Navbar = ({ darkMode, setDarkMode }) => {
             <li><NavLink to='/mentores'>Mentores</NavLink></li>
             <li><NavLink to='/contact'>Contacto</NavLink></li>
             <li><NavLink to='/admin'>Admin</NavLink></li>  {/* se añade vista admin temporal para ver la creacion */}
-            </ul>
+          </ul>
           <div className="flex-grow"></div>
           <div className="p-2 bg-zinc-50 mr-5 dark:bg-gray-900">
             <ToggleSwitch
