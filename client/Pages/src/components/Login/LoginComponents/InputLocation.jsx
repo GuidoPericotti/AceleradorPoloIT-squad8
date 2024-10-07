@@ -28,6 +28,7 @@ const InputLocation = forwardRef(({ selectedCountry, onCountryChange }, ref) => 
         value={selectedCountry}
         onChange={handleCountryChange}
         className="peer block w-full appearance-none rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-gray-700 dark:text-gray-300 placeholder-transparent focus:border-sky-500 focus:outline-none focus:ring-0"
+        id='pais_org'
       >
         <option value="">Selecciona un País</option>
         {countries.map((country) => (

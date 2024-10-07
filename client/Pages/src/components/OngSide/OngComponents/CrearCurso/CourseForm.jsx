@@ -11,13 +11,23 @@ const CourseForm = ({ onSubmit, onCancel, courseTitle, setCourseTitle, descripti
         label="Título del Curso"
         value={courseTitle}
         onChange={(e) => setCourseTitle(e.target.value)}
+        id='nombre_curso'
+      />
+      <InputField
+        label="Docente"
+        value={courseTeacher}
+        onChange={(e) => setCourseTeacher(e.target.value)}
+        id='docente_curso'
       />
       <TextAreaField
         label="Descripción"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
+        id='descripcion_curso'
       />
-      <DateRangeSelector />
+      <DateRangeSelector 
+        id='fechaInicio_curso'
+      />
       <div className='flex justify-center pt-3'>
         <ButtonGroup onCancel={onCancel} />
       </div>

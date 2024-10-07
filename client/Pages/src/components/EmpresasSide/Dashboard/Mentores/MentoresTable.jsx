@@ -1,98 +1,126 @@
-import React from 'react'
+import React, { useState } from 'react';
+import MentorRow from './MentorRow';
+import SearchBarMentores from './SearchBarMentores';
+import AddMentorWithModal from './AddMentorWithModal';
+import ModalAddMentor from './ModalAddMentor';
+import ConfirmDeleteModal from './ConfirmDeleteModal';
 
 export const MentoresTable = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [mentors, setMentors] = useState([]);
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [selectedMentor, setSelectedMentor] = useState(null);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false); // Estado para el modal de eliminación
+  const [mentorToDelete, setMentorToDelete] = useState(null); // Estado para el mentor que se va a eliminar
+
+  const addMentor = (mentor) => {
+    const birthDate = new Date(mentor.birthDate);
+    const age = new Date().getFullYear() - birthDate.getFullYear();
+    setMentors([...mentors, { ...mentor, age }]);
+  };
+
+  const editMentor = (updatedMentor) => {
+    setMentors(
+      mentors.map((mentor) =>
+        mentor.dni === updatedMentor.dni ? { ...updatedMentor } : mentor
+      )
+    );
+  };
+
+  const openDeleteModal = (mentor) => {
+    setMentorToDelete(mentor); // Guardar el mentor que se va a eliminar
+    setIsDeleteModalOpen(true); // Abrir el modal de eliminación
+  };
+
+  const closeDeleteModal = () => {
+    setIsDeleteModalOpen(false); // Cerrar el modal de eliminación
+    setMentorToDelete(null); // Limpiar el mentor seleccionado
+  };
+
+  const confirmDelete = () => {
+    if (mentorToDelete) {
+      setMentors(mentors.filter((mentor) => mentor.dni !== mentorToDelete.dni));
+      closeDeleteModal(); // Cerrar el modal después de eliminar
+    }
+  };
+
+  const filteredMentors = mentors
+    .filter((mentor) => mentor.name || mentor.mainTech || mentor.email)
+    .filter((mentor) =>
+      mentor.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+  const openEditModal = (mentor) => {
+    setSelectedMentor(mentor);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    setSelectedMentor(null); 
+  };
+
   return (
-    <div>
-        {/* <!-- Table responsive wrapper --> */}
-<div class="overflow-x-auto bg-white dark:bg-neutral-700">
+    <div className="overflow-x-auto bg-white dark:bg-neutral-700">
+      <div className="relative m-[2px] mb-3 mr-5 float-left">
+        <SearchBarMentores value={searchTerm} onChange={setSearchTerm} />
+      </div>
+      <div className="relative float-end mr-1 m-[2px] mb-3">
+        <AddMentorWithModal addMentor={addMentor} />
+      </div>
 
-  {/* <!-- Table --> */}
-  <table class="min-w-full text-left text-sm whitespace-nowrap">
+      <table className="min-w-full text-left text-sm whitespace-nowrap">
+        <thead className="uppercase tracking-wider border-b-2 dark:border-neutral-600">
+          <tr>
+            <th className="px-3 py-4">Mentores</th>
+            <th className="px-3 py-4">Tec. <br /> principal</th>
+            <th className="px-3 py-4">Tec. <br /> secundaria</th>
+            <th className="px-3 py-4">Email</th>
+            <th className="px-3 py-4">Dni</th>
+            <th className="px-3 py-4">Edad</th>
+            <th className="px-3 py-4">Teléfono</th>
+            <th className="px-3 py-4"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {filteredMentors.length > 0 ? (
+            filteredMentors.map((mentor, index) => (
+              <MentorRow 
+                key={index} 
+                mentor={mentor} 
+                onEdit={openEditModal} 
+                openDeleteModal={openDeleteModal} // Pasa la función correctamente
+              />
+            ))
+          ) : (
+            <tr>
+              <td colSpan="8" className="text-center py-4">
+                No hay estudiantes disponibles.
+              </td>
+            </tr>
+          )}
+        </tbody>
+      </table>
 
-    {/* <!-- Table head --> */}
-    <thead class="uppercase tracking-wider border-b-2 dark:border-neutral-600">
-      <tr>
-        <th scope="col" class="px-6 py-4">
-          Mentores
-        </th>
-        <th scope="col" class="px-6 py-4">
-          Tec. principal
-        </th>
-        <th scope="col" class="px-6 py-4">
-          Tec. secundaria
-        </th>
-        <th scope="col" class="px-6 py-4">
-          Email
-        </th>
-        <th scope="col" class="px-6 py-4">
-          Dni
-        </th>
-        <th scope="col" class="px-6 py-4">
-          Edad
-        </th>
-        <th scope="col" class="px-6 py-4">
-          Telefono
-        </th>        
-        <th scope="col" class="px-6 py-4">
-          <button>Añadir</button>
-        </th>        
+      {/* Modal para añadir o editar mentores */}
+      {isModalOpen && (
+        <ModalAddMentor
+          isOpen={isModalOpen}
+          closeModal={closeModal}
+          addMentor={selectedMentor ? editMentor : addMentor}
+          initialData={selectedMentor} 
+        />
+      )}
 
-      </tr>
-    </thead>
-
-    {/* <!-- Table body --> */}
-    <tbody>
-
-      <tr class="border-b dark:border-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-600">
-        <th scope="row" class="px-6 py-4">
-          Mario <br /> Alonso
-        </th>
-        <td class="px-6 py-4">Tester</td>
-        <td class="px-6 py-4">UX/Ui</td>
-        <td class="px-6 py-4">marioAlonso1@gmail.com</td>
-      </tr>
-
-      <tr class="border-b dark:border-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-600">
-        <th scope="row" class="px-6 py-4">
-        Mario <br /> Alonso
-        </th>
-        <td class="px-6 py-4">Dev</td>
-        <td class="px-6 py-4">UX/Ui</td>
-        <td class="px-6 py-4">marioAlonso1@gmail.com</td>
-      </tr>
-
-      <tr class="border-b dark:border-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-600">
-        <th scope="row" class="px-6 py-4">
-        Mario <br /> Alonso
-        </th>
-        <td class="px-6 py-4">UX/Ui</td>
-        <td class="px-6 py-4">Dev</td>
-        <td class="px-6 py-4">marioAlonso1@gmail.com</td>
-      </tr>
-
-      <tr class="border-b dark:border-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-600">
-        <th scope="row" class="px-6 py-4">
-        Mario <br /> Alonso
-        </th>
-        <td class="px-6 py-4">Dev</td>
-        <td class="px-6 py-4">TESTER</td>
-        <td class="px-6 py-4">marioAlonso1@gmail.com</td>
-      </tr>
-
-      <tr class="border-b dark:border-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-600">
-        <th scope="row" class="px-6 py-4">
-        Mario <br /> Alonso
-        </th>
-        <td class="px-6 py-4">TESTER</td>
-        <td class="px-6 py-4">Dev</td>
-        <td class="px-6 py-4">marioAlonso1@gmail.com</td>
-      </tr>
-
-    </tbody>
-
-  </table>
-
-</div>
+      {/* Modal de eliminación */}
+      {isDeleteModalOpen && (
+        <ConfirmDeleteModal
+          isOpen={isDeleteModalOpen}
+          closeModal={closeDeleteModal}
+          mentor={mentorToDelete}
+          confirmDelete={confirmDelete}
+        />
+      )}
     </div>
-  )
-}
+  );
+};

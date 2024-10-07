@@ -39,23 +39,26 @@ export const StudentsTable = () => {
             <tr>
               <th scope="col" className="px-6 py-4">Apellido</th>
               <th scope="col" className="px-6 py-4">Nombre</th>
-              <th scope="col" className="px-6 py-4">Status</th>
-              <th scope="col" className="px-6 py-4">Edición</th>
+              <th scope="col" className="px-6 py-4">Perfil</th>
             </tr>
           </thead>
           <tbody>
             {[
-              { apellido: "Vallejos", nombre: "Sergio", status: "Mentor" },
-              { apellido: "Liporace", nombre: "Andres", status: "Desarrollador" },
-              { apellido: "Gonzalez", nombre: "Rocio", status: "QA" },
-              { apellido: "Lo celso", nombre: "Gio", status: "Diseñador" },
-              { apellido: "Martinez", nombre: "Lautaro", status: "Desarrolllador" },
+              { apellido: "Vallejos", nombre: "Sergio", perfil: "Mentor" },
+              { apellido: "Liporace", nombre: "Andres", perfil: "Desarrollador" },
+              { apellido: "Gonzalez", nombre: "Rocio", perfil: "QA" },
+              { apellido: "Lo celso", nombre: "Gio", perfil: "Diseñador" },
+              { apellido: "Martinez", nombre: "Lautaro", perfil: "Desarrolllador" },
             ].map((student, index) => (
               <tr key={index} className="border-b dark:bg-gray-600 hover:bg-neutral-100 dark:hover:bg-neutral-600">
-                <th scope="row" className="px-6 py-4 dark:text-white">{student.apellido}</th>
-                <td className="px-6 py-4 dark:text-white">{student.nombre}</td>
-                <td className="px-6 py-4 dark:text-white">{student.status}</td>
-                <td className="px-6 py-4 dark:text-white">
+                <th scope="row" 
+                className="px-6 py-4 dark:text-white" id='apellido_estudiante'>{student.apellido}</th>
+                <td 
+                className="px-6 py-4 dark:text-white" id='nombre_estudiante'>{student.nombre}</td>
+                <td 
+                className="px-6 py-4 dark:text-white" id='perfil_estudiante'>{student.perfil}</td>
+                <td 
+                className="px-6 py-4 dark:text-white">
                   <button className="text-blue-500 hover:text-blue-700">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 20h9" />
