@@ -4,7 +4,26 @@ import TextAreaField from './TextAreaField';
 import DateRangeSelector from './DateRangeSelector';
 import ButtonGroup from './ButtonGroup';
 
-const CourseForm = ({ onSubmit, onCancel, courseTitle, setCourseTitle, description, setDescription }) => {
+const PersonalCourses = ({ courseTitle }) => {
+  return (
+    <div>
+      <h2 className="text-xl font-bold">Cursos Personales</h2>
+      {courseTitle && <AcordionCourse nroItem={courseTitle} />}
+    </div>
+  );
+};
+
+// CourseForm.jsx
+const CourseForm = ({ 
+  onSubmit, 
+  onCancel, 
+  courseTitle, 
+  setCourseTitle, 
+  description, 
+  setDescription, 
+  courseTeacher, 
+  setCourseTeacher 
+}) => {
   return (
     <form onSubmit={onSubmit}>
       <InputField
@@ -25,9 +44,7 @@ const CourseForm = ({ onSubmit, onCancel, courseTitle, setCourseTitle, descripti
         onChange={(e) => setDescription(e.target.value)}
         id='descripcion_curso'
       />
-      <DateRangeSelector 
-        id='fechaInicio_curso'
-      />
+      <DateRangeSelector id='fechaInicio_curso' />
       <div className='flex justify-center pt-3'>
         <ButtonGroup onCancel={onCancel} />
       </div>

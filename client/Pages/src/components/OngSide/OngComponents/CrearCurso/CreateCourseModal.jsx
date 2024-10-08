@@ -2,13 +2,14 @@ import Modal from './Modal';
 import CourseForm from './CourseForm';
 import { useState } from 'react';
 
-const CreateCourseModal = ({ onClose }) => {
-  const [courseTitle, setCourseTitle] = useState('');
+const CreateCourseModal = ({ onClose, onAddCourse }) => {
+  const [localCourseTitle, setLocalCourseTitle] = useState('');
   const [description, setDescription] = useState('');
+  const [courseTeacher, setCourseTeacher] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Lógica para guardar el curso
+    onAddCourse(localCourseTitle);
     onClose();
   };
 
@@ -17,10 +18,12 @@ const CreateCourseModal = ({ onClose }) => {
       <CourseForm
         onSubmit={handleSubmit}
         onCancel={onClose}
-        courseTitle={courseTitle}
-        setCourseTitle={setCourseTitle}
+        courseTitle={localCourseTitle}
+        setCourseTitle={setLocalCourseTitle}
         description={description}
         setDescription={setDescription}
+        courseTeacher={courseTeacher}
+        setCourseTeacher={setCourseTeacher}
       />
     </Modal>
   );

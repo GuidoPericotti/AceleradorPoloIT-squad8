@@ -8,7 +8,9 @@
   
    const [activeSection, setActiveSection] = useState('default');
    const [isModalOpen, setIsModalOpen] = useState(false);
-   
+   const [courseTitle, setCourseTitle] = useState(''); // Añadimos el estado aquí
+
+
    const handleCardClick = (section) => {
      if (section === 'createCourse') {
        setIsModalOpen(true);
@@ -16,6 +18,11 @@
        setActiveSection(section);
      }
    };
+   const handleAddCourse = (title) => {
+    setCourseTitle(title);
+    setIsModalOpen(false);
+    setActiveSection('personalCourses'); // Cambiamos a la sección de cursos personales
+  };
 
    return (
      <div className={`relative pt-14 ${darkMode ? 'dark' : ''}`}>
@@ -41,7 +48,7 @@
        </div>
      </section>
     <div className={`mt-8 max-w-[1400px] ${darkMode ? 'bg-gray-600 text-white' : 'bg-white text-black'} min-h-[400px]`}>
-      {activeSection === 'personalCourses' && <PersonalCourses darkMode={darkMode} />}
+      {activeSection === 'personalCourses' && <PersonalCourses darkMode={darkMode} courseTitle={courseTitle}/>}
       {activeSection === 'students' && <Students darkMode={darkMode} />}
       
       {activeSection === 'default' && (
@@ -53,7 +60,8 @@
    </div>
 
    <div className="relative z-50">
-     <DashboardModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} darkMode={darkMode}/>
+     <DashboardModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} darkMode={darkMode} onAddCourse={handleAddCourse}
+     />
    </div>
  </div>
 
