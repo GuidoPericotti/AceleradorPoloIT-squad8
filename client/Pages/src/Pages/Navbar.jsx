@@ -23,13 +23,13 @@ export const Navbar = ({ darkMode, setDarkMode }) => {
           </NavLink>
           <div className="flex-grow"></div>
           <ul className="hidden admlg:flex space-x-6">
-            <li><NavLink to='/OngClient'>Ong</NavLink></li>
-            <li><NavLink to='/empresas'>Empresas</NavLink></li>
+            <li><NavLink to='/ong'>Ong</NavLink></li>
+            <li><NavLink to='/empresa'>Empresas</NavLink></li>
             <li><NavLink to='/proyectos'>Proyectos</NavLink></li>
             <li><NavLink to='/participantes'>Participantes</NavLink></li>
             <li><NavLink to='/mentores'>Mentores</NavLink></li>
             <li><NavLink to='/contact'>Contacto</NavLink></li>
-            <li><NavLink to='/admin' >Admin</NavLink></li>  {/* se añade vista admin temporal para ver la creacion */}
+            {/* <li><NavLink to='/admin' >Admin</NavLink></li>  se añade vista admin temporal para ver la creacion */}
           </ul>
           <div className="flex-grow"></div>
           <div className="p-2 bg-zinc-50 mr-5 dark:bg-gray-900">
@@ -39,7 +39,7 @@ export const Navbar = ({ darkMode, setDarkMode }) => {
             />
           </div>
           <div className="hidden admlg:flex items-center">
-            <NavLink to='/Login'><Login /></NavLink>
+            <NavLink to='/crear-cuenta'><Login /></NavLink>
           </div>
           <button
             onClick={toggleMenu}
@@ -60,10 +60,10 @@ export const Navbar = ({ darkMode, setDarkMode }) => {
               <li><NavLink to='/participantes'>Participantes</NavLink></li>
               <li><NavLink to='/mentores'>Mentores</NavLink></li>
               <li><NavLink to='/contact'>Contacto</NavLink></li>
-             <li><NavLink to='/admin'>Admin</NavLink></li>  {/* se añade vista admin temporal para ver la creacion */}
+             {/* <li><NavLink to='/admin'>Admin</NavLink></li> */}
             </ul>
             <div className="mt-4">
-            <NavLink to='/Login'><Login /></NavLink>
+            <NavLink to='/crear-cuenta'><Login /></NavLink>
             </div>
           </div>
         )}
