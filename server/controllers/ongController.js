@@ -13,7 +13,7 @@ const getOngById = (req,res) => {
 //Crear nuevo usuario ong
 const createOngUser = (req,res) => {
     const {nombre, password} = req.body;
-    const sql = 'INSERT INTO ongs (nombre_org, password_org, email_org, pais_org, provincia_org, ciudad_org, descripcion_org, tipoOrg_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+    const sql = 'INSERT INTO ongs (nombre_org, password_org, email_org, pais_org, provincia_org, descripcion_org, tipoOrg_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
     db.query(sql, [user, password], (err, result) => {
         if (err) throw err;
         res.json({ mensaje: "Ong creado correctamente", organizacion_id: result.insertId, fechaCreacion_org: result.insertDate});
