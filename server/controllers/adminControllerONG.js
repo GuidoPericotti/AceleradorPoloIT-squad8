@@ -52,8 +52,8 @@ const getOngById = (req, res) => {
 const updateOng = (req, res) => {
     const { id } = req.params;
     const { nombre_org, password_org, email_org, pais_org, provincia_org, ciudad_org, descripcion_org} = req.body;
-    const sql = "UPDATE ongs SET nombre_org = ?, password_org = ?, email_org = ?, pais_org = ?, provincia_org = ?, ciudad_org = ?, descripcion_org = ?, telefono_org = ?, instagram_org = ?, facebook_org = ?, twitter_org = ?, web_org = ? WHERE organizacion_id = ?";
-    db.query(sql, [nombre_org, password_org, email_org, pais_org, provincia_org, ciudad_org, descripcion_org, id], (err, result) => {
+    const sql = "UPDATE ongs SET nombre_org = ?, password_org = ?, email_org = ?, pais_org = ?, provincia_org = ?, descripcion_org = ?, telefono_org = ?, instagram_org = ?, facebook_org = ?, twitter_org = ?, web_org = ? WHERE organizacion_id = ?";
+    db.query(sql, [nombre_org, password_org, email_org, pais_org, provincia_org, descripcion_org, id], (err, result) => {
         if (err) throw err;
         res.json({ mensaje: "ONG actualizada correctamente" });
     });

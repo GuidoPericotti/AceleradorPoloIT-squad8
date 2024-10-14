@@ -52,8 +52,8 @@ const getEmpresaById = (req, res) => {
 const updateEmpresa = (req, res) => {
     const { id } = req.params;
     const { nombre_empresa, password_empresa, email_empresa, pais_org, provincia_org, ciudad_org, descripcion_empresa} = req.body;
-    const sql = "UPDATE empresas SET nombre_empresa = ?, password_empresa = ?, email_empresa = ?, pais_empresa = ?, provincia_empresa = ?, ciudad_empresa = ?, descripcion_empresa = ?, telefono_empresa = ?, instagram_empresa = ?, facebook_empresa = ?, twitter_empresa = ?, web_empresa = ? WHERE organizacion_id = ?";
-    db.query(sql, [nombre_empresa, password_empresa, email_empresa, pais_org, provincia_org, ciudad_org, descripcion_empresa, id], (err, result) => {
+    const sql = "UPDATE empresas SET nombre_empresa = ?, password_empresa = ?, email_empresa = ?, pais_empresa = ?, provincia_empresa = ?, descripcion_empresa = ?, telefono_empresa = ?, instagram_empresa = ?, facebook_empresa = ?, twitter_empresa = ?, web_empresa = ? WHERE organizacion_id = ?";
+    db.query(sql, [nombre_empresa, password_empresa, email_empresa, pais_org, provincia_org, descripcion_empresa, id], (err, result) => {
         if (err) throw err;
         res.json({ mensaje: "Empresa actualizada correctamente" });
     });
