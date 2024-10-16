@@ -11,7 +11,7 @@ const MentorRow = ({ mentor, onEdit, onDelete, openDeleteModal }) => {
     !mentor.phone;
 
   return (
-    <tr className="border-b dark:border-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-600">
+    <tr className="border-b dark:border-neutral-600  dark:hover:bg-neutral-600">
       <th scope="row" className="px-3 py-4">{mentor.name}</th>
       <td className="px-3 py-4">{mentor.mainTech}</td>
       <td className="px-3 py-4">{mentor.secondaryTech}</td>
