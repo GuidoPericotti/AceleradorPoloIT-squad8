@@ -4,7 +4,7 @@ import { ButtonOngEmpresa } from './ButtonOngEmpresa';
 import { CardsSolicitudes } from './CardsSolicitudes';
 import { SidebarOng } from '../OngSide/OngComponents/Navbar/SidebarOng';
 
-export const CardPrincipal = () => {
+export const CardPrincipal = ({darkMode}) => {
   const [filter, setFilter] = useState('');
 
   const allCards = [
@@ -27,7 +27,7 @@ export const CardPrincipal = () => {
 
   return (
     <div className="mt-20 flex flex-col items-center dark:bg-gray-800">
-      <main className="admlg:-ml-10 adms:-ml-8 sticky top-[80px] flex items-center bg-gray-100 p-4 w-[90%] rounded-t-3xl dark:bg-gray-600 flex-col sm:flex-row justify-center">
+      <main className="admlg:-ml-10 adms:-ml-8 sticky top-[80px] flex items-center bg-gradient-to-r from-[#76B596] via-[#41849D] to-[#034AA6] p-4 w-[90%] rounded-t-3xl dark:bg-gray-600 flex-col sm:flex-row justify-center">
         <div className="flex items-center justify-center">
           <LogoSolicitudes />
           <h2 className="mx-4 text-lg font-semibold text-gray-700 dark:text-white">Solicitudes</h2>
@@ -45,20 +45,18 @@ export const CardPrincipal = () => {
       </section>
 
       {/* Contenedor principal de columnas */}
-      <section className="flex flex-col sm:flex-row w-full mt-8 adms:mr-8 adms:mt-14 admlg:ml-20 admlg:mt-10">
-      <div className="sm:w-[160px] adms:w-[120px] mb-8 ">
-      <SidebarOng />
+      <section className="flex flex-col sm:flex-row w-full mt-8 adms:mr-8 adms:mt-14 admlg:ml-20 admlg:mt-[46px]">
+      <div className="sm:w-[160px] adms:w-[120px] mb-8 z-0">
+      <SidebarOng/>
         </div>
       </section>
       <section>
-        <div className="admlg:grid adms:pl-40 admlg:grid-cols-3 admlg:pr-44">
+        <div className="admlg:grid adms:pl-40 admlg:grid-cols-2 admlg:pr-32">
         {filteredCards.map(card => (
-          <CardsSolicitudes key={card.id} tipo={card.Nombre} />
+          <CardsSolicitudes key={card.id} tipo={card.Nombre}  darkMode={darkMode}/>
           ))}
         </div>  
       </section>
-
-
     </div>
   );
 };

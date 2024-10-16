@@ -15,7 +15,7 @@ export const Navbar = ({ darkMode, setDarkMode }) => {
   };
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-zinc-50 dark:bg-gray-900 shadow rounded-md">
+    <header className="fixed top-0 w-full z-50 bg-[#C6E5D6] dark:bg-gray-900 shadow rounded-md">
       <nav className="mt-2 ml-3 mr-3 text-black dark:text-white">
         <div className="flex items-center justify-between w-full h-16">
           <NavLink to='/' className="flex-shrink-0 w-16 h-16 bg-transparent">
@@ -32,7 +32,7 @@ export const Navbar = ({ darkMode, setDarkMode }) => {
             {/* <li><NavLink to='/admin' >Admin</NavLink></li>  se añade vista admin temporal para ver la creacion */}
           </ul>
           <div className="flex-grow"></div>
-          <div className="p-2 bg-zinc-50 mr-5 dark:bg-gray-900">
+          <div className="p-2 bg-[#C6E5D6] mr-5 dark:bg-gray-900">
             <ToggleSwitch
               isChecked={darkMode}
               onChange={handleToggleDarkMode}

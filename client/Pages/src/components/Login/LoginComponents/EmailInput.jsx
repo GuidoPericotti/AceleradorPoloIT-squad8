@@ -45,7 +45,8 @@ const EmailInput = ({ className, id }) => {
     <div className="relative">
       <InputField
         type="email"
-        ariaLabel="Email"
+        // ariaLabel="Email"
+        placeholder="Ingresar correo"
         {...register('email', {
           required: 'El email es requerido',
           pattern: {

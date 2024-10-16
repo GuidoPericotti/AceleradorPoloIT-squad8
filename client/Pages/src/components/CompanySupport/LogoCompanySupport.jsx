@@ -3,7 +3,7 @@ import React from 'react';
 export const LogoCompanySupport = ({ Company, darkMode }) => {
   return (
     <div
-      className={`flex flex-col items-center p-4 pt-32 pb-10 dark:bg-dark-primary dark:text-white ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'}`}
+      className={`flex flex-col items-center p-4 pt-32 pb-10 dark:bg-dark-primary dark:text-white ${darkMode ? 'bg-gray-800 text-white' : 'bg-[#F3F9F6] text-black'}`}
     >
       <h3 className="text-lg font-bold text-center mb-10">{Company}</h3>
       <div className="flex flex-wrap justify-center gap-12">

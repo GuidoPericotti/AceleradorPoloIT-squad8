@@ -458,6 +458,8 @@ import { OngClientSide } from './components/OngClient/OngClientSide';
 import LogOng from './components/Login/LogOng';
 import ONGEmpresaLogin from './components/Login/LoginComponents/ONGEmpresaLogin';
 import { LogInConCuenta } from './components/Login/LogInConCuenta';
+import { OngUserSide } from './Pages/OngUserSide';
+
 
 const App = () => {
   return (
@@ -479,25 +481,25 @@ const App = () => {
           <Route 
             path="/ong-client" 
             element={
-              <PrivateRoute roles={['ONG']}>
-                <OngClientSide />
-              </PrivateRoute>
+              // <PrivateRoute roles={['ONG']}>
+                <OngUserSide />
+              // </PrivateRoute>
             } 
           />
           <Route 
             path="/admin" 
             element={
-              <PrivateRoute roles={['Admin']}>
+              // <PrivateRoute roles={['Admin']}>
                 <AdminPage />
-              </PrivateRoute>
+              // </PrivateRoute>
             } 
           />
           <Route 
             path="/empresa-side" 
             element={
-              <PrivateRoute roles={['Empresa']}>
+              //<PrivateRoute roles={['Empresa']}>
                 <EmpresaSide />
-              </PrivateRoute>
+              //</PrivateRoute>
             } 
           />
 

@@ -36,7 +36,7 @@ export const NavLinks = () => {
           className="text-black/60 text-sm transition hover:text-black/80 dark:text-white/60 dark:hover:text-white/80 lg:text-base"
           to="/projects"
         >
-          Nombre ONG
+        Nombre de la "ONG"
         </NavLink>
       </li>
     </ul>

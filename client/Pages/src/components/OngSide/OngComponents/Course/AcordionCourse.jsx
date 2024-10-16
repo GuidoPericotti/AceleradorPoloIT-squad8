@@ -19,14 +19,14 @@ const AcordionCourse = ({ nroItem, darkMode, description }) => {
   };
 
   return (
-    <div className={`${darkMode ? 'bg-gray-700 text-white' : 'bg-white text-black'}`}>
-  <div className="w-screen overflow-x-hidden">
+    <div className={`${darkMode ? 'bg-gray-700 text-white' : 'bg-[#82C7A5] text-black'}`}>
+  <div className="w-screen overflow-x-hidden ">
     {/* El acordeón */}
-    <div id="accordionExample" className="dark:bg-gray-700 w-full">
-      <div className="dark:bg-gray-700 rounded-t-lg border bg-white dark:border-neutral-600 dark:bg-body-dark w-full">
-        <h2 className="dark:bg-gray-700 mb-0" id="headingOne">
+    <div id="accordionExample" className="dark:bg-gray-700 w-full bg-[#82C7A5]">
+      <div className="dark:bg-gray-700 rounded-t-lg border bg-[#82C7A5] dark:border-neutral-600 dark:bg-body-dark w-full">
+        <h2 className="dark:bg-gray-700 mb-0 bg-[#82C7A5]" id="headingOne">
           <button
-            className={`group relative flex w-full items-center rounded-t-lg border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition hover:z-[2] focus:z-[3] focus:outline-none dark:bg-body-dark dark:text-white ${isOpen ? 'bg-gray-700' : 'dark:bg-gray-700 dark:text-white'}`}
+            className={`group relative flex w-full items-center rounded-t-lg border-0  px-5 py-4 text-left text-base text-neutral-800 transition hover:z-[2] focus:z-[3] focus:outline-none dark:bg-body-dark dark:text-white ${isOpen ? 'bg-[#82C7A5]' : 'dark:bg-gray-700 dark:text-white'}`}
             type="button"
             onClick={handleCardClick}
             aria-expanded={isOpen}
@@ -41,19 +41,7 @@ const AcordionCourse = ({ nroItem, darkMode, description }) => {
             </span>
           </button>
         </h2>
-        <div id="collapseOne" className={`${isOpen ? 'block' : 'hidden'}`} aria-labelledby="headingOne">
-          {/* <div className="px-5 py-4 w-full dark:bg-gray-700">
-            {/* Search bar y botón de agregar estudiante 
-            <div className="flex justify-around items-center mb-4">
-              {/* Search Bar 
-              <input
-                id="inputSearch"
-                type="text"
-                placeholder="Searches..."
-                className="block w-64 rounded-lg border dark:border-none dark:bg-gray-600 dark:text-white py-2 pl-10 pr-4 text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400"
-              />
-            </div> */}
-
+        <div id="collapseOne" className={`${isOpen ? 'block ' : 'hidden'}`} aria-labelledby="headingOne">
             <StudentsTable />
           {/* </div> */}
         </div>

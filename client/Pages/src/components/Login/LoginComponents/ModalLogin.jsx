@@ -3,7 +3,7 @@ import React from 'react';
 export const ModalLogin = ({ onClose, title, message, buttonText, extraButtonText, onExtraButtonClick }) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-75">
-      <div className="w-full max-w-lg p-6 bg-white rounded-lg shadow-lg">
+      <div className="w-full max-w-lg p-6 bg-[#C6E5D6] rounded-lg shadow-lg">
         <h3 className="font-bold text-lg">{title}</h3>
         <p className="py-4">{message}</p>
         <div className="modal-action">

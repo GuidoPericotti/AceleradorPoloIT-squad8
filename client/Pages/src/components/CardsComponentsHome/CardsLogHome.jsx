@@ -33,7 +33,7 @@ export const CardsLogHome = ({ src, description, darkMode, className }) => {
   return (
     <article
       ref={cardRef}
-      className={`w-full max-w-sm mx-auto rounded-xl shadow-md overflow-hidden transform transition-all duration-700 ease-in-out opacity-0 translate-y-10 ${className} ${darkMode ? 'bg-gray-700' : 'bg-white'} mb-6`} // Añadido mb-6 para margen inferior
+      className={`w-full max-w-sm mx-auto rounded-xl shadow-md overflow-hidden transform transition-all duration-700 ease-in-out opacity-0 translate-y-10 ${className} ${darkMode ? 'bg-gray-700' : 'bg-[#C6E5D6]'} mb-6`} // Añadido mb-6 para margen inferior
     >
       <figure>
         <img className="h-48 w-full object-cover" src={src} alt="Ong Img for Button" />

@@ -46,8 +46,8 @@ export const CardTestimony = () => {
         {slides.map((slide) => (
           <div
             key={slide.id}
-            className="max-w-full flex-shrink-0 flex justify-left items-center p-8 border-2 border-gray-300 rounded-lg h-96"> {/* Card más alta */}
-            <div className="text-left w-1/2 ml-12"> {/* Ancho del texto ajustado */}
+            className="max-w-full flex-shrink-0 flex justify-left items-center p-8 border-2 border-gray-300 rounded-lg h-96 bg-[#82C7A5]"> {/* Card más alta */}
+            <div className="text-left w-1/2 ml-12 bg-[#82C7A5]"> {/* Ancho del texto ajustado */}
               <h2 className="text-3xl font-bold mb-4">{slide.title}</h2>
               <p className="text-sm text-gray-600 max-h-24 overflow-y-auto dark:text-white">{slide.description}</p> {/* Descripción más compacta */}
             </div>

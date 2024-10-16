@@ -32,7 +32,7 @@ export const FooterComponent = ({ darkMode }) => {
   ];
 
   return (
-    <footer className={`p-10 dark:bg-dark-primary ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'}`}>
+    <footer className={`p-10 dark:bg-dark-primary ${darkMode ? 'bg-gray-800 text-white' : 'bg-[#C6E5D6] text-black'}`}>
       <div className="container mx-auto">
         <div className="flex flex-wrap justify-around gap-6">
           <FooterNav title="Use cases" links={useCasesLinks} darkMode={darkMode} />

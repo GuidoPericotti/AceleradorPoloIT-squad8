@@ -4,7 +4,7 @@ const OngName = ({ register, value }) => {
     <div>
       <label 
         htmlFor="nombre_org" 
-        className="block text-gray-700 dark:text-gray-300"
+        className="block text-black dark:text-gray-300"
         id="nombre_org"
         // Solo aplicamos register si está disponible
         {...(register ? register('name') : {})}
