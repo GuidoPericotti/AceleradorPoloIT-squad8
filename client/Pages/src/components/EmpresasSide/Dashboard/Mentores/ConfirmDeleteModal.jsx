@@ -11,7 +11,7 @@ const ConfirmDeleteModal = ({ isOpen, closeModal, mentor, confirmDelete }) => {
     >
       <div className="relative flex w-full max-w-md flex-col rounded-md bg-white shadow-lg">
         <div className="flex items-center justify-between rounded-t-md border-b-2 p-4">
-          <h5 className="text-xl font-medium">¿Quiere eliminar a este mentor?</h5>
+          <h5 className="text-xl font-medium">¿Quiere eliminar a este estudiante?</h5>
           <button
             type="button"
             className="text-neutral-500 hover:text-neutral-800 focus:text-neutral-800"

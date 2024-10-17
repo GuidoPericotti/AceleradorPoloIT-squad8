@@ -67,9 +67,10 @@ export const CardsSolicitudes = ({ tipo, darkMode }) => {
     {showModalAdmin && (
       <ModalLogin
         onClose={handleModalClose}
-        message="¿Deseas rechazar la solicitud?"
-        buttonText="Cancelar"
-        extraButtonText="Rechazar"
+        message="¿Quiere rechazar esta solicitud?"
+        messagep="La solicitud cambiará de estado de pendiente a rechazado"
+        buttonText="Rechazar"
+        extraButtonText="Cancelar"
         onExtraButtonClick={() => alert('Rechazado')}
       />
     )}

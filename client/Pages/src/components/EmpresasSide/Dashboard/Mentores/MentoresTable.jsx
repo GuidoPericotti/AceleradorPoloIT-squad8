@@ -205,7 +205,7 @@ export const MentoresTable = ({ darkMode }) => {
             <th className="px-3 py-4">Dni</th>
             <th className="px-3 py-4">Edad</th>
             <th className="px-3 py-4">Teléfono</th>
-            <th className="px-3 py-4"></th>
+            <th className="px-3 py-4">Editar</th>
           </tr>
         </thead>
         <tbody>

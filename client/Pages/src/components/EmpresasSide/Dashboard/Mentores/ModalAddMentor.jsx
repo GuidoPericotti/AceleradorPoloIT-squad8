@@ -249,7 +249,7 @@ const ModalAddMentor = ({ isOpen, closeModal, addMentor, initialData, darkMode }
 
         <form onSubmit={handleSubmit} className="p-1">
           <div className="mb-0.5">
-            <label>Nombre</label>
+            <label>Nombre y Apellido</label>
             <input
               type="text"
               name="name"
@@ -329,10 +329,10 @@ const ModalAddMentor = ({ isOpen, closeModal, addMentor, initialData, darkMode }
           <div className="mb-0.5">
             <label>Edad</label>
             <input
-              type="text"
-              name="age"
+              type="date"
+              name="birthDate"
               className={`w-full p-2 border rounded ${darkMode ? 'bg-gray-900 border-gray-700 text-gray-300' : 'bg-white border-gray-300 text-black'}`}
-              value={formData.age}
+              value={formData.birthDate}
               onChange={handleChange}
               required
               id="edad_mentor"

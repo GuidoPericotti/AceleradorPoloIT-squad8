@@ -9,8 +9,6 @@ export default {
     screens: {
       'adms': { 'max-width': '600px' },
       'admlg': { 'min-width': '800px' }, // Breakpoint personalizado admlg
-
-
     },
     extend: {
       keyframes: {
