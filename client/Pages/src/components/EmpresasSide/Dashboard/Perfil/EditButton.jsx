@@ -5,8 +5,8 @@ import React from 'react';
 const EditButton = ({ darkMode }) => {
   return (
     <div className="relative">
-      <div className={`
-        absolute w-[968px] h-60 rounded-lg p-3 z-0
+      <div className={` adms:w-[480px]
+        absolute admlg:w-[968px] h-60 rounded-lg p-3 z-0
         ${darkMode ? 'bg-gray-900' : 'bg-black'}
         transition-colors duration-300
       `} />
