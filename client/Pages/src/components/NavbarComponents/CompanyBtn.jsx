@@ -35,7 +35,7 @@ export const CompanyBtn = () => {
 
       {/* Separación superior entre Mentorias y el siguiente CardEmpresas */}
       <Mentorias className="py-24" />
-      <div className='py-24 grid grid-cols gap-56 dark:bg-dark-primary'>
+      <div className='py-24 grid grid-cols gap-56 dark:bg-dark-primary bg-[#D8EEE3]'>
         <CardEmpresas titulo="Titulo 1" />
         <CardEmpresas titulo="Titulo 2" />
         <CardEmpresas titulo="Titulo 3" />

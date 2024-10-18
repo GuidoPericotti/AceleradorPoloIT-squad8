@@ -59,7 +59,7 @@ export const OngPage = () => {
   return (
     <>
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />    
-      <div className={`pt-20 min-h-screen ${darkMode ? 'bg-gray-900' : 'bg-white'}`}>
+      <div className={`pt-24 min-h-screen ${darkMode ? 'bg-gray-900' : 'bg-[#F3F9F6]'}`}>
         <AuthPage darkMode={darkMode} setDarkMode={setDarkMode} />
       </div>
     </>

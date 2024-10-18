@@ -12,7 +12,7 @@ const App = lazy(async () => {
   return import('./App');
 });
 
-// Componente Loader (puede ser un spinner, barra de progreso, etc.)
+// Componente Loader (puede ser un spinner.)
 const Loader = () => {
   return (
     <div className="flex items-center justify-center min-h-screen ">

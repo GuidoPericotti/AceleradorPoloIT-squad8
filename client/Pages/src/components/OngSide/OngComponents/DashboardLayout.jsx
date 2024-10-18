@@ -8,7 +8,9 @@
   
    const [activeSection, setActiveSection] = useState('default');
    const [isModalOpen, setIsModalOpen] = useState(false);
-   
+   const [courseTitle, setCourseTitle] = useState(''); // Añadimos el estado aquí
+
+
    const handleCardClick = (section) => {
      if (section === 'createCourse') {
        setIsModalOpen(true);
@@ -16,19 +18,24 @@
        setActiveSection(section);
      }
    };
+   const handleAddCourse = (title) => {
+    setCourseTitle(title);
+    setIsModalOpen(false);
+    setActiveSection('personalCourses'); // Cambiamos a la sección de cursos personales
+  };
 
    return (
-     <div className={`relative pt-14 ${darkMode ? 'dark' : ''}`}>
+     <div className={`relative pt-14 ${darkMode ? 'bg-gray-600' : 'bg-[#D8EEE3]'}`}>
    {isModalOpen && (
      <div className="fixed inset-0 bg-black bg-opacity-50 z-40" onClick={() => setIsModalOpen(false)} />
    )}
 
-   <div className={`relative ${isModalOpen ? 'filter blur-sm' : ''} ${darkMode ? 'bg-gray-600' : ''}`}>
-     <section className="grid place-items-center z-10 pt-24">
-       <div className={`grid grid-cols-1 admlg:grid-cols-2 gap-6 w-full max-w-[800px] h-28 ${darkMode ? 'bg-gray-600' : ''}`}>
+   <div className={`relative ${isModalOpen ? 'filter blur-sm' : ''} ${darkMode ? 'bg-gray-600' : 'bg-[#D8EEE3]'}`}>
+     <section className="grid place-items-center z-10">
+       <div className={`grid grid-cols-1 admlg:grid-cols-2 gap-6 w-full max-w-[800px] h-28 ${darkMode ? 'bg-gray-600' : 'bg-[#D8EEE3]'}`}>
          <DashboardCard
            title="Crear Curso"
-           bgColor="bg-blue-500"
+           bgColor="bg-[#034AA6]"
            onClick={() => handleCardClick('createCourse')}
            darkMode={darkMode}
          />
@@ -40,8 +47,8 @@
          />
        </div>
      </section>
-    <div className={`mt-8 max-w-[1400px] ${darkMode ? 'bg-gray-600 text-white' : 'bg-white text-black'} min-h-[400px]`}>
-      {activeSection === 'personalCourses' && <PersonalCourses darkMode={darkMode} />}
+    <div className={`mt-8 max-w-[1400px] ${darkMode ? 'bg-gray-600 text-white' : 'bg-[#D8EEE3] text-black'} min-h-[400px]`}>
+      {activeSection === 'personalCourses' && <PersonalCourses darkMode={darkMode} courseTitle={courseTitle}/>}
       {activeSection === 'students' && <Students darkMode={darkMode} />}
       
       {activeSection === 'default' && (
@@ -53,7 +60,8 @@
    </div>
 
    <div className="relative z-50">
-     <DashboardModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} darkMode={darkMode}/>
+     <DashboardModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} darkMode={darkMode} onAddCourse={handleAddCourse}
+     />
    </div>
  </div>
 

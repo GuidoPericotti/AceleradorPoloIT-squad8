@@ -7,10 +7,10 @@ export const UneteEmpresa = () => {
   const scale = useTransform(scrollYProgress, [0, 0.7], [0.5, 1]);
 
   return (
-    <> <div className='dark:bg-dark-primary'>
+    <> <div className='dark:bg-dark-primary bg-[#D8EEE3]'>
 
         <motion.section
-          className="flex justify-center items-center flex-col text-center py-10"
+          className="flex justify-center items-center flex-col text-center py-10 "
           style={{ scale }}
         >
           <div>

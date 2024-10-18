@@ -4,7 +4,7 @@ export const CardButtonHome = ({ description }) => {
   return (
     <>
       <button
-        className="overflow-hidden relative w-32 p-2 h-12 bg-white text-black border-solid border-2 border-gray-200	 rounded-md text-xl font-bold cursor-pointer z-10 group"
+        className="overflow-hidden relative w-32 p-2 h-12 bg-[#A5CCBA] text-black border-solid border-2 border-gray-200	 rounded-md text-xl font-bold cursor-pointer z-10 group"
       >{description}
         <span
           className="absolute w-36 h-32 -top-8 -left-2 bg-indigo-300 rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-left"

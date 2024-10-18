@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { CardPrincipal } from '../components/AdminComponents/CardPrincipal'
-import { Footer } from './Footer'
+// import { Footer } from './Footer'
 import { NavbarAdmin } from '../components/AdminComponents/NavbarAdmin'
 
 
@@ -28,7 +28,7 @@ export const AdminPage = () => {
     <>
         <NavbarAdmin darkMode={darkMode} setDarkMode={setDarkMode}/>
         <CardPrincipal darkMode={darkMode} setDarkMode={setDarkMode}/>
-        <Footer darkMode={darkMode} setDarkMode={setDarkMode}/>
+        {/* <Footer darkMode={darkMode} setDarkMode={setDarkMode} /> */}
     </>
   )
 }

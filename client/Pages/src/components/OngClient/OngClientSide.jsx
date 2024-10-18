@@ -1,31 +1,28 @@
-import React from 'react';
-import { OngClientTestimony } from './OngClientTestimony';
-import { OngClientTestimony2 } from './OngClientTestimony2';
-import { OngClientTestimony3 } from './OngClientTestimony3';
+ import React from 'react';
+ import { OngClientTestimony } from './OngClientTestimony';
+ import { OngClientTestimony2 } from './OngClientTestimony2';
+ import { OngClientTestimony3 } from './OngClientTestimony3';
 
-export const OngClientSide = () => {
+export const OngClientSide = ({ darkMode }) => {
   return (
     <>
       <section>
         <div className='pt-10'>
-          <OngClientTestimony />
+          <OngClientTestimony darkMode={darkMode} />
         </div>
       </section>
-
-      {/* Espacio suficiente entre los componentes */}
-      <div className=''></div> 
 
       <section>
         <div className=''>
-          <OngClientTestimony2 />
+          <OngClientTestimony2 darkMode={darkMode} />
         </div>
       </section>
+
       <section>
-        <div className='pt-20'>
-          <OngClientTestimony3 />
+        <div className=''>
+          <OngClientTestimony3 darkMode={darkMode} />
         </div>
       </section>
     </>
   );
 }
-
