@@ -29,8 +29,9 @@ export const SidebarEmpresa = ({
   return (
     <aside className={`
       fixed left-0 top-0 
-      w-64 
+      admlg:w-64 
       min-h-screen
+      adms:w-32	
       ${darkMode ? 'bg-gray-800 text-white' : 'bg-[#C6E5D6] text-black'}
       z-10
     `}>
@@ -40,8 +41,8 @@ export const SidebarEmpresa = ({
         <div className="flex-grow p-4 overflow-y-auto">
           <button
             className={`
-              flex items-center w-full p-2 mb-4 rounded-lg shadow
-              transition-colors duration-200
+              flex items-center admlg:w-56 w-full p-2 mb-4 rounded-lg shadow
+              transition-colors duration-200 adms:w-28 adms:-ml-2
               ${darkMode 
                 ? `bg-gray-700 ${showProfileCard && currentView === 'dashboard' ? 'ring-2 ring-blue-500' : ''} hover:bg-gray-600` 
                 : `bg-white ${showProfileCard && currentView === 'dashboard' ? 'ring-2 ring-blue-500' : ''} hover:bg-gray-300`}
@@ -51,14 +52,14 @@ export const SidebarEmpresa = ({
             <img
               src="https://via.placeholder.com/40"
               alt="ConfPerfil"
-              className="w-10 h-10 rounded-full mr-3"
+              className="w-10 h-10 rounded-full mr-3 adms:w-9 adms:h-9 adms:mr-1"
             />
-            <span className="text-lg font-medium">Configurar Perfil</span>
+            <span className="text-lg font-medium adms:text-xs">Configurar Perfil</span>
           </button>
           <button
             className={`
-              flex items-center w-full p-2 mb-4 rounded-lg shadow
-              transition-colors duration-200
+              flex items-center w-full admlg:w-56 p-2 mb-4 rounded-lg shadow
+              transition-colors duration-200 adms:w-28 adms:-ml-2
               ${darkMode 
                 ? `bg-gray-700 ${currentView === 'perfil' ? 'ring-2 ring-blue-500' : ''} hover:bg-gray-600` 
                 : `bg-white ${currentView === 'perfil' ? 'ring-2 ring-blue-500' : ''} hover:bg-gray-300`}
@@ -68,9 +69,9 @@ export const SidebarEmpresa = ({
             <img
               src="https://via.placeholder.com/40"
               alt="VerPerfil"
-              className="w-10 h-10 rounded-full mr-3"
+              className="w-10 h-10 rounded-full mr-3 adms:w-9 adms:h-9 adms:mr-1"
             />
-            <span className="text-lg font-medium">Ver Perfil</span>
+            <span className="text-lg font-medium adms:text-xs">Ver Perfil</span>
           </button>
           
           <div>

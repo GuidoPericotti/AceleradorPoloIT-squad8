@@ -157,6 +157,7 @@ const ModalAddStudent = ({ isOpen, closeModal, addStudent, initialData }) => {
             <div className="mb-4">
               <label htmlFor="name" className="block text-sm font-medium text-gray-700">Nombre</label>
               <input
+                id="nombre_estudiante"
                 type="text"
                 name="name"
                 value={formData.name}
@@ -167,6 +168,7 @@ const ModalAddStudent = ({ isOpen, closeModal, addStudent, initialData }) => {
             <div className="mb-4">
               <label htmlFor="surname" className="block text-sm font-medium text-gray-700">Apellido</label>
               <input
+                id="apellido_estudiante"
                 type="text"
                 name="surname"
                 value={formData.surname}
@@ -177,6 +179,7 @@ const ModalAddStudent = ({ isOpen, closeModal, addStudent, initialData }) => {
             <div className="mb-4">
               <label htmlFor="perfil" className="block text-sm font-medium text-gray-700">Tecnología</label>
               <input
+                id="tecnologia_estudiante"
                 type="text"
                 name="perfil"
                 value={formData.perfil}

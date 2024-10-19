@@ -58,7 +58,7 @@ export const CardsSolicitudes = ({ tipo, darkMode }) => {
       </div>
   
       {/* Botón Ver más */}
-      <div className="mt-4 -ml-7 adms:-ml-4 admlg:w-[240px] admlg:ml-14">
+      <div className="mt-4 -ml-7 adms:-ml-4 admlg:w-[240px] admlg:ml-14 adms:mr-4">
         <ButtonCardAdmin nombre="Ver más" />
       </div>
     </div>

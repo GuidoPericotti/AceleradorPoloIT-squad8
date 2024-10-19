@@ -97,7 +97,7 @@ export const EmpresaSide = ({ onParticipantsChange }) => {
   const renderContent = () => {
     switch (currentView) {
       case 'mentores':
-        return <MentoresEmpresa darkMode={darkMode}/>;
+        return <MentoresEmpresa darkMode={darkMode} />;
       case 'estudiantes':
         return <div>Componente de Estudiantes</div>;
       case 'perfil':  // Nuevo caso para el perfil
@@ -126,7 +126,7 @@ export const EmpresaSide = ({ onParticipantsChange }) => {
         </div>
         
         {/* Content Area */}
-        <div className="ml-64 flex-grow overflow-auto p-4">
+        <div className="ml-64 flex-grow overflow-auto p-4 adms:ml-32">
           {renderContent()}
         </div>
       </div>

@@ -10,7 +10,7 @@ const AddMentorWithModal = ({ addMentor, darkMode }) => {
   return (
     <>
       <button onClick={openModal} className="bg-blue-500 text-white px-4 py-2 rounded">
-        Añadir Estudiante
+        Añadir Mentor
       </button>
       <ModalAddMentor isOpen={isOpen} closeModal={closeModal} addMentor={addMentor} darkMode={darkMode} />
     </>

@@ -9,9 +9,9 @@ export const DashboardEmpresa = ({ showProfileCard, darkMode }) => {
     <div className="mt-20 p-2">
       {/* Mostrar el saludo o la card de perfil dependiendo del estado */}
       {showProfileCard ? (
-        <EmpresaCard className='-pl-24' darkMode={darkMode}/>
+        <EmpresaCard className='admlg:pl-40 adms:-pl-24' darkMode={darkMode}/>
       ) : (
-        <div className="text-3xl font-bold pt-28 -pl-10">
+        <div className="text-3xl font-bold pt-28 admlg:pl-40 adms:pl-10">
           <BienvenidaEmpresa />
         </div>
       )}

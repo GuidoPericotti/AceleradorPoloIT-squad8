@@ -3,6 +3,7 @@ import InputField from './InputField';
 import TextAreaField from './TextAreaField';
 import DateRangeSelector from './DateRangeSelector';
 import ButtonGroup from './ButtonGroup';
+import DateInputField from './DateInputField';
 
 const PersonalCourses = ({ courseTitle }) => {
   return (
@@ -44,7 +45,8 @@ const CourseForm = ({
         onChange={(e) => setDescription(e.target.value)}
         id='descripcion_curso'
       />
-      <DateRangeSelector id='fechaInicio_curso' />
+      <DateInputField id='fechaInicio_curso' /> -
+      <DateInputField id='fechaCierre_curso'/>
       <div className='flex justify-center pt-3'>
         <ButtonGroup onCancel={onCancel} />
       </div>
