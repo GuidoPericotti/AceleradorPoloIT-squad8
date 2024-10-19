@@ -58,9 +58,7 @@ function useDBandRunQueries() {
     const sqlCreateTableAdmin = `
         CREATE TABLE IF NOT EXISTS admin_user (
         admin_id INT AUTO_INCREMENT PRIMARY KEY,
-        nombre_admin VARCHAR(50) NOT NULL,
-        apellido_admin VARCHAR(50) NOT NULL,
-        email_admin VARCHAR(50) NOT NULL UNIQUE,
+        user_admin VARCHAR(50) NOT NULL,
         password_admin VARCHAR(50) NOT NULL
     )`;
 
