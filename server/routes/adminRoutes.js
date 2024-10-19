@@ -4,8 +4,11 @@ const adminController = require('../controllers/adminController.js');
 const adminOngController = require ('../controllers/adminControllerONG.js');
 const adminEmpresasController = require ('../controllers/adminControllerEmpresa.js');
 const adminMentoresController = require ('../controllers/adminControllerMentor.js');
-const adminControllerCursos = require ('../controllers/adminControllerCursos.js');
-const adminControllerEstudiantes = require ('../controllers/adminControllerEstudiantes.js');
+
+const adminCursosController = require ('../controllers/adminControllerCursos.js');
+const adminEstudiantesController = require ('../controllers/adminControllerEstudiantes.js');
+const adminSquadsController = require ('../controllers/adminControllerSquad.js')
+
 
 //Rutas para gestionar usuarios administradores
 router.get('/', adminController.getAllAdminAccess);
@@ -36,16 +39,23 @@ router.post('/', adminMentoresController.createMentor);
 router.put('/mentores:id', adminMentoresController.updateMentor);
 router.delete('/mentores:id', adminMentoresController.deleteMentor);
 //Rutas para gestionar cursos
-router.get('/cursos', adminControllerCursos.getAllCursos);
-router.get('cursos:id', adminControllerCursos.getCursoById);
-router.post('/', adminControllerCursos.createCurso);
-router.put('cursos:id', adminControllerCursos.updateCurso);
-router.delete('/cursos:id', adminControllerCursos.deleteCurso);
+router.get('/cursos', adminCursosController.getAllCursos);
+router.get('/cursos:id', adminCursosController.getCursosById);
+router.post('/', adminCursosController.createCurso);
+router.put('/cursos:id', adminCursosController.updateCurso);
+router.delete('/cursos:id', adminCursosController.deleteCurso);
 //Rutas para gestionar estudiantes
-router.get('/estudiantes',adminControllerEstudiantes.getAllEstudiantes);
-router.get('estudiantes:id',adminControllerEstudiantes.getEstudiantesById);
+router.get('/estudiantes',adminEstudiantesController.getAllEstudiantes);
+router.get('/estudiantes:id',adminEstudiantesController.getEstudianteById);
 router.post('/',adminControllerEstudiantes.createEstudiante);
-router.put('estudiantes:id',adminControllerEstudiantes.updateEstudiante);
-router.delete('estudiantes:id',adminControllerEstudiantes.deleteEstudiante);
+router.put('/estudiantes:id',adminControllerEstudiantes.updateEstudiante);
+router.delete('/estudiantes:id',adminControllerEstudiantes.deleteEstudiante);
+// Rutas para gestionar squads
+router.get('/squads', adminSquadsController.getAllsquads);
+router.get('/squads:id', adminSquadsController.getSquadById);
+router.post('/', adminSquadsController.createsquad);
+router.put('/squads:id', adminSquadsController.updatesquad);
+router.delete('/squads:id', adminSquadsController.deletesquad);
+
 
 module.exports = router;
