@@ -6,6 +6,7 @@ const adminEmpresasController = require ('../controllers/adminControllerEmpresa.
 const adminMentoresController = require ('../controllers/adminControllerMentor.js');
 const adminCursosController = require ('../controllers/adminControllerCursos.js');
 const adminEstudiantesController = require ('../controllers/adminControllerEstudiantes.js');
+const adminSquadsController = require ('../controllers/adminControllerSquad.js')
 
 //Rutas para gestionar usuarios administradores
 router.get('/', adminController.getAllAdminAccess);
@@ -37,15 +38,22 @@ router.put('/mentores:id', adminMentoresController.updateMentor);
 router.delete('/mentores:id', adminMentoresController.deleteMentor);
 //Rutas para gestionar cursos
 router.get('/cursos', adminControllerCursos.getAllCursos);
-router.get('cursos:id', adminControllerCursos.getCursosById);
+router.get('/cursos:id', adminControllerCursos.getCursosById);
 router.post('/', adminControllerCursos.createCurso);
-router.put('cursos:id', adminControllerCursos.updateCurso);
+router.put('/cursos:id', adminControllerCursos.updateCurso);
 router.delete('/cursos:id', adminControllerCursos.deleteCursos);
 //Rutas para gestionar estudiantes
 router.get('/estudiantes',adminControllerEstudiantes.getAllEstudiantes);
-router.get('estudiantes:id',adminControllerEstudiantes.getEstudianteById);
+router.get('/estudiantes:id',adminControllerEstudiantes.getEstudianteById);
 router.post('/',adminControllerEstudiantes.createEstudiante);
-router.put('estudiantes:id',adminControllerEstudiantes.updateEstudiante);
-router.delete('estudiantes:id',adminControllerEstudiantes.deleteEstudiante);
+router.put('/estudiantes:id',adminControllerEstudiantes.updateEstudiante);
+router.delete('/estudiantes:id',adminControllerEstudiantes.deleteEstudiante);
+// Rutas para gestionar squads
+router.get('/squads', adminSquadsController.getAllsquads);
+router.get('/squads:id', adminSquadsController.getSquadById);
+router.post('/', adminSquadsController.createsquad);
+router.put('/squads:id', adminSquadsController.updatesquad);
+router.delete('/squads:id', adminSquadsController.deletesquad);
+
 
 module.exports = router;
