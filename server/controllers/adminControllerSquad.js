@@ -21,7 +21,7 @@ const getSquadById = (req,res) => {
 };
 
 //Crear nuevo squad
-const createCurso = (req,res) => {
+const createSquad = (req,res) => {
     const {user, password} = req.body;
     const sql = 'INSERT INTO squads (desarrollador1_squad, desarrollador2_squad, desarrollador3_squad, desarrollador4_squad, tester_squad, uxui_squad, mentor_squad, squad_id) VALUES (?,?,?,?,?,?,?)';
     db.query(sql, [user, password], (err, result) => {
@@ -53,9 +53,9 @@ const deleteSquad = (req, res) => {
 };
 
 module.exports = {
-    getAllsquads,
+    getAllSquads,
     getSquadById,
-    createsquad,
-    updatesquad,
-    deletesquad
+    createSquad,
+    updateSquad,
+    deleteSquad
 };

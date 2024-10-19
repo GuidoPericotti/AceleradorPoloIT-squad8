@@ -51,11 +51,11 @@ router.post('/',adminControllerEstudiantes.createEstudiante);
 router.put('/estudiantes:id',adminControllerEstudiantes.updateEstudiante);
 router.delete('/estudiantes:id',adminControllerEstudiantes.deleteEstudiante);
 // Rutas para gestionar squads
-router.get('/squads', adminSquadsController.getAllsquads);
+router.get('/squads', adminSquadsController.getAllSquads);
 router.get('/squads:id', adminSquadsController.getSquadById);
-router.post('/', adminSquadsController.createsquad);
-router.put('/squads:id', adminSquadsController.updatesquad);
-router.delete('/squads:id', adminSquadsController.deletesquad);
+router.post('/', adminSquadsController.createSquad);
+router.put('/squads:id', adminSquadsController.updateSquad);
+router.delete('/squads:id', adminSquadsController.deleteSquad);
 
 
 module.exports = router;
