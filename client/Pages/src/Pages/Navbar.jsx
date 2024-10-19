@@ -155,7 +155,7 @@ import React, { useState } from 'react';
 import { Login } from '../components/NavbarComponents/Login';
 import { NavLink } from 'react-router-dom';
 import { ToggleSwitch } from '../components/NavbarComponents/ToggleSwitch';
-import LogoPolo from '../assets/logo_polo_it.jpg';
+import LogoPolo from '../assets/logo_polo_it.png';
 
 export const Navbar = ({ darkMode, setDarkMode }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -173,7 +173,7 @@ export const Navbar = ({ darkMode, setDarkMode }) => {
       <nav className="max-w-7xl mx-auto px-4 text-black dark:text-white">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <NavLink to='/' className="flex-shrink-0 w-12 h-12 admlg:w-16 admlg:h-16 bg-transparent">
+          <NavLink to='/' className="flex-shrink-0 w-12 h-12 admlg:w-24 admlg:h-24 bg-transparent">
             <img src={LogoPolo} alt="Polo-it icon" className="w-full h-full object-contain" />
           </NavLink>
 

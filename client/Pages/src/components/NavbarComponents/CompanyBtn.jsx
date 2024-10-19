@@ -28,22 +28,40 @@ export const CompanyBtn = () => {
   
   return (
     <>
-      <Navbar darkMode={darkMode} setDarkMode={setDarkMode}/> 
-      <EmpresasClient />
+        <div>
+          <section>
+            <Navbar darkMode={darkMode} setDarkMode={setDarkMode}  className='adms:max-w-[640px]'/> 
+          </section>
+          <section>
+            <EmpresasClient />
+          </section>
+          <section>
+            <UneteEmpresa  />
+          </section>
+          <section>
+            <Mentorias className="py-24" />
+          </section>
+          <section>
+            <div className='py-24 grid grid-cols gap-56 dark:bg-dark-primary bg-[#D8EEE3]'>
+              <CardEmpresas titulo="Titulo 1" />
+              <CardEmpresas titulo="Titulo 2" />
+              <CardEmpresas titulo="Titulo 3" />
+              <CardEmpresas titulo="Titulo 4" />
+            </div>
+          </section>
+          <section>
+                <CompanySupport Company="Confían en nosotros"/>
+          </section>
+          <section>
+            <TestimonyEmpresaClient />
+          </section>
+          <section>
+            <Footer />
+          </section>
+        </div>    
       {/* Separación superior entre UneteEmpresa y Mentorias */}
-      <UneteEmpresa  />
 
       {/* Separación superior entre Mentorias y el siguiente CardEmpresas */}
-      <Mentorias className="py-24" />
-      <div className='py-24 grid grid-cols gap-56 dark:bg-dark-primary bg-[#D8EEE3]'>
-        <CardEmpresas titulo="Titulo 1" />
-        <CardEmpresas titulo="Titulo 2" />
-        <CardEmpresas titulo="Titulo 3" />
-        <CardEmpresas titulo="Titulo 4" />
-      </div>
-      <CompanySupport Company="Confían en nosotros"/>
-      <TestimonyEmpresaClient />
-      <Footer />
     </>
   );
 }

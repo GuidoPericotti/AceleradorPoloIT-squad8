@@ -350,6 +350,7 @@ import { useAuth } from '../Context/AuthContext'; // Asegúrate de que la ruta e
 import { useNavigate } from 'react-router-dom';
 import { TermsCheckbox } from './LoginComponents/TermsCheckbox';
 import {ModalLogin} from './LoginComponents/ModalLogin'; // Asegúrate de importar ModalLogin correctamente
+import LogoPolo from '../../assets/logo_polo_it.png';
 
 const LoginIniciado = () => {
   const methods = useForm({
@@ -409,9 +410,9 @@ const LoginIniciado = () => {
           </div>
           <div className="flex justify-center mb-4">
             <SocialButton 
-              icon="https://media.licdn.com/dms/image/v2/C4E0BAQF7uvigqKkweg/company-logo_200_200/company-logo_200_200/0/1630570162567/polo_it_de_buenos_aires_logo?e=2147483647&v=beta&t=s4wtzh9g-uMs5Lv1h-dmdvXytqhqCMkh1L314tzUc4Q" 
-              alt="Poloit icon" 
-              className="w-20 h-20 object-contain"
+              icon={LogoPolo} 
+              alt="Polo-it icon" 
+              className="object-contain"
             />
           </div>
           <div className="p-6">
