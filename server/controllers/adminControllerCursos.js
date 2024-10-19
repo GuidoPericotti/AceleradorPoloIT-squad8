@@ -30,7 +30,7 @@ const createCurso = (req,res) => {
     });
 };
 
-//Editar estudiante
+//Editar curso
 const updateCurso = (req, res) => {
     const {id} = req.params;
     const {nombre, fechaCreacion, fechaCierre, docente} = req.body;
@@ -41,7 +41,7 @@ const updateCurso = (req, res) => {
     });
 };
 
-//Eliminar estudiante
+//Eliminar curso
 
 const deleteCurso = (req, res) => {
     const {id} = req.params;

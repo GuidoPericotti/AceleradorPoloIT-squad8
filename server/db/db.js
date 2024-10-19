@@ -198,7 +198,21 @@ function useDBandRunQueries() {
     //Create table squads
     const sqlCreateTableSquads = `
             CREATE TABLE IF NOT EXISTS squads(
-            squad_id INT AUTO_INCREMENT PRIMARY KEY
+            squad_id INT AUTO_INCREMENT PRIMARY KEY,
+            desarrollador1_id INT NOT NULL,
+            desarrollador2_id INT NOT NULL,
+            desarrollador3_id INT NOT NULL,
+            desarrollador4_id INT NOT NULL,
+            tester_id INT NOT NULL,
+            uxui_id INT NOT NULL,
+            mentor_id NOT NULL,
+            FOREIGN KEY (desarrollador1_id) REFERENCES estudiantes (estudiante_id,)
+            FOREIGN KEY (desarrollador2_id) REFERENCES estudiantes (estudiante_id,
+            FOREIGN KEY (desarrollador3_id) REFERENCES estudiantes (estudiante_id,
+            FOREIGN KEY (desarrollador4_id) REFERENCES estudiantes (estudiante_id,
+            FOREIGN KEY (tester_id) REFERNECES estudiantes (estudiante_id)
+            FOREIGN KEY (uxui_id) REFERNECES estudiantes (estudiante_id)
+            FOREIGN KEY (mentor_id) REFERNECES mentores (mentor_ir)
     )`;  
 
     //Create table miembros_estudiantes
