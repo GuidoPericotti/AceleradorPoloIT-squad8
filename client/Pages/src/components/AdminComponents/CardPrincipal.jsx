@@ -4,11 +4,11 @@ import { ButtonOngEmpresa } from './ButtonOngEmpresa';
 import { CardsSolicitudes } from './CardsSolicitudes';
 import { SidebarOng } from '../OngSide/OngComponents/Navbar/SidebarOng';
 
-export const CardPrincipal = () => {
+export const CardPrincipal = ({darkMode}) => {
   const [filter, setFilter] = useState('');
 
   const allCards = [
-    { id: 1, tipo: 'Aprobado', Nombre: 'ONG' },
+    { id: 1, tipo: 'Pendiente', Nombre: 'ONG' },
     { id: 2, tipo: 'Rechazado', Nombre: 'ONG' },
     { id: 3, tipo: 'Pendiente', Nombre: 'ONG' },
     { id: 4, tipo: 'Aprobado', Nombre: 'Empresa' },
@@ -26,53 +26,36 @@ export const CardPrincipal = () => {
   };
 
   return (
-    <div className="mt-20 flex flex-col items-center mr-10">
-      {/* Cabecera principal */}
-      <main className="sticky top-[80px] flex items-center bg-gray-100 p-4 w-11/12 rounded-t-3xl flex-row flex-nowrap justify-center">
+    <div className="mt-20 flex flex-col items-center dark:bg-gray-800">
+      <main className="admlg:-ml-10 adms:-ml-8 sticky top-[80px] flex items-center bg-gradient-to-r from-[#76B596] via-[#41849D] to-[#034AA6] p-4 w-[90%] rounded-t-3xl dark:bg-gray-600 flex-col sm:flex-row justify-center">
         <div className="flex items-center justify-center">
           <LogoSolicitudes />
-          <h2 className="mx-4 text-lg font-semibold text-gray-700">Solicitudes</h2>
+          <h2 className="mx-4 text-lg font-semibold text-gray-700 dark:text-white">Solicitudes</h2>
           <LogoSolicitudes />
         </div>
       </main>
-      
+
       {/* Botones de filtro */}
-      <section className="mt-8 flex justify-center w-full pl-32">
-        <div className="flex space-x-4">
-          <ButtonOngEmpresa 
-            nombre="Pendiente" 
-            filterType="Pendiente" 
-            currentFilter={filter} 
-            onClick={() => handleFilterChange('Pendiente')} 
-          />
-          <ButtonOngEmpresa 
-            nombre="Aprobado" 
-            filterType="Aprobado" 
-            currentFilter={filter} 
-            onClick={() => handleFilterChange('Aprobado')} 
-          />
-          <ButtonOngEmpresa 
-            nombre="Rechazado" 
-            filterType="Rechazado" 
-            currentFilter={filter} 
-            onClick={() => handleFilterChange('Rechazado')} 
-          />
+      <section className="mt-8 flex justify-center sm:justify-end w-full px-4 sm:pl-44 adms:pl-8">
+        <div className="flex flex-wrap justify-center space-x-2 sm:space-x-2 adms:space-x-1">
+          <ButtonOngEmpresa nombre="Pendiente" filterType="Pendiente" currentFilter={filter} onClick={() => handleFilterChange('Pendiente')} />
+          <ButtonOngEmpresa nombre="Aprobado" filterType="Aprobado" currentFilter={filter} onClick={() => handleFilterChange('Aprobado')} />
+          <ButtonOngEmpresa nombre="Rechazado" filterType="Rechazado" currentFilter={filter} onClick={() => handleFilterChange('Rechazado')} />
         </div>
       </section>
-      
-      {/* Contenedor principal de 3 columnas */}
-      <section className="flex w-full pl-[52px]">
-        {/* Sidebar en la primera columna */}
-        <div className="flex-shrink-0 -mt-24">
-          <SidebarOng /> {/* Sidebar estático */}
-        </div>
 
-        {/* Columna para las tarjetas */}
-        <div className="grid grid-cols-2 gap-1 flex-grow ml-56 mt-4">
-          {filteredCards.map(card => (
-            <CardsSolicitudes key={card.id} tipo={card.Nombre} /> // Pasa el tipo como prop
-          ))}
+      {/* Contenedor principal de columnas */}
+      <section className="flex flex-col sm:flex-row w-full mt-8 adms:mr-8 adms:mt-14 admlg:ml-20 admlg:mt-[46px]">
+      <div className="sm:w-[160px] adms:w-[120px] mb-8 z-0">
+      <SidebarOng/>
         </div>
+      </section>
+      <section>
+        <div className="admlg:grid adms:pl-40 admlg:grid-cols-2 admlg:pr-32">
+        {filteredCards.map(card => (
+          <CardsSolicitudes key={card.id} tipo={card.Nombre}  darkMode={darkMode}/>
+          ))}
+        </div>  
       </section>
     </div>
   );

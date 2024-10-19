@@ -6,6 +6,8 @@ import '../App.css'
 import { Testimony } from "./Testimony";
 import { Footer } from "./Footer";
 import { CompanySupport } from "../components/CompanySupport/CompanySupport";
+import { useNavigate } from "react-router-dom";
+
 
 export const Home = () => {
   const [darkMode, setDarkMode] = useState(() => {
@@ -17,7 +19,11 @@ export const Home = () => {
       return false;
     }
   });
+  const navigate = useNavigate();
 
+  const handleLoginClick = () => {
+    navigate('/login');
+  };
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add('dark');
@@ -32,7 +38,7 @@ export const Home = () => {
       <span>
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
         <HeroSection darkMode={darkMode} setDarkMode={setDarkMode} />
-        <CardsLogin darkMode={darkMode} setDarkMode={setDarkMode} />
+        <CardsLogin darkMode={darkMode} setDarkMode={setDarkMode} onLoginClick={handleLoginClick}/>
         <Testimony darkMode={darkMode} setDarkMode={setDarkMode} />
         <CompanySupport darkMode={darkMode} setDarkMode={setDarkMode}/>
         <Footer darkMode={darkMode} setDarkMode={setDarkMode} />

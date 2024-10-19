@@ -13,10 +13,10 @@ const ONGEmpresaLogin = ({ onOptionChange }) => {
       </label>
       <select
         id="organizationType"
-        className="peer block w-full appearance-none rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-gray-700 dark:text-gray-300 placeholder-transparent focus:border-sky-500 focus:outline-none focus:ring-0"
+        className="text-[#82C7A5] peer block w-full appearance-none rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 dark:text-gray-300 placeholder-transparent focus:border-sky-500 focus:outline-none focus:ring-0"
         onChange={onOptionChange}
       >
-        <option value="">Seleccione uno</option>
+        <option value="">Elige organización</option>
         <option value="Empresa">Empresa</option>
         <option value="ONG">ONG</option>
       </select>

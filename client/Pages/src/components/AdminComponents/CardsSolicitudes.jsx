@@ -1,8 +1,9 @@
+
 import React, { useState } from 'react';
 import { ButtonCardAdmin } from './ButtonCardAdmin';
 import { ModalLogin } from '../Login/LoginComponents/ModalLogin';
 
-export const CardsSolicitudes = ({ tipo }) => {
+export const CardsSolicitudes = ({ tipo, darkMode }) => {
   const [showModalAdmin, setShowModalAdmin] = useState(false);
 
   const handleOpenModal = () => {
@@ -13,65 +14,67 @@ export const CardsSolicitudes = ({ tipo }) => {
     setShowModalAdmin(false);
   };
 
-  return (
-    <div className="bg-base-100 w-96 border-2 rounded-2xl">
-      <div className="mb-5 px-4 flex flex-col pt-2">
-        {/* Botón de cruz en la esquina superior derecha */}
-        <div className="flex justify-end mb-2">
-          <button
-            className="border-slate-900 p-2 rounded-lg"
-            onClick={handleOpenModal}
+  return ( 
+   <div className={`admlg:ms-8 admlg:w-[400px] bg-[#C6E5D6] w-full border-2 rounded-2xl mb-4 p-2 sm:p-4 adms:w-[200px] dark:text-white ${darkMode ? 'bg-gray-900' : 'bg-[#F3F9F6]'}`}>
+    <div className="flex flex-col ml-6">
+      {/* Botón de cerrar */}
+      <div className="flex justify-end mb-1">
+        <button
+          className="border-slate-900 p-2 rounded-lg"
+          onClick={handleOpenModal}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6 adms:h-5 adms:w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
-        </div>
-
-        {/* Contenedor para la imagen y el texto */}
-        <div className="flex items-start space-x-4">
-          <figure>
-            <img
-              src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
-              alt="Movie"
-              className="w-20 h-20 rounded-lg"
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M6 18L18 6M6 6l12 12"
             />
-          </figure>
-          <div>
-            <strong className="flex-1">Nombre {tipo}</strong>
-            <p className="flex-1 text-gray-300">Recibido hace 3hs</p>
+          </svg>
+        </button>
+      </div>
+  
+      {/* Contenedor para la imagen y el texto */}
+      <div className="flex items-center space-x-4">
+        <figure>
+          <img
+            src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
+            alt="Movie"
+            className="w-20 h-20 sm:w-16 sm:h-16 adms:w-12 adms:h-12 rounded-lg admlg:w-28 admlg:h-28"
+          />
+        </figure>
+        <div className="flex justify-between w-full">
+          <div className="flex flex-col">
+            <strong className="text-lg adms:text-lg">Nombre {tipo}</strong>
+            <p className="text-xs sm:text-sm adms:text-2xs text-gray-400">Recibido hace 3hs</p>
           </div>
         </div>
-
-        {/* Botones separados y centrados */}
-        <div className="mt-4">
-          <ButtonCardAdmin nombre="Ver más"/>
-          {/* <ButtonCardAdmin nombre="Aceptar" /> */}
-        </div>
       </div>
-
-      {/* Mostrar el ModalLogin si showModalAdmin es true */}
-      {showModalAdmin && (
-        <ModalLogin
-          onClose={handleModalClose}
-        //   title="Acción requerida"
-          message="¿Deseas rechazar la solicitud?"
-          buttonText="Cancelar"
-          extraButtonText="Rechazar"
-          onExtraButtonClick={() => alert('Rechazado')} // Puedes cambiar esta acción según sea necesario
-        />
-      )}
+  
+      {/* Botón Ver más */}
+      <div className="mt-4 -ml-7 adms:-ml-4 admlg:w-[240px] admlg:ml-14">
+        <ButtonCardAdmin nombre="Ver más" />
+      </div>
     </div>
+  
+    {/* Modal */}
+    {showModalAdmin && (
+      <ModalLogin
+        onClose={handleModalClose}
+        message="¿Quiere rechazar esta solicitud?"
+        messagep="La solicitud cambiará de estado de pendiente a rechazado"
+        buttonText="Rechazar"
+        extraButtonText="Cancelar"
+        onExtraButtonClick={() => alert('Rechazado')}
+      />
+    )}
+  </div>
+  
   );
 };

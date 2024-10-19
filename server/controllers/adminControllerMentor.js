@@ -19,6 +19,16 @@ const getAllMentores = (req, res) => {
     });
 };
 
+//Obtener mentor por ID
+const getMentorById = (req,res) => {
+    const {id} = req.params;
+    const sql = 'SELECT * FROM mentores WHERE id=?';
+    db.query(sql,[id], (err, result) => {
+        if (err) throw err;
+        res.json(result);
+    });
+};
+
 // Editar los datos de un mentor
 const updateMentor = (req, res) => {
     const { id } = req.params;
@@ -43,6 +53,7 @@ const deleteMentor = (req, res) => {
 module.exports = {
     createMentor,
     getAllMentores,
+    getMentorById,
     updateMentor,
     deleteMentor
 };

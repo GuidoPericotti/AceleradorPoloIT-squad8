@@ -3,7 +3,7 @@ import React from 'react'
 export const Mentorias = () => {
   return (
     <>
-        <section className="flex justify-center items-center flex-col text-center py-8 pt-14 dark:bg-dark-primary">
+        <section className="flex justify-center items-center flex-col text-center py-8 pt-14 dark:bg-dark-primary bg-[#9BD2B7]">
         <div>
           <h2 className="text-6xl font-bold text-gray-800 dark:text-white mb-4">
             Mentorias

@@ -6,10 +6,10 @@ export const CardEmpresas = ({ titulo }) => {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 2]);
 
   return (
-    <div className="dark:bg-dark-primary">
+    <div className="dark:bg-dark-primary bg-[#D8EEE3]">
 
       <motion.section
-        className="flex flex-col items-center py-4 space-x-4 rounded-lg border border-gray-300 p-4 max-w-sm mx-auto shadow-lg dark:bg-dark-primary"
+        className="flex flex-col items-center py-4 space-x-4 rounded-lg border border-gray-300 p-4 max-w-sm mx-auto shadow-lg dark:bg-dark-primary bg-[#D8EEE3]"
         style={{ scale }}
       >
         {/* Imagen más pequeña y dentro del borde */}
