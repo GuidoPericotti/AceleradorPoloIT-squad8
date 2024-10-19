@@ -44,4 +44,4 @@ async function registerUser(username, password) {
     }
 }
 
-registerUser('admin', 'squad8');
+registerUser('admin@admin.com', 'squad8');
