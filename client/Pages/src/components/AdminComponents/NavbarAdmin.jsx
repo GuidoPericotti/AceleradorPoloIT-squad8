@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { ToggleSwitch } from '../NavbarComponents/ToggleSwitch';
+import LogoPolo from '../../assets/logo_polo_it.png'
 
 export const NavbarAdmin = ({ darkMode, setDarkMode }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,18 +19,18 @@ export const NavbarAdmin = ({ darkMode, setDarkMode }) => {
     <header className="fixed top-0 w-full z-50 bg-[#C6E5D6] dark:bg-gray-900 shadow rounded-md">
       <nav className="mt-2 ml-3 mr-3 text-black dark:text-white">
         <div className="flex items-center justify-between w-full h-16">
-          <NavLink to='/' className="flex-shrink-0 w-16 h-16 bg-transparent">
-            <img src="https://media.licdn.com/dms/image/v2/C4E0BAQF7uvigqKkweg/company-logo_200_200/company-logo_200_200/0/1630570162567/polo_it_de_buenos_aires_logo?e=2147483647&v=beta&t=s4wtzh9g-uMs5Lv1h-dmdvXytqhqCMkh1L314tzUc4Q" alt="Polo-it icon" />
+          <NavLink to='/' className="flex-shrink-0 w-20 h-20 bg-transparent">
+            <img src={LogoPolo} alt="Polo-it icon" />
           </NavLink>
           <div className="flex-grow"></div>
-          <ul className="hidden admlg:flex space-x-6">
+          {/* <ul className="hidden admlg:flex space-x-6">
             <li><NavLink to='/ong'>Ong</NavLink></li>
             <li><NavLink to='/empresa'>Empresas</NavLink></li>
             <li><NavLink to='/proyectos'>Proyectos</NavLink></li>
             <li><NavLink to='/participantes'>Participantes</NavLink></li>
             <li><NavLink to='/mentores'>Mentores</NavLink></li>
-            {/* <li><NavLink to='/admin' >Admin</NavLink></li>  se añade vista admin temporal para ver la creacion */}
-          </ul>
+            {/* <li><NavLink to='/admin' >Admin</NavLink></li>  se añade vista admin temporal para ver la creacion 
+          </ul> */}
           <div className="flex-grow"></div>
           <div className="p-2 bg-[#C6E5D6] mr-5 dark:bg-gray-900">
             <ToggleSwitch
@@ -48,7 +49,7 @@ export const NavbarAdmin = ({ darkMode, setDarkMode }) => {
         </div>
         {/* Responsive navbar */}
         {isOpen && (
-          <div className="admlg:hidden">
+          {/* <div className="admlg:hidden">
             <ul className="flex flex-col items-start space-y-4 mt-2">
               <li><NavLink to='/empresas'>Ong</NavLink></li>
               <li><NavLink to='/empresas'>Empresas</NavLink></li>
@@ -56,9 +57,9 @@ export const NavbarAdmin = ({ darkMode, setDarkMode }) => {
               <li><NavLink to='/participantes'>Participantes</NavLink></li>
               <li><NavLink to='/mentores'>Mentores</NavLink></li>
               <li><NavLink to='/contact'>Contacto</NavLink></li>
-             {/* <li><NavLink to='/admin'>Admin</NavLink></li> */}
+             {/* <li><NavLink to='/admin'>Admin</NavLink></li> 
             </ul>
-          </div>
+          </div> */}
         )}
       </nav>
     </header>

@@ -16,9 +16,9 @@ export const CardButtonHome = ({ description }) => {
           className="absolute w-36 h-32 -top-8 -left-2 bg-indigo-600 rotate-12 transform scale-x-0 group-hover:scale-x-50 transition-transform group-hover:duration-1000 duration-500 origin-left"
         ></span>
         <span
-          className="group-hover:opacity-100 group-hover:duration-1000 duration-100 opacity-0 absolute top-2.5 left-6 z-10"
+          className="group-hover:opacity-100 group-hover:duration-1000 duration-100 opacity-0 absolute top-2.5 left-0 z-10"
         >
-          Log In
+          Descúbrenos
         </span>
       </button>
     </>

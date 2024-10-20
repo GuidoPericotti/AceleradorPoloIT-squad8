@@ -139,7 +139,7 @@ export const SidebarOng = ({ onViewChange, currentView}) => {
 
   return (
     <>
-      <section className="admlg:w-44 sm:-mt-7 sm:ml-1 adms:w-[100px] adms:-mt-32 adms:ml-5 sm:w-[150px] bg-[#C6E5D6] dark:bg-gray-600 h-full fixed pt-16 sm:pt-20 adms:pt-14 adms:bg-[#C6E5D6] dark:adms:bg-gray-700">
+      <section className="admlg:w-48 sm:-mt-7 sm:ml-1 adms:w-[100px] adms:-mt-32 adms:ml-5 sm:w-[150px] bg-[#C6E5D6] dark:bg-gray-600 h-full fixed pt-16 sm:pt-20 adms:pt-14 adms:bg-[#C6E5D6] dark:adms:bg-gray-700">
         <div className="p-2 sm:p-4 adms:p-1">
           <div>
             <div className="flex-grow p-4 overflow-y-auto">
@@ -147,13 +147,13 @@ export const SidebarOng = ({ onViewChange, currentView}) => {
               onClick={() => onViewChange(currentView === 'squads' ? 'solicitudes' : 'squads')}
               className={`button-class bg-white hover:bg-gray-400
                 flex items-center admlg:w-40 w-full p-2 mb-4 rounded-lg shadow
-              transition-colors duration-200 adms:w-28 adms:-ml-2
+              transition-colors duration-200 adms:w-28 adms:-ml-3
                ${currentView === 'squads' ? 'active' : ''}`}
             >
                 <img
                   src="https://via.placeholder.com/40"
                   alt="ConfPerfil"
-                  className="w-10 h-10 rounded-full mr-3 adms:w-9 adms:h-9 adms:mr-1"
+                  className="w-9 h-9 rounded-full mr-3 adms:w-9 adms:h-9 adms:mr-1"
                 />
                 <span className="text-lg font-medium adms:text-xs">SQUADS</span>
               </button>

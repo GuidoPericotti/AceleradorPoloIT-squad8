@@ -133,7 +133,7 @@ export const CardPrincipal = ({ darkMode }) => {
       return <SquadManagement darkMode={darkMode} />;
     } else {
       return (
-        <div className="admlg:grid adms:pl-40 admlg:grid-cols-2 admlg:pr-32 adms:grid adms:grid-cols-2 adms:mr-14 adms:space-x-5 adms:-mt-14">
+        <div className="admlg:grid adms:pl-52 admlg:grid-cols-2 admlg:pr-20 adms:grid adms:grid-cols-2 adms:mr-14 adms:space-x-5 adms:-mt-14">
           {filteredCards.map(card => (
             <CardsSolicitudes key={card.id} tipo={card.Nombre} darkMode={darkMode} />
           ))}
@@ -165,7 +165,7 @@ export const CardPrincipal = ({ darkMode }) => {
 
       {/* Contenedor principal de columnas y sidebar */}
       <section className="flex flex-col sm:flex-row w-full mt-8 adms:mr-8 adms:mt-14 admlg:ml-20 admlg:mt-[46px]">
-        <div className="adms:ml-3 adms:mt-3 sm:w-[160px] adms:w-[120px] mb-8 z-0">
+        <div className=" sm:w-[160px] adms:w-[120px] mb-8 z-0">
           <SidebarOng 
             darkMode={darkMode} 
             onViewChange={handleViewChange}
