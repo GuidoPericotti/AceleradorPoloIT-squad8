@@ -1,5 +1,5 @@
 import React from 'react';
-
+import forge from '../../assets/forge.png'
 export const LogoCompanySupport = ({ Company, darkMode }) => {
   return (
     <div
@@ -10,7 +10,7 @@ export const LogoCompanySupport = ({ Company, darkMode }) => {
         {[
           { href: 'http://www.fgd.org.ar/', src: 'https://lh5.googleusercontent.com/proxy/s-tyCWceFn1ZdTZPqgdAIcaTIYTKyDn5xnHw7WRXFqa9mZMRU74UuqyfKj67eTn1a5E0yb5OZndmx23oIXSONLd2hzb3GFx4EGLJ1RnOL2g01yhiH7en0w', alt: 'Fundacion gestion y desarrollo Logo' },
           { href: 'https://www.soysilvertech.org/', src: 'https://citlafalda.gob.ar/wp-content/uploads/2024/06/logo-silvertech-1.png', alt: 'SilverTech Logo' },
-          { href: 'https://fondationforge.org/', src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSD1IBa7y_X9oDmK-ZiyGUlqz4GXFEE80gqlPt0Yw7fOBSleW5ngvkN2wyat5qNV1wsMQE&usqp=CAU', alt: 'Fundacion Forge Logo' },
+          { href: 'https://fondationforge.org/', src:forge, alt: 'Fundacion Forge Logo' },
           { href: 'https://fpintegrar.org/', src: 'https://ampliandovoces.consejo.org.ar/wp-content/uploads/freshizer/c3f8cdcc071f62e40160a519c0403ad4_Logo-integrar-Naranja-nuevo-1381-c-90.png', alt: 'Fundacion integrar Logo' },
           { href: 'https://fundacionempujar.org/', src: 'https://fundacionempujar.org/wp-content/uploads/2022/07/Logo-fundacion-EMPUJAR.png', alt: 'Fundacion Empujar Logo' },
 
