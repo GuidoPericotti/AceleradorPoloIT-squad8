@@ -59,7 +59,7 @@ function useDBandRunQueries() {
         CREATE TABLE IF NOT EXISTS admin_user (
         admin_id INT AUTO_INCREMENT PRIMARY KEY,
         email_admin VARCHAR(50) NOT NULL,
-        password_admin VARCHAR(50) NOT NULL
+        password_admin VARCHAR(255) NOT NULL
     )`;
 
     //Create table tipoOrg
@@ -210,28 +210,8 @@ function useDBandRunQueries() {
             FOREIGN KEY (desarrollador4_id) REFERENCES estudiantes (estudiante_id),
             FOREIGN KEY (tester_id) REFERENCES estudiantes (estudiante_id),
             FOREIGN KEY (uxui_id) REFERENCES estudiantes (estudiante_id),
-            FOREIGN KEY (mentor_id) REFERENCES mentores (mentor_ir)
+            FOREIGN KEY (mentor_id) REFERENCES mentores (mentor_id)
     )`;  
-
-    //Create table miembros_estudiantes
-    const sqlCreateTableMiembrosEstudiantes = `
-    CREATE TABLE IF NOT EXISTS miembros_estudiantes(
-    miembroEstudiante_id INT AUTO_INCREMENT PRIMARY KEY,
-    estudiante_id INT NOT NULL,
-    squad_id INT NOT NULL,
-    FOREIGN KEY (estudiante_id) REFERENCES estudiantes (estudiante_id),
-    FOREIGN KEY (squad_id) REFERENCES squads (squad_id)
-    )`;
-
-    //Create table miembros_mentores
-    const sqlCreateTableMiembrosMentores = `
-            CREATE TABLE IF NOT EXISTS miembros_mentores(
-            miembroMentor_id INT AUTO_INCREMENT PRIMARY KEY,
-            mentor_id INT NOT NULL,
-            squad_id INT NOT NULL,
-            FOREIGN KEY (mentor_id) REFERENCES mentores (mentor_id),
-            FOREIGN KEY (squad_id) REFERENCES squads (squad_id)
-    )`;
 
     //Run queries
     function runAllQueries() {
@@ -331,27 +311,52 @@ function useDBandRunQueries() {
         console.log('Tabla squads creada o ya existe');
         });  
 
-        connection.query(sqlCreateTableMiembrosEstudiantes, (err, result) => {
-            if (err) {
-                console.error('Error creando la tabla miembros estudiantes: ' + err.message);
-                return;
-            }
-            console.log('Tabla miembros estudiantes creada o ya existe');
-        });
+connection.end((err) => {
+    if (err) {
+        console.error('Error al cerrar la conexión: ' + err.message);
+    } else {
+        console.log('Conexión cerrada.');
+    }
+})
+}
 
-        connection.query(sqlCreateTableMiembrosMentores, (err, result) => {
-            if (err) {
-                console.error('Error creando la tabla miembros mentores: ' + err.message);
-                return;
-            }
-            console.log('Tabla miembros mentores creada o ya existe');
-        });
+const bcrypt = require('bcryptjs');
 
-        connection.end((err) => {
-            if (err) {
-                console.error('Error al cerrar la conexión: ' + err.message);
-            } else {
-                console.log('Conexión cerrada.');
-            }
+// Conectar a la base de datos
+const connectionHDP = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'acelerador_db'
+});
+
+// Establecer la conexión
+connectionHDP.connect(err => {
+    if (err) {
+        console.error('Error al conectar a la base de datos: ' + err.message);
+        return;
+    }
+    
+    console.log('Conexión a la base de datos establecida.');
+
+    const saltRounds = 10;
+    const password = 'mi_contraseña_segura';
+    const email = 'admin@admin.com';
+
+    bcrypt.hash(password, saltRounds, function(err, hash) {
+        if (err) {
+            console.error(err);
+            return;
         }
-    )};
+
+        // Guardar el hash en la base de datos
+        const sql = 'INSERT INTO admin_user (email_admin, password_admin) VALUES (?, ?)';
+        connectionHDP.query(sql, [email, hash], function(err, results) {
+            if (err) {
+                console.error('Error al insertar el usuario: ' + err.message);
+                return;
+            }
+            console.log('Usuario admin creado');
+        });
+    });
+})
