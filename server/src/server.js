@@ -14,7 +14,6 @@ app.use('/curso',cursoRoutes);
 app.use('/estudiante',estudianteRoutes);
 app.use('/ong',ongRoutes);
 app.use('/mentor',mentorRoutes);
-app.use('/auth', authRoutes); //Login
 
 app.listen(PORT, () => {
     console.log(`http://localhost:${PORT}`);
@@ -31,8 +30,8 @@ async function registerUser(username, password) {
         const hashedPassword = await bcrypt.hash(password, 10);
 
         // Insert user in bd
-        const query = 'INSERT INTO admin_user (user_admin, password_admin) VALUES (?, ?)';
-        db.query(query, [username, hashedPassword], (error, results) => {
+        const sql = 'INSERT INTO admin_user (user_admin, password_admin) VALUES (?, ?)';
+        db.query(sql, [username, hashedPassword], (error, results) => {
             if (error) {
                 console.error('Error al crear usuario admin', error);
                 return;

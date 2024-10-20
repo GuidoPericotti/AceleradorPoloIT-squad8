@@ -174,7 +174,7 @@ function useDBandRunQueries() {
 
     //Create table mentores
     const sqlCreateTableMentores = `
-            CREATE TABLE mentores(
+            CREATE TABLE IF NOT EXISTS mentores(
             mentor_id INT AUTO_INCREMENT PRIMARY KEY,
             nombre_mentor VARCHAR(50) NOT NULL,
             apellido_mentor VARCHAR(50) NOT NULL,
@@ -203,14 +203,14 @@ function useDBandRunQueries() {
             desarrollador4_id INT NOT NULL,
             tester_id INT NOT NULL,
             uxui_id INT NOT NULL,
-            mentor_id NOT NULL,
-            FOREIGN KEY (desarrollador1_id) REFERENCES estudiantes (estudiante_id,)
-            FOREIGN KEY (desarrollador2_id) REFERENCES estudiantes (estudiante_id,
-            FOREIGN KEY (desarrollador3_id) REFERENCES estudiantes (estudiante_id,
-            FOREIGN KEY (desarrollador4_id) REFERENCES estudiantes (estudiante_id,
-            FOREIGN KEY (tester_id) REFERNECES estudiantes (estudiante_id)
-            FOREIGN KEY (uxui_id) REFERNECES estudiantes (estudiante_id)
-            FOREIGN KEY (mentor_id) REFERNECES mentores (mentor_ir)
+            mentor_id INT NOT NULL,
+            FOREIGN KEY (desarrollador1_id) REFERENCES estudiantes (estudiante_id),
+            FOREIGN KEY (desarrollador2_id) REFERENCES estudiantes (estudiante_id),
+            FOREIGN KEY (desarrollador3_id) REFERENCES estudiantes (estudiante_id),
+            FOREIGN KEY (desarrollador4_id) REFERENCES estudiantes (estudiante_id),
+            FOREIGN KEY (tester_id) REFERENCES estudiantes (estudiante_id),
+            FOREIGN KEY (uxui_id) REFERENCES estudiantes (estudiante_id),
+            FOREIGN KEY (mentor_id) REFERENCES mentores (mentor_ir)
     )`;  
 
     //Create table miembros_estudiantes
