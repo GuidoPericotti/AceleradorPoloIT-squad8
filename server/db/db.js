@@ -340,7 +340,7 @@ connectionHDP.connect(err => {
     console.log('Conexión a la base de datos establecida.');
 
     const saltRounds = 10;
-    const password = 'mi_contraseña_segura';
+    const password = 'PasswordSquad8';
     const email = 'admin@admin.com';
 
     bcrypt.hash(password, saltRounds, function(err, hash) {
