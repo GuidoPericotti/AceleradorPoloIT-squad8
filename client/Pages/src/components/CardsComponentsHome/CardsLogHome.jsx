@@ -58,7 +58,7 @@
 import React, { useEffect, useRef } from 'react';
 import { CardButtonHome } from './CardButtonHome';
 
-export const CardsLogHome = ({ src, description, darkMode, className, onClick }) => {
+export const CardsLogHome = ({ src, description, darkMode, className, onClick, descripcion }) => {
   const cardRef = useRef(null);
 
   useEffect(() => {
@@ -103,10 +103,11 @@ export const CardsLogHome = ({ src, description, darkMode, className, onClick })
       <section className="p-8 bg-transparent">
         <header className="bg-transparent">
           <h3 className="uppercase tracking-wide text-sm font-semibold">
-            Company retreats
+            {descripcion}
           </h3>
           <h2 className="block mt-1 text-lg leading-tight font-medium">
-            Incredible accommodation for your team
+          Únete a Polo IT y descubre los beneficios de formar parte de una comunidad innovadora, <br />
+          donde el crecimiento profesional, la colaboración y el acceso a oportunidades únicas te impulsarán al éxito.
           </h2>
         </header>
         <div className="mt-4"> {/* Reemplazamos NavLink por un div */}

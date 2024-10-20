@@ -86,7 +86,7 @@ import { CardsLogHome } from '../components/CardsComponentsHome/CardsLogHome';
 import Company from '../assets/company.jpg';
 import Ong from '../assets/ong.jpg';
 
-export const CardsLogin = ({ darkMode }) => {
+export const CardsLogin = ({ darkMode, descripcion }) => {
   const navigate = useNavigate();
 
   const handleOngClick = () => {
@@ -108,14 +108,16 @@ export const CardsLogin = ({ darkMode }) => {
           <CardsLogHome
             onClick={handleOngClick}
             src={Company}
-            description="ONGS"
+            description="ONG"
             darkMode={darkMode}
+            descripcion="Únete como ONG"
           />
           <CardsLogHome
             onClick={handleEmpresaClick}
             src={Ong}
             description="Empresas"
             darkMode={darkMode}
+            descripcion="Únete como Empresa"
           />
         </div>
       </div>

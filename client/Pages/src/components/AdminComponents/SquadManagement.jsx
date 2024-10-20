@@ -227,7 +227,7 @@ import React, { useState, useEffect } from 'react';
 
 // SVG Icons como componentes
 const PlusIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor">
     <path d="M12 5v14M5 12h14" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
@@ -317,7 +317,7 @@ const SquadManagement = () => {
   return (
     <div className="flex h-screen p-4">
       {/* Sidebar */}
-      <div className="mb-4">
+      <div className="mb-4 ml-20">
         <button
           onClick={() => setShowModal(true)}
           className="flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors"
@@ -328,8 +328,8 @@ const SquadManagement = () => {
       </div>
 
       {/* Lista de Squads */}
-      <div className="w-full space-y-4">
-        {squads.map((squad) => (
+      <div className="w-full grid grid-cols-1 adms:grid-cols-2 admlg:grid-cols-3 gap-6 ml-11 mt-20">
+      {squads.map((squad) => (
           <div key={squad.id} className="bg-gray-100 p-4 rounded-md shadow-md">
             <h3 className="text-lg font-semibold">Squad {squad.id}</h3>
             <p className='mb-2' id='mentor_id'><strong>Mentor:</strong> {squad.mentor}</p>
