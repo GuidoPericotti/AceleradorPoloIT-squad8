@@ -40,16 +40,16 @@ router.put('/mentores:id', adminMentoresController.updateMentor);
 router.delete('/mentores:id', adminMentoresController.deleteMentor);
 //Rutas para gestionar cursos
 router.get('/cursos', adminCursosController.getAllCursos);
-router.get('/cursos:id', adminCursosController.getCursosById);
+router.get('/cursos:id', adminCursosController.getCursoById);
 router.post('/', adminCursosController.createCurso);
 router.put('/cursos:id', adminCursosController.updateCurso);
 router.delete('/cursos:id', adminCursosController.deleteCurso);
 //Rutas para gestionar estudiantes
 router.get('/estudiantes',adminEstudiantesController.getAllEstudiantes);
-router.get('/estudiantes:id',adminEstudiantesController.getEstudianteById);
-router.post('/',adminControllerEstudiantes.createEstudiante);
-router.put('/estudiantes:id',adminControllerEstudiantes.updateEstudiante);
-router.delete('/estudiantes:id',adminControllerEstudiantes.deleteEstudiante);
+router.get('/estudiantes:id',adminEstudiantesController.getEstudiantesById);
+router.post('/',adminEstudiantesController.createEstudiante);
+router.put('/estudiantes:id',adminEstudiantesController.updateEstudiante);
+router.delete('/estudiantes:id',adminEstudiantesController.deleteEstudiante);
 // Rutas para gestionar squads
 router.get('/squads', adminSquadsController.getAllSquads);
 router.get('/squads:id', adminSquadsController.getSquadById);
