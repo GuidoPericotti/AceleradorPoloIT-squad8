@@ -342,13 +342,13 @@ import React, { useState } from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 import SocialButton from './LoginComponents/SocialButton';
 import EmailInput from './LoginComponents/EmailInput';
-import InputField from './LoginComponents/InputField';
+//import InputField from './LoginComponents/InputField';
 import PasswordInput from './LoginComponents/PasswordInput';
-import ConfirmPasswordInput from './LoginComponents/ConfirmPasswordInput'; // Nuevo componente
+//import ConfirmPasswordInput from './LoginComponents/ConfirmPasswordInput'; // Nuevo componente
 import {FormButton} from './LoginComponents/FormButton'; // Importación por defecto
 import { useAuth } from '../Context/AuthContext'; // Asegúrate de que la ruta es correcta
 import { useNavigate } from 'react-router-dom';
-import { TermsCheckbox } from './LoginComponents/TermsCheckbox';
+//import { TermsCheckbox } from './LoginComponents/TermsCheckbox';
 import {ModalLogin} from './LoginComponents/ModalLogin'; // Asegúrate de importar ModalLogin correctamente
 import LogoPolo from '../../assets/logo_polo_it.png';
 

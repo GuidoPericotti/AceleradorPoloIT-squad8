@@ -459,7 +459,8 @@ import LogOng from './components/Login/LogOng';
 import ONGEmpresaLogin from './components/Login/LoginComponents/ONGEmpresaLogin';
 import { LogInConCuenta } from './components/Login/LogInConCuenta';
 import { OngUserSide } from './Pages/OngUserSide';
-
+import {OngLogin} from './components/OngSide/OngComponents/LoginOng/OngLogin'
+import { EmpresaLogin } from './components/EmpresasSide/LoginEmpresa/EmpresaLogin';
 
 const App = () => {
   return (
@@ -473,9 +474,11 @@ const App = () => {
           <Route path="/ong" element={<OngClient />} />
           <Route path="/empresa" element={<CompanyBtn />} />
           <Route path="/crear-cuenta" element={<OngPage />} />
+          <Route path="/ong-login" element={<OngLogin />} />
+          <Route path="/empresa-login" element={<EmpresaLogin />} />
 
           {/* Ruta de Login desde Home */}
-          <Route path="/login" element={<LogInConCuenta />} />
+          {/* <Route path="/login" element={<LogInConCuenta />} /> */}
 
           {/* Rutas Protegidas */}
           <Route 

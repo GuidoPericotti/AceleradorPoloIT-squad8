@@ -145,7 +145,10 @@ export const SidebarOng = ({ onViewChange, currentView}) => {
             <div className="flex-grow p-4 overflow-y-auto">
             <button
               onClick={() => onViewChange(currentView === 'squads' ? 'solicitudes' : 'squads')}
-              className={`button-class ${currentView === 'squads' ? 'active' : ''}`}
+              className={`button-class bg-white hover:bg-gray-400
+                flex items-center admlg:w-40 w-full p-2 mb-4 rounded-lg shadow
+              transition-colors duration-200 adms:w-28 adms:-ml-2
+               ${currentView === 'squads' ? 'active' : ''}`}
             >
                 <img
                   src="https://via.placeholder.com/40"
