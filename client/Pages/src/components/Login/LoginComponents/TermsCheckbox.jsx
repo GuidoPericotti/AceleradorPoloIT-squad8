@@ -13,5 +13,3 @@ const TermsCheckbox = forwardRef(({ ...rest }, ref) => (
 ));
 
 export { TermsCheckbox };
-
-

@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 // Componente de seleccion si ONG o Empresa

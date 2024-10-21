@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 import SocialButton from '../../Login/LoginComponents/SocialButton';
@@ -78,22 +77,6 @@ const LoginIniciadoEmpresa = () => {
           </div>
           <div className="p-6">
             <form onSubmit={handleSubmit(onSubmit)}>
-              {/* <div className="mb-4 relative">
-                <InputField
-                  type="text"
-                  placeholder="Nombre"
-                  ariaLabel="Nombre"
-                  {...methods.register('name', { required: 'El nombre es requerido' })}
-                  className="peer block w-full appearance-none rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2 text-gray-700 dark:text-gray-300 placeholder-transparent focus:border-sky-500 dark:focus:border-sky-500 focus:outline-none focus:ring-0"
-                  id="Nombre"
-                />
-                <label className="absolute top-1/4 left-3 text-gray-500 dark:text-gray-400 text-sm transition-transform duration-200 transform scale-75 origin-top-left peer-placeholder-shown:top-1/6 peer-placeholder-shown:translate-y-0.5 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-gray-500 peer-focus:-top-5 peer-focus:translate-y-1 peer-focus:scale-75 peer-focus:text-sky-500 after:content-['*'] after:ml-0.5 after:text-red-500 block font-medium">
-                  Nombre
-                </label>
-                {errors.name && (
-                  <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>
-                )}
-              </div> */}
               <div className="mb-4 relative">
                 <p>Email</p>
                 <EmailInput
@@ -118,19 +101,6 @@ const LoginIniciadoEmpresa = () => {
                   <p className="text-red-500 text-xs mt-1">La contraseña no es correcta.</p>
                 )}
               </div>
-              {/* <div className="mb-4 relative">
-                <ConfirmPasswordInput />
-                {errors.confirmPassword && (
-                  <p className="text-red-500 text-xs mt-1">{errors.confirmPassword.message}</p>
-                )}
-              </div>
-              <div className="mb-4">
-                <TermsCheckbox {...methods.register('terms', { required: 'Debes aceptar los términos y condiciones' })} />
-                {errors.terms && (
-                  <p className="text-red-500 text-xs mt-1">{errors.terms.message}</p>
-                )}
-              </div> */}
-
               {/* Botón de Envío */}
               <FormButton
                 text={isSubmitting ? 'Iniciando sesión' : 'Iniciar sesión'}

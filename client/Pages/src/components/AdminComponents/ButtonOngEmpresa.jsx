@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 
 export const ButtonOngEmpresa = ({ nombre, filterType, currentFilter, onClick }) => {

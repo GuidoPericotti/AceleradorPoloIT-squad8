@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Navbar } from '../../Pages/Navbar';
 import { EmpresasClient } from '../EmpresasClient/EmpresasClient';
