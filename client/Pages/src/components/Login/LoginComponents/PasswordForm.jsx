@@ -14,6 +14,7 @@ const PasswordForm = () => {
   return (
     <div>
       <PasswordInput />
+      <p>La ontaseña debe tener ocho caracteres<br/> una mayuscula<br/> un simbolo<br/>un número </p>
       <ConfirmPasswordInput />
       {/* {!passwordsMatch && password && confirmPassword && (
         <p className="text-red-500 text-xs mt-1">Las contraseñas no coinciden.</p>

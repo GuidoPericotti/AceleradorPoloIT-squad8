@@ -360,9 +360,9 @@ const SquadManagement = () => {
 
       {/* Modal */}
       {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center top-6">
           <div className="bg-white rounded-lg w-96 max-w-[90%]">
-            <div className="flex justify-between items-center p-4 border-b border-gray-200">
+            <div className="flex justify-between items-center p-1 border-b border-gray-200">
               <h2 className="text-xl font-semibold">{currentSquad.id ? 'Editar Squad' : 'Nuevo Squad'}</h2>
               <button onClick={handleCloseModal} className="text-gray-500 hover:text-gray-700">
                 <CloseIcon />

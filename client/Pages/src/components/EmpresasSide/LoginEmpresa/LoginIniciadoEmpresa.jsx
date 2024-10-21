@@ -136,6 +136,7 @@ const LoginIniciadoEmpresa = () => {
                 text={isSubmitting ? 'Iniciando sesión' : 'Iniciar sesión'}
                 isSubmitting={isSubmitting}
                 isDisabled={!isValid || isSubmitting || methods.watch('password') !== methods.watch('confirmPassword')}
+                id='createEmpresaUser'
               />
             </form>
 

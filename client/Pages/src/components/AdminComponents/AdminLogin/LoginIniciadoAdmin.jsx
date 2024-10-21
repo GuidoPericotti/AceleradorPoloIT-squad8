@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 import SocialButton from '../../Login/LoginComponents/SocialButton';
 import EmailInput from '../../Login/LoginComponents/EmailInput';
@@ -61,6 +61,12 @@ const LoginIniciadoAdmin = () => {
     setShowModal(false);
     navigate('/'); // Redirigir a la página principal
   };
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    if (storedUser && storedUser.role === 'Admin') {
+      navigate('/admin');
+    }
+  }, [navigate]);
 
   return (
     <FormProvider {...methods}>
@@ -136,6 +142,7 @@ const LoginIniciadoAdmin = () => {
                 text={isSubmitting ? 'Iniciando sesión' : 'Iniciar sesión'}
                 isSubmitting={isSubmitting}
                 isDisabled={!isValid || isSubmitting || methods.watch('password') !== methods.watch('confirmPassword')}
+                
               />
             </form>
 

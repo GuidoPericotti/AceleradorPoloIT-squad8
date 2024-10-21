@@ -91,7 +91,11 @@ export const StudentsTable = ({darkMode}) => {
             <tr>
               <th scope="col" className="px-6 py-4">Apellido</th>
               <th scope="col" className="px-6 py-4">Nombre</th>
+              <th scope="col" className="px-6 py-4">DNI</th>
+              <th scope="col" className="px-6 py-4">Edad</th>
+              <th scope="col" className="px-6 py-4">Email</th>
               <th scope="col" className="px-6 py-4">Perfil</th>
+              <th scope="col" className="px-6 py-4">Condicion</th>
               <th scope="col" className="px-6 py-4">Acciones</th>
             </tr>
           </thead>
@@ -100,7 +104,11 @@ export const StudentsTable = ({darkMode}) => {
               <tr key={index} className="border-b dark:bg-gray-600 dark:hover:bg-neutral-600">
                 <th scope="row" className="px-6 py-4 dark:text-white">{student.surname}</th>
                 <td className="px-6 py-4 dark:text-white">{student.name}</td>
+                <td className="px-6 py-4 dark:text-white">{student.dni}</td>
+                <td className="px-6 py-4 dark:text-white">{student.edad}</td>
+                <td className="px-6 py-4 dark:text-white">{student.email}</td>
                 <td className="px-6 py-4 dark:text-white">{student.perfil}</td>
+                <td className="px-6 py-4 dark:text-white">{student.condicion}</td>
                 <td className="px-6 py-4 dark:text-white flex">
                   <button className="text-blue-500 hover:text-blue-700" onClick={() => openEditStudentModal(student)}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
