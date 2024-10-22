@@ -22,7 +22,7 @@ const getAdminById = (req,res) => {
 //Crear nuevo usuario
 const createAdminUser = (req,res) => {
     const {user, password} = req.body;
-    const sql = 'INSERT INTO admin_user (nombre_admin, apellido_admin, email_admin, password_admin) VALUES (?, ?, ?, ?)';
+    const sql = 'INSERT INTO admin_user (email_admin, password_admin) VALUES (?, ?)';
     db.query(sql, [user, password], (err, result) => {
         if (err) throw err;
         res.json({ mensaje: "Administrador creado correctamente", idAdmin: result.insertId });

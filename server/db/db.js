@@ -311,33 +311,7 @@ function useDBandRunQueries() {
         console.log('Tabla squads creada o ya existe');
         });  
 
-connection.end((err) => {
-    if (err) {
-        console.error('Error al cerrar la conexión: ' + err.message);
-    } else {
-        console.log('Conexión cerrada.');
-    }
-})
-}
-
 const bcrypt = require('bcryptjs');
-
-// Conectar a la base de datos
-const connectionHDP = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'acelerador_db'
-});
-
-// Establecer la conexión
-connectionHDP.connect(err => {
-    if (err) {
-        console.error('Error al conectar a la base de datos: ' + err.message);
-        return;
-    }
-    
-    console.log('Conexión a la base de datos establecida.');
 
     const saltRounds = 10;
     const password = 'PasswordSquad8';
@@ -351,7 +325,7 @@ connectionHDP.connect(err => {
 
         // Guardar el hash en la base de datos
         const sql = 'INSERT INTO admin_user (email_admin, password_admin) VALUES (?, ?)';
-        connectionHDP.query(sql, [email, hash], function(err, results) {
+        connection.query(sql, [email, hash], function(err, results) {
             if (err) {
                 console.error('Error al insertar el usuario: ' + err.message);
                 return;
@@ -359,4 +333,4 @@ connectionHDP.connect(err => {
             console.log('Usuario admin creado');
         });
     });
-})
+}

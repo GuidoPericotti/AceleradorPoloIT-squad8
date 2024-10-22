@@ -17,3 +17,16 @@ app.use('/mentor',mentorRoutes);
 app.listen(PORT, () => {
     console.log(`http://localhost:${PORT}`);
 });
+
+// Manejar el cierre del servidor
+process.on('SIGINT', () => {
+    console.log('Cerrando el servidor...');
+    db.end((err) => {
+        if (err) {
+            console.error('Error al cerrar la conexión: ' + err.message);
+        } else {
+            console.log('Conexión cerrada.');
+        }
+        process.exit();
+    });
+});
