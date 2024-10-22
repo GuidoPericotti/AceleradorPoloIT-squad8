@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> 5a137cb01eca0888e0d6ce679718f3f342374f2c
 import React, { useState, useEffect } from 'react';
 
 // SVG Icons como componentes

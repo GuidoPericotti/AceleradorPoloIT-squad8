@@ -12,7 +12,7 @@ const getAllAdminAccess = (req,res) => {
 //Obtener admin por ID
 const getAdminById = (req,res) => {
     const {id} = req.params;
-    const sql = 'SELECT * FROM admin_user WHERE id=?';
+    const sql = 'SELECT * FROM admin_user WHERE admin_id=?';
     db.query(sql,[id], (err, result) => {
         if (err) throw err;
         res.json(result);
@@ -20,21 +20,27 @@ const getAdminById = (req,res) => {
 };
 
 //Crear nuevo usuario
-const createAdminUser = (req,res) => {
-    const {user, password} = req.body;
-    const sql = 'INSERT INTO admin_user (email_admin, password_admin) VALUES (?, ?)';
-    db.query(sql, [user, password], (err, result) => {
-        if (err) throw err;
-        res.json({ mensaje: "Administrador creado correctamente", idAdmin: result.insertId });
+const bcrypt = require('bcryptjs');
+
+const createAdminUser = (req, res) => {
+    const { email, password } = req.body;
+    const saltRounds = 10;
+
+    bcrypt.hash(password, saltRounds, function(err, hash) {
+        const sql = 'INSERT INTO admin_user (email_admin, password_admin) VALUES (?, ?)';
+        db.query(sql, [email, hash], function(err, results) {
+            if (err) throw err;
+            res.json({ mensaje: "Administrador creado correctamente"});
+        });
     });
-};
+}
 
 //Editar usuario
 const updateAdminUser = (req, res) => {
     const {id} = req.params;
-    const {user, password} = req.body;
-    const sql = 'UPDATE admin_user SET user = ?, password = ? WHERE id = ?';
-    db.query(sql,[user, password, id], (err, result) => {
+    const {email, password} = req.body;
+    const sql = 'UPDATE admin_user SET email_admin = ?, password_admin = ? WHERE admin_id = ?';
+    db.query(sql,[email, password], (err, result) => {
         if (err) throw err;
         res.json({ mensaje: "Administrador actualizado correctamente"});
     });
@@ -43,7 +49,7 @@ const updateAdminUser = (req, res) => {
 //Eliminar usuario
 const deleteAdminUser = (req, res) => {
     const {id} = req.params;
-    const sql = 'DELETE FROM admin_user WHERE id = ?';
+    const sql = 'DELETE FROM admin_user WHERE admin_id = ?';
     db.query(sql,[id], (err, result) => {
         if (err) throw err;
         res.json({ mensaje: "Administrador eliminado correctamente"});
