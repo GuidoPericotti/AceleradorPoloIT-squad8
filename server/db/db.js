@@ -334,3 +334,10 @@ const bcrypt = require('bcryptjs');
         });
     });
 }
+
+// Exportar la conexión para poder hacer consultas
+module.exports = {
+    query: (sql, params, callback) => {
+        return connection.query(sql, params, callback);
+    }
+};
