@@ -335,6 +335,24 @@ const bcrypt = require('bcryptjs');
     });
 }
 
+// Consulta a la base de datos para buscar el usuario
+    const query = 'SELECT * FROM users WHERE email_admin = ?';
+    connection.query(sql, [username], (err, results) => {
+        if (results.length === 0) {
+            return res.status(401).json({ error: 'Usuario incorrecto' });
+        }
+
+        // Comparar la contraseña ingresada con la stored hash
+        bcrypt.compare(password, password_hash, (err, isMatch) => {
+            if (isMatch) {
+                // ¿Autenticación exitosa?
+                return res.status(200).json({ message: 'Inicio de sesión exitoso' });
+            } else {
+                return res.status(401).json({ error: 'Usuario o contraseña incorrectos' });
+            }
+        });
+    });
+
 // Exportar la conexión para poder hacer consultas
 module.exports = {
     query: (sql, params, callback) => {

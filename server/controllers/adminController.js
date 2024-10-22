@@ -20,20 +20,17 @@ const getAdminById = (req,res) => {
 };
 
 //Crear nuevo usuario
-const bcrypt = require('bcryptjs');
-
-const createAdminUser = (req, res) => {
-    const { email, password } = req.body;
-    const saltRounds = 10;
-
-    bcrypt.hash(password, saltRounds, function(err, hash) {
-        const sql = 'INSERT INTO admin_user (email_admin, password_admin) VALUES (?, ?)';
-        db.query(sql, [email, hash], function(err, results) {
-            if (err) throw err;
-            res.json({ mensaje: "Administrador creado correctamente"});
-        });
+const bcrypt = require ('bcrypt');
+const createAdminUser = async (req,res) => {
+    const {email, password} = req.body;
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const sql = 'INSERT INTO admin_user (email_admin, password_admin) VALUES (?, ?)';
+    db.query(sql, [email, hashedPassword], (err, result) => {
+        if (err) throw err;
+        console.log(email, hashedPassword);
+        res.json({ mensaje: "Administrador creado correctamente", idAdmin: result.insertId });
     });
-}
+};
 
 //Editar usuario
 const updateAdminUser = (req, res) => {
