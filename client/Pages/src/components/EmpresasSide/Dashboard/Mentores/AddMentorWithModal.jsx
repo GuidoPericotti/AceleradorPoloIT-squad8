@@ -18,4 +18,3 @@ const AddMentorWithModal = ({ addMentor, darkMode }) => {
 };
 
 export default AddMentorWithModal;
-    

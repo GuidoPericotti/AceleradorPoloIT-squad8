@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react'; 
 import { LogoSolicitudes } from './LogoSolicitudes';
 import { ButtonOngEmpresa } from './ButtonOngEmpresa';

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ButtonCardAdmin } from './ButtonCardAdmin';
 import { ModalLogin } from '../Login/LoginComponents/ModalLogin';
@@ -15,7 +14,7 @@ export const CardsSolicitudes = ({ tipo, darkMode }) => {
   };
 
   return ( 
-   <div className={`admlg:ms-8 admlg:w-[400px] bg-[#C6E5D6] w-full border-2 rounded-2xl mb-4 p-2 sm:p-4 adms:w-[200px] dark:text-white ${darkMode ? 'bg-gray-900' : 'bg-[#F3F9F6]'}`}>
+    <div className={`admlg:ms-8 admlg:w-[400px] bg-[#C6E5D6] w-full border-2 rounded-2xl mb-4 p-2 sm:p-4 adms:w-[200px] dark:text-white ${darkMode ? 'bg-gray-900' : 'bg-[#F3F9F6]'}`}>
     <div className="flex flex-col ml-6">
       {/* Botón de cerrar */}
       <div className="flex justify-end mb-1">

@@ -8,7 +8,7 @@ export const EmpresasClient = () => {
     <div className="max-w-xl pl-10">
       <div className="pb-4 fade-in-left-1">
         <h2 className="text-6xl font-bold text-left text-gray-800 dark:text-white animate-zoom">
-           Empresas
+            Empresas
         </h2>
       </div>
     <div className="pb-4 fade-in-left-2 text-center">

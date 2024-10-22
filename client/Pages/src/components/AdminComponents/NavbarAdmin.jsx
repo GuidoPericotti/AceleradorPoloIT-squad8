@@ -57,7 +57,7 @@ export const NavbarAdmin = ({ darkMode, setDarkMode }) => {
               <li><NavLink to='/participantes'>Participantes</NavLink></li>
               <li><NavLink to='/mentores'>Mentores</NavLink></li>
               <li><NavLink to='/contact'>Contacto</NavLink></li>
-             {/* <li><NavLink to='/admin'>Admin</NavLink></li> 
+              {/* <li><NavLink to='/admin'>Admin</NavLink></li> 
             </ul>
           </div> */}
         )}

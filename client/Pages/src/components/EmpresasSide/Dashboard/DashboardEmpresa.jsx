@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import { EmpresaCard } from './EmpresaCard';
 import { BienvenidaEmpresa } from './CardInfoEmpresa/BienvenidaEmpresa';
