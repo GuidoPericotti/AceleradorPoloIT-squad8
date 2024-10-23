@@ -7,7 +7,7 @@ const estudianteRoutes = require('../routes/estudianteRoutes.js');
 const ongRoutes = require('../routes/ongRoutes');
 const mentorRoutes = require('../routes/mentorRoutes');
 const cors = require('cors');
-const { inicioAdmin } = require('../db/db.js');
+const loginRoutes = require('../routes/loginRoutes.js');
 
 app.use(cors());
 app.use(express.json());
@@ -16,13 +16,10 @@ app.use('/curso',cursoRoutes);
 app.use('/estudiante',estudianteRoutes);
 app.use('/ong',ongRoutes);
 app.use('/mentor',mentorRoutes);
-app.use('/api/login',adminRoutes);
+app.use('/api/login',loginRoutes);
 
 // Rutas de la API
-app.get('/api/saludo', (req, res) => {
-    res.json({ mensaje: '¡Hola desde el backend!' });
-});
-app.post('http://localhost:3000/api/login', inicioAdmin)
+app.post('http://localhost:3000/api/login', loginRoutes)
 
 app.listen(PORT, () => {
     console.log(`http://localhost:${PORT}`);

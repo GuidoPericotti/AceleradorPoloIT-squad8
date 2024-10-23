@@ -40,9 +40,10 @@ const handleLogin = async (data) =>{
       email,
       password,
     });
+    console.log(response)
     if (response.data.success ) {
       setMessage('¡Inicio de sesión Exitoso!');
-      Navigate('/admin')
+      navigate('/admin')
     } else {
       setMessage('¡Algo ha fallado!');          
     }
