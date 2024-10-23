@@ -7,8 +7,8 @@ const adminMentoresController = require ('../controllers/adminControllerMentor.j
 
 const adminCursosController = require ('../controllers/adminControllerCursos.js');
 const adminEstudiantesController = require ('../controllers/adminControllerEstudiantes.js');
-const adminSquadsController = require ('../controllers/adminControllerSquad.js')
-
+const adminSquadsController = require ('../controllers/adminControllerSquad.js');
+const db = require ('../db/db.js');
 
 //Rutas para gestionar usuarios administradores
 router.get('/', adminController.getAllAdminAccess);
@@ -16,6 +16,7 @@ router.get('/:id', adminController.getAdminById);
 router.post('/', adminController.createAdminUser);
 router.put('/:id', adminController.updateAdminUser);
 router.delete('/:id', adminController.deleteAdminUser);
+router.post('/login', db.inicioAdmin)
 //Rutas para gestionar ongs
 router.get('/ongs/postulantes', adminOngController.getAllOngPostulantes);
 router.get('/ongs/participantes', adminOngController.getAllOngParticipantes);

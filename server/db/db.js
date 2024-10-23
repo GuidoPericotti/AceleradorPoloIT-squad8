@@ -336,22 +336,24 @@ const bcrypt = require('bcryptjs');
 }
 
 // Consulta a la base de datos para buscar el usuario
-    const query = 'SELECT * FROM users WHERE email_admin = ?';
-    connection.query(sql, [username], (err, results) => {
+
+function inicioAdmin (req, res, email, password) {
+    const sql = 'SELECT * FROM admin_user WHERE email_admin = ?';
+    connection.query(sql, [email], (err, results) => {
         if (results.length === 0) {
-            return res.status(401).json({ error: 'Usuario incorrecto' });
+            return res.json({ mensaje: 'Usuario incorrecto' });
         }
 
-        // Comparar la contraseña ingresada con la stored hash
+        // Comparar
         bcrypt.compare(password, password_hash, (err, isMatch) => {
             if (isMatch) {
-                // ¿Autenticación exitosa?
-                return res.status(200).json({ message: 'Inicio de sesión exitoso' });
+                return res.redirect('/admin');
             } else {
-                return res.status(401).json({ error: 'Usuario o contraseña incorrectos' });
+                console.log({ mensaje: 'Usuario o contraseña incorrectos' });
             }
         });
     });
+}
 
 // Exportar la conexión para poder hacer consultas
 module.exports = {
@@ -359,3 +361,7 @@ module.exports = {
         return connection.query(sql, params, callback);
     }
 };
+
+module.exports = {
+    inicioAdmin
+}

@@ -20,25 +20,26 @@ const getAdminById = (req,res) => {
 };
 
 //Crear nuevo usuario
-const bcrypt = require ('bcrypt');
+const bcrypt = require ('bcryptjs');
 const createAdminUser = async (req,res) => {
     const {email, password} = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
     const sql = 'INSERT INTO admin_user (email_admin, password_admin) VALUES (?, ?)';
     db.query(sql, [email, hashedPassword], (err, result) => {
         if (err) throw err;
-        console.log(email, hashedPassword);
         res.json({ mensaje: "Administrador creado correctamente", idAdmin: result.insertId });
     });
 };
 
 //Editar usuario
-const updateAdminUser = (req, res) => {
+const updateAdminUser = async (req, res) => {
     const {id} = req.params;
-    const {email, password} = req.body;
-    const sql = 'UPDATE admin_user SET email_admin = ?, password_admin = ? WHERE admin_id = ?';
-    db.query(sql,[email, password], (err, result) => {
+    const {password} = req.body;
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const sql = 'UPDATE admin_user SET password_admin = ? WHERE admin_id = ?';
+    db.query(sql,[ hashedPassword, id], (err, result) => {
         if (err) throw err;
+        console.log(hashedPassword);
         res.json({ mensaje: "Administrador actualizado correctamente"});
     });
 };
