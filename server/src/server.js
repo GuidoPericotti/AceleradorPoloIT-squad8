@@ -7,15 +7,22 @@ const estudianteRoutes = require('../routes/estudianteRoutes.js');
 const ongRoutes = require('../routes/ongRoutes');
 const mentorRoutes = require('../routes/mentorRoutes');
 const cors = require('cors');
-const inicioAdmin = require('../db/db.js')
+const { inicioAdmin } = require('../db/db.js');
+
+app.use(cors());
 app.use(express.json());
 app.use('/admin_user',adminRoutes);
 app.use('/curso',cursoRoutes);
 app.use('/estudiante',estudianteRoutes);
 app.use('/ong',ongRoutes);
 app.use('/mentor',mentorRoutes);
-app.use(cors({methods: ['GET', 'POST' ]}));
-app.post('/api/inicioAdmin', inicioAdmin);
+app.use('/api/login',adminRoutes);
+
+// Rutas de la API
+app.get('/api/saludo', (req, res) => {
+    res.json({ mensaje: '¡Hola desde el backend!' });
+});
+app.post('http://localhost:3000/api/login', inicioAdmin)
 
 app.listen(PORT, () => {
     console.log(`http://localhost:${PORT}`);

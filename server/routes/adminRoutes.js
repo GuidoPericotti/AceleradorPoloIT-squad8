@@ -4,7 +4,6 @@ const adminController = require('../controllers/adminController.js');
 const adminOngController = require ('../controllers/adminControllerONG.js');
 const adminEmpresasController = require ('../controllers/adminControllerEmpresa.js');
 const adminMentoresController = require ('../controllers/adminControllerMentor.js');
-
 const adminCursosController = require ('../controllers/adminControllerCursos.js');
 const adminEstudiantesController = require ('../controllers/adminControllerEstudiantes.js');
 const adminSquadsController = require ('../controllers/adminControllerSquad.js');

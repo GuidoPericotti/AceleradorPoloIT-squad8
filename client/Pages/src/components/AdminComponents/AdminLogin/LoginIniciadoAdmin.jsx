@@ -36,10 +36,9 @@ const handleLogin = async (data) =>{
   const { email, password} = data
 
   try {
-    const response = await 
-    axios.post('/api/inicioAdmin', inicioAdmin, {
-      email ,
-      password ,
+    const response = await axios.post('http://localhost:3000/api/login', {
+      email,
+      password,
     });
     if (response.data.success ) {
       setMessage('¡Inicio de sesión Exitoso!');
