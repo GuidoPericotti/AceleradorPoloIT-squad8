@@ -18,7 +18,7 @@ export const LayoutOng = () => {
   }, [darkMode]);
 
   return (
-    <div className={`relative pt-14 ${darkMode ? 'dark' : ''}`}>
+    <div className={`relative ${darkMode ? 'dark' : ''}`}>
       <NavbarOng isModalOpen={isModalOpen}  darkMode={darkMode} setDarkMode={setDarkMode} />
       <DashboardLayout darkMode={darkMode} />
     </div>
