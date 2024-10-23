@@ -359,9 +359,6 @@ function inicioAdmin (req, res, email, password) {
 module.exports = {
     query: (sql, params, callback) => {
         return connection.query(sql, params, callback);
-    }
-};
-
-module.exports = {
+    },
     inicioAdmin
-}
+};

@@ -31,28 +31,28 @@ const LoginIniciadoAdmin = () => {
   const [message, setMessage] = useState('')
   
 
-    const handleLogin = async (data) =>{
-      
-      const { email, password} = data
+const handleLogin = async (data) =>{
+  
+  const { email, password} = data
 
-      try {
-        const response = await 
-        axios.post('http://localhost:3000/login', {
-          email ,
-          password ,
-        });
-        if (response.data.success ) {
-          setMessage('¡Inicio de sesión Exitoso!');
-          Navigate('/admin')
-        } else {
-          setMessage('¡Algo ha fallado!');          
-        }
-      } catch (error) {
-        console.error();
-        setMessage('¡Algo ha fallado!');          
-
-      }
+  try {
+    const response = await 
+    axios.post('/api/inicioAdmin', inicioAdmin, {
+      email ,
+      password ,
+    });
+    if (response.data.success ) {
+      setMessage('¡Inicio de sesión Exitoso!');
+      Navigate('/admin')
+    } else {
+      setMessage('¡Algo ha fallado!');          
     }
+  } catch (error) {
+    console.error();
+    setMessage('¡Algo ha fallado!');          
+
+  }
+}
   
 
     
@@ -108,7 +108,7 @@ const LoginIniciadoAdmin = () => {
                 text={isSubmitting ? 'Iniciando sesión' : 'Iniciar sesión'}
                 isSubmitting={isSubmitting}
                 isDisabled={!isValid || isSubmitting}
-                
+                onClick={handleLogin}
               />
             </form>
           </div>
