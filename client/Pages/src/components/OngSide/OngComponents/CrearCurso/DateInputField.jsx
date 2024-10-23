@@ -6,7 +6,7 @@ const DateInputField = ({ label, value, onChange }) => {
       <label className="block text-gray-700">{label}</label>
       <input
         type="text"
-        className="mt-1 p-2 w-full border rounded-lg"
+        className="mt-1 p-2 w-28 border rounded-lg"
         value={value}
         onChange={onChange}
         placeholder="dd/mm/aaaa"

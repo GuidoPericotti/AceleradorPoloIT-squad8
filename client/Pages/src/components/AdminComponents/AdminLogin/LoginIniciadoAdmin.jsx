@@ -5,17 +5,16 @@ import EmailInput from '../../Login/LoginComponents/EmailInput';
 import PasswordInput from '../../Login/LoginComponents/PasswordInput';
 import {FormButton} from '../../Login/LoginComponents/FormButton';
 import { useAuth } from '../../Context/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import {ModalLogin} from '../../Login/LoginComponents/ModalLogin';
 import LogoPolo from '../../../assets/logo_polo_it.png';
+import axios from 'axios';
 
 const LoginIniciadoAdmin = () => {
   const methods = useForm({
     defaultValues: {
       email: '',
       password: '',
-      confirmPassword: '',
-      name: ''
     }
   });
 
@@ -29,40 +28,41 @@ const LoginIniciadoAdmin = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
+  const [message, setMessage] = useState('')
+  
 
-  const onSubmit = (data) => {
-    const storedUser = JSON.parse(localStorage.getItem('user'));
+    const handleLogin = async (data) =>{
+      
+      const { email, password} = data
 
-    if (storedUser && storedUser.email === data.email && storedUser.password === data.password) {
-      // Autenticar al usuario en el contexto
-      login(storedUser);  // Asegúrate de que storedUser tiene la propiedad 'role'
+      try {
+        const response = await 
+        axios.post('http://localhost:3000/login', {
+          email ,
+          password ,
+        });
+        if (response.data.success ) {
+          setMessage('¡Inicio de sesión Exitoso!');
+          Navigate('/admin')
+        } else {
+          setMessage('¡Algo ha fallado!');          
+        }
+      } catch (error) {
+        console.error();
+        setMessage('¡Algo ha fallado!');          
 
-      alert('Inicio de sesión exitoso');
-      // Redirigir según el rol
-      if (storedUser.role === 'ONG') {
-        navigate('/ong-client');
-      } else if (storedUser.role === 'Admin') {
-        navigate('/admin');
-      } else if (storedUser.role === 'Empresa') {
-        navigate('/empresa-side');
-      } else {
-        navigate('/');
       }
-    } else {
-      alert('Credenciales incorrectas');
     }
-  };
+  
+
+    
+  
 
   const handleModalClose = () => {
     setShowModal(false);
     navigate('/'); // Redirigir a la página principal
   };
-  useEffect(() => {
-    const storedUser = JSON.parse(localStorage.getItem('user'));
-    if (storedUser && storedUser.role === 'Admin') {
-      navigate('/admin');
-    }
-  }, [navigate]);
+  
 
   return (
     <FormProvider {...methods}>
@@ -79,7 +79,7 @@ const LoginIniciadoAdmin = () => {
             />
           </div>
           <div className="p-6">
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(handleLogin)}>
               <div className="mb-4 relative">
                 <p>Email</p>
                 <EmailInput
@@ -96,6 +96,8 @@ const LoginIniciadoAdmin = () => {
               <div className="mb-4 relative">
                 <PasswordInput 
                     id="password_admin"
+                    onChange={(value) => methods.setValue('password', value)}
+
                 />
                 {errors.password && (
                   <p className="text-red-500 text-xs mt-1">La contraseña no es correcta.</p>
@@ -105,25 +107,14 @@ const LoginIniciadoAdmin = () => {
               <FormButton
                 text={isSubmitting ? 'Iniciando sesión' : 'Iniciar sesión'}
                 isSubmitting={isSubmitting}
-                isDisabled={!isValid || isSubmitting || methods.watch('password') !== methods.watch('confirmPassword')}
+                isDisabled={!isValid || isSubmitting}
                 
               />
             </form>
-
-            {/* Modal de Confirmación */}
-            {showModal && (
-              <ModalLogin
-                onClose={handleModalClose}
-                title="¡Felicitaciones!"
-                message="¡Tu solicitud de registro se ha enviado con éxito!"
-                buttonText="Volver al inicio"
-              />
-            )}
           </div>
         </div>
       </main>
     </FormProvider>
   );
 };
-
 export default LoginIniciadoAdmin;

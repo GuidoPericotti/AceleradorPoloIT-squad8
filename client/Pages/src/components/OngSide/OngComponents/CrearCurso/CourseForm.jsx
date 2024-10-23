@@ -4,6 +4,7 @@ import TextAreaField from './TextAreaField';
 import DateRangeSelector from './DateRangeSelector';
 import ButtonGroup from './ButtonGroup';
 import DateInputField from './DateInputField';
+import AcordionCourse from '../Course/AcordionCourse';
 
 const PersonalCourses = ({ courseTitle }) => {
   return (
@@ -23,7 +24,11 @@ const CourseForm = ({
   description, 
   setDescription, 
   courseTeacher, 
-  setCourseTeacher 
+  setCourseTeacher,
+  startDate,
+  setStartDate,
+  endDate,
+  setEndDate 
 }) => {
   return (
     <form onSubmit={onSubmit}>
@@ -45,8 +50,21 @@ const CourseForm = ({
         onChange={(e) => setDescription(e.target.value)}
         id='descripcion_curso'
       />
-      <DateInputField id='fechaInicio_curso' /> -
-      <DateInputField id='fechaCierre_curso'/>
+      <div className="flex items-center space-x-2 ml-5">
+        <DateInputField 
+          id="fechaInicio_curso" 
+          value={startDate}
+          onChange={(e) => setStartDate(e.target.value)}
+        />
+        
+        <span className="text-lg">-</span> {/* Línea de separación */}
+
+        <DateInputField 
+          id="fechaCierre_curso" 
+          value={endDate}
+          onChange={(e) => setEndDate(e.target.value)}
+        />
+      </div>
       <div className='flex justify-center pt-3'>
         <ButtonGroup onCancel={onCancel} />
       </div>
