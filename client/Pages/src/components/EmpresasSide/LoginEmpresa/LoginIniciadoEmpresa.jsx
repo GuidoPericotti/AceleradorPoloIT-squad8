@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 //import { TermsCheckbox } from './LoginComponents/TermsCheckbox';
 import {ModalLogin} from '../../Login/LoginComponents/ModalLogin'; // Asegúrate de importar ModalLogin correctamente
 import LogoPolo from '../../../assets/logo_polo_it.png';
+import axios from 'axios';
 
 const LoginIniciadoEmpresa = () => {
   const methods = useForm({
@@ -32,30 +33,32 @@ const LoginIniciadoEmpresa = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
+  const [message, setMessage] = useState('')
+  
 
-  const onSubmit = (data) => {
-    const storedUser = JSON.parse(localStorage.getItem('user'));
+const handleLogin = async (data) =>{
+  
+  const { email, password} = data
 
-    if (storedUser && storedUser.email === data.email && storedUser.password === data.password) {
-      // Autenticar al usuario en el contexto
-      login(storedUser);  // Asegúrate de que storedUser tiene la propiedad 'role'
-
-      alert('Inicio de sesión exitoso');
-      // Redirigir según el rol
-      if (storedUser.role === 'ONG') {
-        navigate('/ong-client');
-      } else if (storedUser.role === 'Admin') {
-        navigate('/admin');
-      } else if (storedUser.role === 'Empresa') {
-        navigate('/empresa-side');
-      } else {
-        navigate('/');
-      }
+  try {
+    const response = await axios.post('http://localhost:3000/api/login', {
+      email,
+      password,
+    });
+    console.log(response)
+    if (response.data.success ) {
+      setMessage('¡Inicio de sesión Exitoso!');
+      navigate('/empresa-side')
     } else {
-      alert('Credenciales incorrectas');
+      setMessage('¡Algo ha fallado!');          
     }
-  };
+  } catch (error) {
+    console.error();
+    setMessage('¡Algo ha fallado!');          
 
+  }
+}
+  
   const handleModalClose = () => {
     setShowModal(false);
     navigate('/'); // Redirigir a la página principal
@@ -76,7 +79,7 @@ const LoginIniciadoEmpresa = () => {
             />
           </div>
           <div className="p-6">
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(handleLogin)}>
               <div className="mb-4 relative">
                 <p>Email</p>
                 <EmailInput
@@ -109,16 +112,6 @@ const LoginIniciadoEmpresa = () => {
                 id='createEmpresaUser'
               />
             </form>
-
-            {/* Modal de Confirmación */}
-            {showModal && (
-              <ModalLogin
-                onClose={handleModalClose}
-                title="¡Felicitaciones!"
-                message="¡Tu solicitud de registro se ha enviado con éxito!"
-                buttonText="Volver al inicio"
-              />
-            )}
           </div>
         </div>
       </main>

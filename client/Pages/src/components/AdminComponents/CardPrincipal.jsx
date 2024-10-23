@@ -36,7 +36,7 @@ export const CardPrincipal = ({ darkMode }) => {
       return <SquadManagement darkMode={darkMode} />;
     } else {
       return (
-        <div className="admlg:grid adms:pl-52 admlg:grid-cols-2 admlg:pr-20 adms:grid adms:grid-cols-2 adms:mr-14 adms:space-x-5">
+        <div className="admlg:grid adms:pl-32 admlg:grid-cols-2 admlg:ml-32 adms:grid adms:grid-cols-2  adms:space-x-0.5">
           {filteredCards.map(card => (
             <CardsSolicitudes key={card.id} tipo={card.Nombre} darkMode={darkMode} />
           ))}
@@ -46,10 +46,11 @@ export const CardPrincipal = ({ darkMode }) => {
   };
 
   return (
-    <div className="relative min-h-screen dark:bg-gray-800 ">
+   
+    <div className="relative min-h-screen dark:bg-gray-800 adms:right-5">
       {/* Sidebar fijo */}
      
-        <div className="fixed left-20 h-full">
+        <div className="fixed h-full">
           <SidebarOng 
             darkMode={darkMode} 
             onViewChange={handleViewChange}
@@ -59,7 +60,7 @@ export const CardPrincipal = ({ darkMode }) => {
       </div>
 
       {/* Contenido principal con margen izquierdo para el sidebar */}
-      <div className="ml-[160px] adms:ml-[25px] pt-20">
+      <div className="ml-[10px] pt-20 ">
         {/* Header */}
         <main className="sticky top-[80px] z-0 flex items-center bg-gradient-to-r from-[#76B596] via-[#41849D] to-[#034AA6] p-4 w-[90%] rounded-t-3xl dark:bg-gray-600 flex-col sm:flex-row justify-center mx-auto">
           <div className="flex items-center justify-center">

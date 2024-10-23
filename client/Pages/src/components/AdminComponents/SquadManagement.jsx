@@ -103,9 +103,9 @@ const SquadManagement = () => {
       </div>
 
       {/* Lista de Squads */}
-      <div className="w-[884px] grid grid-cols-1 adms:grid-cols-2 admlg:grid-cols-3 gap-6 mt-24 ml-60">
+      <div className="w-[884px] grid grid-cols-1 adms:grid-cols-2 admlg:grid-cols-3 admlg:gap-6 admlg:mt-24 admlg:ml-60 adms:ml-32 adms:mt-24">
       {squads.map((squad) => (
-          <div key={squad.id} className="bg-gray-100 p-4 rounded-md shadow-md">
+          <div key={squad.id} className="bg-gray-100 p-4 rounded-md shadow-md adms:w-52">
             <h3 className="text-lg font-semibold">Squad {squad.id}</h3>
             <p className='mb-2' id='mentor_id'><strong>Mentor:</strong> {squad.mentor}</p>
             <p className='mb-2' id='desarrollador1_id'><strong>Desarrollador 1:</strong> {squad.dev1}</p>
