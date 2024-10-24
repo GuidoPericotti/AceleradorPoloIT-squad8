@@ -4,11 +4,12 @@ import SocialButton from '../../../Login/LoginComponents/SocialButton';
 import EmailInput from '../../../Login/LoginComponents/EmailInput';
 import PasswordInput from '../../../Login/LoginComponents/PasswordInput';
 import { FormButton } from '../../../Login/LoginComponents/FormButton';
-import { useAuth } from '../../../Context/AuthContext';
-import { Navigate, useNavigate } from 'react-router-dom';
-import { ModalLogin } from '../../../Login/LoginComponents/ModalLogin';
+
+import {  useNavigate } from 'react-router-dom';
+
 import LogoPolo from '../../../../assets/logo_polo_it.png';
 import axios from 'axios';
+
 
 const LoginIniciadoOng = () => {
   const methods = useForm({
@@ -23,31 +24,31 @@ const LoginIniciadoOng = () => {
     handleSubmit,
     formState: { errors, isSubmitting, isValid },
     setValue,
-    trigger,
+    trigger } = methods;
 
-  } = methods;
-  const { login } = useAuth();
+  
   const navigate = useNavigate();
-  const [showModal, setShowModal] = useState(false);
-  const [message, setMessage] = useState('')
+ 
+  
   
 
 const handleLogin = async (data) =>{
   
-  const { email, password, tipoOrg_id} = data
+  const { email, password, } = data
 
   try {
     const response = await axios.post('http://localhost:3000/api/ong/login', {
       email,
       password,
-      tipoOrg_id,
     });
-    console.log(response)
+    console.log(response.data);
+
     if (response.data.success ) {
-      setMessage('¡Inicio de sesión Exitoso!');
+      console.log('Login exitoso', response.data.success)
+      
       navigate('/ong-client')
     } else {
-      setMessage('¡Algo ha fallado!');          
+      console.log('¡Algo ha fallado!:',response.data.message);          
     }
   } catch (error) {
     console.error();
@@ -55,10 +56,8 @@ const handleLogin = async (data) =>{
 
   }
 }
-  const handleModalClose = () => {
-    setShowModal(false);
-    navigate('/');
-  };
+
+
 
   return (
     <FormProvider {...methods}>
@@ -92,6 +91,8 @@ const handleLogin = async (data) =>{
               <div className="mb-4 relative">
                 <PasswordInput 
                   id="password_org"
+                  onChange={(value) => methods.setValue('password', value)}
+
                 />
                 {errors.password && (
                   <p className="text-red-500 text-xs mt-1">La contraseña no es correcta.</p>

@@ -8,6 +8,7 @@ const ongRoutes = require('../routes/ongRoutes');
 const mentorRoutes = require('../routes/mentorRoutes');
 const cors = require('cors');
 const loginRoutes = require('../routes/loginRoutes.js');
+const empresaRoutes = require('../routes/empresaRoutes');
 
 app.use(cors());
 app.use(express.json());
@@ -17,6 +18,7 @@ app.use('/estudiante',estudianteRoutes);
 app.use('/api/ong',ongRoutes);
 app.use('/mentor',mentorRoutes);
 app.use('/api/login',loginRoutes);
+app.use('api/empresa',empresaRoutes)
 
 // Rutas de la API
 app.post('http://localhost:3000/api/login', loginRoutes)

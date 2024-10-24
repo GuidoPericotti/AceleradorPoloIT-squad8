@@ -1,10 +1,10 @@
 const express = require ('express');
 const router = express.Router();
-const ongController = require('../controllers/empresasController');
+const empresasController = require('../controllers/empresasController');
 
 //Rutas para gestionar empresas
-router.get('/ong:id', empresasController.getOngById);
-router.post('/ong', empresasController.createOngUser);
-router.put('/ong:id', empresasController.updateOngUser);
+router.get('/empresa:id', empresasController.getEmpresaById);
+router.post('/empresa', empresasController.createEmpresaUser);
+router.put('/empresa:id', empresasController.updateEmpresaUser);
 
 module.exports = router;
