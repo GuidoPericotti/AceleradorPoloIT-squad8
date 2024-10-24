@@ -33,7 +33,7 @@ const LoginIniciadoOng = () => {
   const [message, setMessage] = useState('')
   
 
-const handleLogin = async (data) =>{
+const handleLoginOng = async (data) =>{
   
   const { email, password} = data
 
@@ -75,7 +75,7 @@ const handleLogin = async (data) =>{
             />
           </div>
           <div className="p-6">
-            <form onSubmit={handleSubmit(handleLogin)}>
+            <form onSubmit={handleSubmit(handleLoginOng)}>
               <div className="mb-4 relative">
                 <p>Email</p>
                 <EmailInput
@@ -100,8 +100,8 @@ const handleLogin = async (data) =>{
               <FormButton
                 text={isSubmitting ? 'Iniciando sesión' : 'Iniciar sesión'}
                 isSubmitting={isSubmitting}
-                isDisabled={!isValid || isSubmitting || watch('password') !== watch('confirmPassword')}
-                id='createOngUser'
+                isDisabled={!isValid || isSubmitting}
+                onClick={handleLoginOng}
               />
             </form>
           </div>

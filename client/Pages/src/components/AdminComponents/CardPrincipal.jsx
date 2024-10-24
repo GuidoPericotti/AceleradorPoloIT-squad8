@@ -6,26 +6,26 @@ import { SidebarOng } from '../OngSide/OngComponents/Navbar/SidebarOng';
 import SquadManagement from './SquadManagement';
 
 export const CardPrincipal = ({ darkMode }) => {
-  const [filter, setFilter] = useState('');
+  // const [filter, setFilter] = useState('');
   const [currentView, setCurrentView] = useState('solicitudes');
 
-  const allCards = [
-    { id: 1, tipo: 'Pendiente', Nombre: 'ONG' },
-    { id: 2, tipo: 'Rechazado', Nombre: 'ONG' },
-    { id: 3, tipo: 'Pendiente', Nombre: 'ONG' },
-    { id: 4, tipo: 'Aprobado', Nombre: 'Empresa' },
-    { id: 5, tipo: 'Rechazado', Nombre: 'Empresa' },
-    { id: 6, tipo: 'Pendiente', Nombre: 'Empresa' },
-    { id: 7, tipo: 'Aprobado', Nombre: 'ONG' },
-    { id: 8, tipo: 'Rechazado', Nombre: 'Empresa' },
-    { id: 9, tipo: 'Pendiente', Nombre: 'Empresa' }
-  ];
+  // const allCards = [
+  //   { id: 1, tipo: 'Pendiente', Nombre: 'ONG' },
+  //   { id: 2, tipo: 'Rechazado', Nombre: 'ONG' },
+  //   { id: 3, tipo: 'Pendiente', Nombre: 'ONG' },
+  //   { id: 4, tipo: 'Aprobado', Nombre: 'Empresa' },
+  //   { id: 5, tipo: 'Rechazado', Nombre: 'Empresa' },
+  //   { id: 6, tipo: 'Pendiente', Nombre: 'Empresa' },
+  //   { id: 7, tipo: 'Aprobado', Nombre: 'ONG' },
+  //   { id: 8, tipo: 'Rechazado', Nombre: 'Empresa' },
+  //   { id: 9, tipo: 'Pendiente', Nombre: 'Empresa' }
+  // ];
 
-  const filteredCards = allCards.filter(card => filter === '' || card.tipo === filter);
+  // const filteredCards = allCards.filter(card => filter === '' || card.tipo === filter);
 
-  const handleFilterChange = (filterType) => {
-    setFilter(prevFilter => prevFilter === filterType ? '' : filterType);
-  };
+  // const handleFilterChange = (filterType) => {
+  //   setFilter(prevFilter => prevFilter === filterType ? '' : filterType);
+  // };
 
   const handleViewChange = (view) => {
     setCurrentView(view);
@@ -36,10 +36,10 @@ export const CardPrincipal = ({ darkMode }) => {
       return <SquadManagement darkMode={darkMode} />;
     } else {
       return (
-        <div className="admlg:grid adms:pl-32 admlg:grid-cols-2 admlg:ml-32 adms:grid adms:grid-cols-2  adms:space-x-0.5">
-          {filteredCards.map(card => (
-            <CardsSolicitudes key={card.id} tipo={card.Nombre} darkMode={darkMode} />
-          ))}
+        <div className="admlg:grid adms:pl-24 admlg:grid-cols-2 admlg:ml-32 adms:grid adms:grid-cols-2  adms:space-x-1">
+         
+            <CardsSolicitudes  darkMode={darkMode} />
+         
         </div>
       );
     }
@@ -50,7 +50,7 @@ export const CardPrincipal = ({ darkMode }) => {
     <div className="relative min-h-screen dark:bg-gray-800 adms:right-5">
       {/* Sidebar fijo */}
      
-        <div className="fixed h-full">
+        <div className="fixed h-full adms:mr-[190px]">
           <SidebarOng 
             darkMode={darkMode} 
             onViewChange={handleViewChange}
@@ -71,9 +71,9 @@ export const CardPrincipal = ({ darkMode }) => {
         </main>
 
         {/* Botones de filtro */}
-        {currentView !== 'squads' && (
+        {/* {currentView !== 'squads' && (
           <section className="mt-8 flex justify-center sm:justify-end w-full px-4">
-            <div className="flex flex-wrap justify-center space-x-2 sm:space-x-2 adms:space-x-1">
+            <div className="flex flex-wrap justify-center space-x-2 adms:space-x-1">
               <ButtonOngEmpresa 
                 nombre="Pendiente" 
                 filterType="Pendiente" 
@@ -94,10 +94,10 @@ export const CardPrincipal = ({ darkMode }) => {
               />
             </div>
           </section>
-        )}
+        )} */}
 
         {/* Contenido principal */}
-        <section className="mt-8 px-8">
+        <section className="mt-8 px-8 dark:dark:bg-gray-800">
           {renderMainContent()}
         </section>
       </div>

@@ -7,9 +7,9 @@ export default {
   ],
   theme: {
     screens: {
-      'adms': { 'max-width': '600px' },
-      'admlg': { 'min-width': '800px' }, // Breakpoint personalizado admlg
-    },
+        'adms': { 'max-width': '480px' }, // Breakpoint personalizado para celular
+        'admlg': { 'min-width': '800px' }, // Breakpoint personalizado para pantallas grandes
+      },
     extend: {
       keyframes: {
         zoom: {

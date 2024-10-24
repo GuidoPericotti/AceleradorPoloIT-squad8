@@ -77,7 +77,7 @@ import React, { useState } from 'react';
 
     const handleModalClose = () => {
      setShowModal(false);
-     navigate('/ong-client'); // Redirigir a la página protegida
+     navigate('/'); // Redirigir a la página protegida
     };
 
     return (
@@ -148,8 +148,8 @@ import React, { useState } from 'react';
               <FormButton
                 text={isSubmitting ? 'Enviando...' : 'Enviar'}
                 isSubmitting={isSubmitting}
-                isDisabled={!isValid || isSubmitting || password !== confirmPassword}
-              />
+                isDisabled={!isValid || isSubmitting || password !== confirmPassword}              
+                />
             </form>
 
            {/* Modal de Confirmación */}

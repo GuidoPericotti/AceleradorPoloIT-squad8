@@ -71,126 +71,127 @@ export const ModalInfo = ({ isOpen, onClose, data }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-      <div className="relative bg-[#82C7A5] dark:bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-lg">
-        {/* Botón de cerrar */}
-        <button
-          className="absolute top-4 right-2 p-2 rounded-full text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white"
-          onClick={onClose}
-          type="button"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-
-        {/* Título */}
-        <h2 className="text-lg font-semibold mb-1">Información de la {data?.role}</h2>
-        <hr className="mb-1" />
-
-        {/* Nombre */}
-        <div className="mb-1">
-          <label className="block text-black dark:text-gray-300">Nombre de la {data?.role}</label>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="w-full px-3 py-1 border rounded-lg dark:bg-gray-700 dark:border-gray-600 text-gray-700 dark:text-gray-200"
-            placeholder={`Nombre de la ${data?.role}`}
-          />
-        </div>
-
-        {/* Localización */}
-        <div className="mb-1">
-          <label className="block text-black dark:text-gray-300">Localización</label>
-          <input
-            type="text"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-            className="w-full px-3 py-1 border rounded-lg dark:bg-gray-700 dark:border-gray-600 text-gray-700 dark:text-gray-200"
-            placeholder="Localización"
-          />
-        </div>
-
-        {/* Número de Teléfono */}
-        <div className="mb-1">
-          <label className="block text-black dark:text-gray-300">Número de Teléfono</label>
-          <input
-            type="text"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            className="w-full px-3 py-1 border rounded-lg dark:bg-gray-700 dark:border-gray-600 text-gray-700 dark:text-gray-200"
-            placeholder="Número de Teléfono"
-          />
-        </div>
-
-        {/* Correo Electrónico */}
-        <div className="mb-1">
-          <label className="block text-black dark:text-gray-300">Correo Electrónico</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="w-full px-3 py-1 border rounded-lg dark:bg-gray-700 dark:border-gray-600 text-gray-700 dark:text-gray-200"
-            placeholder="Correo Electrónico"
-          />
-        </div>
-
-        {/* Canales Digitales Oficiales */}
-        <div className="mb-1">
-          <label className="block text-black dark:text-gray-300">Canales Digitales Oficiales</label>
-          <div className="mt-2 space-y-2">
-            <div>
-              <label className="block text-black dark:text-gray-300">Instagram</label>
-              <input
-                type="text"
-                value={instagram}
-                onChange={(e) => setInstagram(e.target.value)}
-                className="w-full px-3 py-1 border rounded-lg dark:bg-gray-700 dark:border-gray-600 text-gray-700 dark:text-gray-200"
-                placeholder="Instagram"
-              />
-            </div>
-            <div>
-              <label className="block text-black dark:text-gray-300">Facebook</label>
-              <input
-                type="text"
-                value={facebook}
-                onChange={(e) => setFacebook(e.target.value)}
-                className="w-full px-3 py-1 border rounded-lg dark:bg-gray-700 dark:border-gray-600 text-gray-700 dark:text-gray-200"
-                placeholder="Facebook"
-              />
-            </div>
-            <div>
-              <label className="block text-black dark:text-gray-300">Twitter</label>
-              <input
-                type="text"
-                value={twitter}
-                onChange={(e) => setTwitter(e.target.value)}
-                className="w-full px-3 py-1 border rounded-lg dark:bg-gray-700 dark:border-gray-600 text-gray-700 dark:text-gray-200"
-                placeholder="Twitter"
-              />
-            </div>
+    <div className="relative bg-[#82C7A5] dark:bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-lg adms:max-w-xs admlg:max-w-2xl">
+      {/* Botón de cerrar */}
+      <button
+        className="absolute top-4 right-2 p-2 rounded-full text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white"
+        onClick={onClose}
+        type="button"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+  
+      {/* Título */}
+      <h2 className="text-lg font-semibold mb-1 adms:text-base admlg:text-2xl">Información de la {data?.role}</h2>
+      <hr className="mb-1" />
+  
+      {/* Nombre */}
+      <div className="mb-1">
+        <label className="block text-black dark:text-gray-300 adms:text-sm admlg:text-lg">Nombre de la {data?.role}</label>
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className="w-full px-3 py-1 border rounded-lg dark:bg-gray-700 dark:border-gray-600 text-gray-700 dark:text-gray-200"
+          placeholder={`Nombre de la ${data?.role}`}
+        />
+      </div>
+  
+      {/* Localización */}
+      <div className="mb-1">
+        <label className="block text-black dark:text-gray-300 adms:text-sm admlg:text-lg">Localización</label>
+        <input
+          type="text"
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+          className="w-full px-3 py-1 border rounded-lg dark:bg-gray-700 dark:border-gray-600 text-gray-700 dark:text-gray-200"
+          placeholder="Localización"
+        />
+      </div>
+  
+      {/* Número de Teléfono */}
+      <div className="mb-1">
+        <label className="block text-black dark:text-gray-300 adms:text-sm admlg:text-lg">Número de Teléfono</label>
+        <input
+          type="text"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          className="w-full px-3 py-1 border rounded-lg dark:bg-gray-700 dark:border-gray-600 text-gray-700 dark:text-gray-200"
+          placeholder="Número de Teléfono"
+        />
+      </div>
+  
+      {/* Correo Electrónico */}
+      <div className="mb-1">
+        <label className="block text-black dark:text-gray-300 adms:text-sm admlg:text-lg">Correo Electrónico</label>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="w-full px-3 py-1 border rounded-lg dark:bg-gray-700 dark:border-gray-600 text-gray-700 dark:text-gray-200"
+          placeholder="Correo Electrónico"
+        />
+      </div>
+  
+      {/* Canales Digitales Oficiales */}
+      <div className="mb-1">
+        <label className="block text-black dark:text-gray-300 adms:text-sm admlg:text-lg">Canales Digitales Oficiales</label>
+        <div className="mt-2 space-y-2">
+          <div>
+            <label className="block text-black dark:text-gray-300">Instagram</label>
+            <input
+              type="text"
+              value={instagram}
+              onChange={(e) => setInstagram(e.target.value)}
+              className="w-full px-3 py-1 border rounded-lg dark:bg-gray-700 dark:border-gray-600 text-gray-700 dark:text-gray-200"
+              placeholder="Instagram"
+            />
+          </div>
+          <div>
+            <label className="block text-black dark:text-gray-300">Facebook</label>
+            <input
+              type="text"
+              value={facebook}
+              onChange={(e) => setFacebook(e.target.value)}
+              className="w-full px-3 py-1 border rounded-lg dark:bg-gray-700 dark:border-gray-600 text-gray-700 dark:text-gray-200"
+              placeholder="Facebook"
+            />
+          </div>
+          <div>
+            <label className="block text-black dark:text-gray-300">Twitter</label>
+            <input
+              type="text"
+              value={twitter}
+              onChange={(e) => setTwitter(e.target.value)}
+              className="w-full px-3 py-1 border rounded-lg dark:bg-gray-700 dark:border-gray-600 text-gray-700 dark:text-gray-200"
+              placeholder="Twitter"
+            />
           </div>
         </div>
-
-        {/* Botones de acción */}
-        <div className="mt-4 flex justify-end space-x-3">
-          <button
-            type="button"
-            className="px-4 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
-            onClick={handleSave}
-          >
-            Aprobar
-          </button>
-          <button
-            type="button"
-            className="px-4 py-1 bg-gray-500 text-white rounded hover:bg-gray-600"
-            onClick={onClose}
-          >
-            Cancelar
-          </button>
-        </div>
+      </div>
+  
+      {/* Botones de acción */}
+      <div className="mt-4 flex justify-end space-x-3">
+        <button
+          type="button"
+          className="px-4 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 adms:px-2 admlg:px-6"
+          onClick={handleSave}
+        >
+          Aprobar
+        </button>
+        <button
+          type="button"
+          className="px-4 py-1 bg-gray-500 text-white rounded hover:bg-gray-600 adms:px-2 admlg:px-6"
+          onClick={onClose}
+        >
+          Cancelar
+        </button>
       </div>
     </div>
+  </div>
+  
   );
 };
 

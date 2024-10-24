@@ -28,6 +28,7 @@ const CloseIcon = () => (
 
 const SquadManagement = () => {
   const [showModal, setShowModal] = useState(false);
+  const [darkMode, setDarkMode] = useState(false); // Estado para el modo oscuro
   const [squads, setSquads] = useState([]);
   const [currentSquad, setCurrentSquad] = useState({
     mentor: '',
@@ -89,10 +90,25 @@ const SquadManagement = () => {
     });
   };
 
+  // Alternar modo oscuro
+  const toggleDarkMode = () => {
+    setDarkMode(darkMode);
+  };
+
   return (
-    <div className="w-full min-h-screen">
+    <div className={`${darkMode ? 'bg-gray-800'  : 'bg-white text-gray-900'} dark:bg-gray-800 w-full min-h-screen`}>
+      {/* Botón para alternar modo oscuro */}
+      <div className="fixed top-5 right-5">
+        <button
+          onClick={toggleDarkMode}
+          className="bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-gray-700 transition-colors"
+        >
+          {darkMode ? 'bg-gray-800' : 'bg-white'}
+        </button>
+      </div>
+
       {/* Sidebar */}
-      <div className="fixed top-40 left-96 z-0">
+      <div className="fixed top-40 admlg:left-96 z-0 adms:left-32">
         <button
           onClick={() => setShowModal(true)}
           className="flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors"
@@ -104,15 +120,18 @@ const SquadManagement = () => {
 
       {/* Lista de Squads */}
       <div className="w-[884px] grid grid-cols-1 adms:grid-cols-2 admlg:grid-cols-3 admlg:gap-6 admlg:mt-24 admlg:ml-60 adms:ml-32 adms:mt-24">
-      {squads.map((squad) => (
-          <div key={squad.id} className="bg-gray-100 p-4 rounded-md shadow-md adms:w-52">
+        {squads.map((squad) => (
+          <div
+            key={squad.id}
+            className={`${darkMode ? 'bg-gray-800 text-gray-300' : 'bg-gray-100 text-gray-900'} p-4 rounded-md shadow-md adms:w-52`}
+            >
             <h3 className="text-lg font-semibold">Squad {squad.id}</h3>
-            <p className='mb-2' id='mentor_id'><strong>Mentor:</strong> {squad.mentor}</p>
-            <p className='mb-2' id='desarrollador1_id'><strong>Desarrollador 1:</strong> {squad.dev1}</p>
-            <p className='mb-2' id='desarrollador2_id'><strong>Desarrollador 2:</strong> {squad.dev2}</p>
-            <p className='mb-2' id='desarrollador3_id'><strong>Desarrollador 3:</strong> {squad.dev3}</p>
-            <p className='mb-2' id='tester_id'><strong>Tester:</strong> {squad.tester}</p>
-            <p className='mb-2' id='uxui_id'><strong>Diseñador:</strong> {squad.designer}</p>
+            <p className="mb-2"><strong>Mentor:</strong> {squad.mentor}</p>
+            <p className="mb-2"><strong>Desarrollador 1:</strong> {squad.dev1}</p>
+            <p className="mb-2"><strong>Desarrollador 2:</strong> {squad.dev2}</p>
+            <p className="mb-2"><strong>Desarrollador 3:</strong> {squad.dev3}</p>
+            <p className="mb-2"><strong>Tester:</strong> {squad.tester}</p>
+            <p className="mb-2"><strong>Diseñador:</strong> {squad.designer}</p>
             <div className="flex space-x-2 mt-2">
               <button
                 onClick={() => handleEdit(squad)}
@@ -135,85 +154,123 @@ const SquadManagement = () => {
 
       {/* Modal */}
       {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center top-16">
-          <div className="bg-white rounded-lg w-96 max-w-[90%]">
-            <div className="flex justify-between items-center p-1 border-b border-gray-200">
-              <h2 className="text-xl font-semibold">{currentSquad.id ? 'Editar Squad' : 'Nuevo Squad'}</h2>
-              <button onClick={handleCloseModal} className="text-gray-500 hover:text-gray-700">
-                <CloseIcon />
-              </button>
-            </div>
-            <div className="p-4 space-y-1">
-              {/* Mentor */}
-              <label className='mb-3'>Mentor</label>
-              <select name="mentor" value={currentSquad.mentor} onChange={handleInputChange} className="w-full px-3 py-2 border">
-                <option value="" id='mentor_id'>Seleccionar Mentor</option>
-                {mentors.map((mentor) => (
-                  <option key={mentor.id} value={mentor.name}>
-                    {mentor.name}
-                  </option>
-                ))}
-              </select>
-
-              {/* Desarrolladores */}
-              <label>Desarrollador 1</label>
-              <select name="dev1" value={currentSquad.dev1} onChange={handleInputChange} className="w-full px-3 py-2 border">
-                <option value="" id='estudiantes_id'>Seleccionar Dev 1</option>
-                {devs.map((dev) => (
-                  <option key={dev.id} value={dev.name}>
-                    {dev.name}
-                  </option>
-                ))}
-              </select>
-
-              <label>Desarrollador 2</label>
-              <select name="dev2" value={currentSquad.dev2} onChange={handleInputChange} className="w-full px-3 py-2 border">
-                <option value="" id='estudiantes_id'>Seleccionar Dev 2</option>
-                {devs.map((dev) => (
-                  <option key={dev.id} value={dev.name}>
-                    {dev.name}
-                  </option>
-                ))}
-              </select>
-
-              <label>Desarrollador 3</label>
-              <select name="dev3" value={currentSquad.dev3} onChange={handleInputChange} className="w-full px-3 py-2 border">
-                <option value="" id='estudiantes_id'>Seleccionar Dev 3</option>
-                {devs.map((dev) => (
-                  <option key={dev.id} value={dev.name}>
-                    {dev.name}
-                  </option>
-                ))}
-              </select>
-
-              {/* Tester */}
-              <label>Tester</label>
-              <select name="tester" value={currentSquad.tester} onChange={handleInputChange} className="w-full px-3 py-2 border">
-                <option value=""  id='estudiantes_id'>Seleccionar Tester</option>
-                {testers.map((tester) => (
-                  <option key={tester.id} value={tester.name}>
-                    {tester.name}
-                  </option>
-                ))}
-              </select>
-
-              {/* Diseñador */}
-              <label>Diseñador</label>
-              <select name="designer" value={currentSquad.designer} onChange={handleInputChange} className="w-full px-3 py-2 border">
-                <option value="" id='estudiantes_id'>Seleccionar Diseñador</option>
-                {designers.map((designer) => (
-                  <option key={designer.id} value={designer.name}>
-                    {designer.name}
-                  </option>
-                ))}
-              </select>
-
-              {/* Botones */}
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center top-16 adms:top-20">
+    <div className={`${darkMode ? 'bg-gray-800 text-gray-300' : 'bg-white '} dark:text-white dark:bg-gray-800 rounded-lg w-96 max-w-[90%]`}>
+      <div className="flex justify-between items-center p-1 border-b border-gray-200">
+        <h2 className="text-xl font-semibold">{currentSquad.id ? 'Editar Squad' : 'Nuevo Squad'}</h2>
+        <button onClick={handleCloseModal} className="text-gray-500 hover:text-gray-700">
+          <CloseIcon />
+        </button>
+      </div>
+      <div className="p-4 space-y-4 dark:text-white">
+              {/* Formulario */}
+              <div>
+                <label className="block text-sm font-medium">Mentor</label>
+                <select
+                  name="mentor"
+                  value={currentSquad.mentor}
+                  onChange={handleInputChange}
+                  className={`${darkMode ? 'bg-gray-700 text-white' : 'bg-gray-200'} dark:text-black mt-1 block w-full border border-gray-300 rounded-md shadow-sm`}
+                >
+                  <option value="" className='dark:text-black'>Selecciona un mentor</option>
+                  {mentors.map((mentor) => (
+                    <option key={mentor.id} value={mentor.name}>
+                      {mentor.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium">Desarrollador 1</label>
+                <select
+                  name="dev1"
+                  value={currentSquad.dev1}
+                  onChange={handleInputChange}
+                  className={`${darkMode ? 'bg-gray-700 text-white' : 'bg-gray-200'} dark:text-black mt-1 block w-full border border-gray-300 rounded-md shadow-sm`}
+                >
+                  <option value="">Selecciona un desarrollador</option>
+                  {devs.map((dev) => (
+                    <option key={dev.id} value={dev.name}>
+                      {dev.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium">Desarrollador 2</label>
+                <select
+                  name="dev2"
+                  value={currentSquad.dev2}
+                  onChange={handleInputChange}
+                  className={`${darkMode ? 'bg-gray-700 text-white' : 'bg-gray-200'} dark:text-black mt-1 block w-full border border-gray-300 rounded-md shadow-sm`}
+                >
+                  <option value="">Selecciona un desarrollador</option>
+                  {devs.map((dev) => (
+                    <option key={dev.id} value={dev.name}>
+                      {dev.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium">Desarrollador 3</label>
+                <select
+                  name="dev3"
+                  value={currentSquad.dev3}
+                  onChange={handleInputChange}
+                  className={`${darkMode ? 'bg-gray-700 text-white' : 'bg-gray-200'} dark:text-black mt-1 block w-full border border-gray-300 rounded-md shadow-sm`}
+                >
+                  <option value="">Selecciona un desarrollador</option>
+                  {devs.map((dev) => (
+                    <option key={dev.id} value={dev.name}>
+                      {dev.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium">Tester</label>
+                <select
+                  name="tester"
+                  value={currentSquad.tester}
+                  onChange={handleInputChange}
+                  className={`${darkMode ? 'bg-gray-700 text-white' : 'bg-gray-200'} dark:text-black mt-1 block w-full border border-gray-300 rounded-md shadow-sm`}
+                >
+                  <option value="">Selecciona un tester</option>
+                  {testers.map((tester) => (
+                    <option key={tester.id} value={tester.name}>
+                      {tester.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium">Diseñador</label>
+                <select
+                  name="designer"
+                  value={currentSquad.designer}
+                  onChange={handleInputChange}
+                  className={`${darkMode ? 'bg-gray-700 text-white' : 'bg-gray-200'} dark:text-black mt-1 block w-full border border-gray-300 rounded-md shadow-sm`}
+                >
+                  <option value="">Selecciona un diseñador</option>
+                  {designers.map((designer) => (
+                    <option key={designer.id} value={designer.name}>
+                      {designer.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
               <div className="flex justify-end space-x-2">
-                <button onClick={handleCloseModal} className="bg-gray-300 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-400">
+                <button
+                  onClick={handleCloseModal}
+                  className="bg-gray-400 text-white px-4 py-2 rounded-md hover:bg-gray-500 transition-colors"
+                >
                   Cancelar
                 </button>
-                <button onClick={handleSave} className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
+                <button
+                  onClick={handleSave}
+                  className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors"
+                >
                   Guardar
                 </button>
               </div>
