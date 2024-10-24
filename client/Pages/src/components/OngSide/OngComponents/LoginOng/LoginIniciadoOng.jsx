@@ -15,8 +15,7 @@ const LoginIniciadoOng = () => {
     defaultValues: {
       email: '',
       password: '',
-      confirmPassword: '',
-      name: ''
+      tipoOrg_id: '6'
     }
   });
 
@@ -25,7 +24,7 @@ const LoginIniciadoOng = () => {
     formState: { errors, isSubmitting, isValid },
     setValue,
     trigger,
-    watch
+
   } = methods;
   const { login } = useAuth();
   const navigate = useNavigate();
@@ -35,12 +34,13 @@ const LoginIniciadoOng = () => {
 
 const handleLogin = async (data) =>{
   
-  const { email, password} = data
+  const { email, password, tipoOrg_id} = data
 
   try {
-    const response = await axios.post('http://localhost:3000/api/login', {
+    const response = await axios.post('http://localhost:3000/api/ong/login', {
       email,
       password,
+      tipoOrg_id,
     });
     console.log(response)
     if (response.data.success ) {
@@ -83,7 +83,7 @@ const handleLogin = async (data) =>{
                   register={methods.register}
                   trigger={trigger}
                   className="peer block w-full appearance-none rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2 text-gray-700 dark:text-gray-300 placeholder-transparent focus:border-sky-500 dark:focus:border-sky-500 focus:outline-none focus:ring-0"
-                  id="email_ong"
+                  id="email_org"
                 />
                 {errors.email && (
                   <p className="text-red-500 text-xs mt-1">El formato del email es incorrecto</p>
@@ -91,7 +91,7 @@ const handleLogin = async (data) =>{
               </div>
               <div className="mb-4 relative">
                 <PasswordInput 
-                  id="password_ong"
+                  id="password_org"
                 />
                 {errors.password && (
                   <p className="text-red-500 text-xs mt-1">La contraseña no es correcta.</p>
@@ -100,8 +100,8 @@ const handleLogin = async (data) =>{
               <FormButton
                 text={isSubmitting ? 'Iniciando sesión' : 'Iniciar sesión'}
                 isSubmitting={isSubmitting}
-                isDisabled={!isValid || isSubmitting || watch('password') !== watch('confirmPassword')}
-                id='createOngUser'
+                isDisabled={!isValid || isSubmitting}
+                onClick={handleLogin}
               />
             </form>
           </div>

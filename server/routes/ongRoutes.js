@@ -6,5 +6,5 @@ const ongController = require('../controllers/ongController');
 router.get('/ong:id', ongController.getOngById);
 router.post('/ong', ongController.createOngUser);
 router.put('/ong:id', ongController.updateOngUser);
-
+router.post('/login', ongController.inicioOng);
 module.exports = router;

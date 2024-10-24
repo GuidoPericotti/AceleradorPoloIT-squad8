@@ -86,8 +86,7 @@ function useDBandRunQueries() {
             web_org VARCHAR (50) NOT NULL,
             fechaCreacion_org DATETIME DEFAULT CURRENT_TIMESTAMP(),
             tipoOrg_id INT NOT NULL,
-            FOREIGN KEY (tipoOrg_id) REFERENCES tipoOrg (tipoOrg_id),
-            estado VARCHAR (50) DEFAULT 'postulante'
+            FOREIGN KEY (tipoOrg_id) REFERENCES tipoOrg (tipoOrg_id)
     )`;
 
     //Create table cursos
@@ -153,8 +152,7 @@ function useDBandRunQueries() {
             web_empresa VARCHAR (50) NOT NULL,
             fechaCreacion_empresa DATETIME DEFAULT CURRENT_TIMESTAMP(),
             tipoOrg_id INT NOT NULL,
-            FOREIGN KEY (tipoOrg_id) REFERENCES tipoOrg (tipoOrg_id),
-            estado VARCHAR (50) DEFAULT 'postulante'
+            FOREIGN KEY (tipoOrg_id) REFERENCES tipoOrg (tipoOrg_id)
     )`;
 
     //Create table especializacion

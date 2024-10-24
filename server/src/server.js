@@ -14,12 +14,14 @@ app.use(express.json());
 app.use('/admin_user',adminRoutes);
 app.use('/curso',cursoRoutes);
 app.use('/estudiante',estudianteRoutes);
-app.use('/ong',ongRoutes);
+app.use('/api/ong',ongRoutes);
 app.use('/mentor',mentorRoutes);
 app.use('/api/login',loginRoutes);
 
 // Rutas de la API
 app.post('http://localhost:3000/api/login', loginRoutes)
+
+
 
 app.listen(PORT, () => {
     console.log(`http://localhost:${PORT}`);

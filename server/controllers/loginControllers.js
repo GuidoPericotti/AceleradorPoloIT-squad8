@@ -41,7 +41,7 @@ function inicioEmpresa(req, res) {
     const { email, password } = req.body;
     try {
         const sql = 'SELECT * FROM empresa WHERE email_empresa = ?';
-        db.query(sql, [email, password], (err, results) => {
+        db.query(sql, [email], (err, results) => {
             if (err) {
                 console.error('Error en la consulta a la base de datos:', err);
             }
@@ -49,7 +49,7 @@ function inicioEmpresa(req, res) {
             if (results.length === 0) {
                 return res.json({ mensaje: 'Usuario incorrecto' });
             }
-            if (results.lenght > 0) {
+            if (results.length > 0) {
                 const user = results[0];
                 if (password === user.password_empresa) {
                     return res.json({ mensaje: 'Inicio de sesión exitoso' });
@@ -67,15 +67,15 @@ function inicioOng(req, res) {
     const { email, password } = req.body;
     try {
         const sql = 'SELECT * FROM ongs WHERE email_org = ?';
-        db.query(sql, [email, password], (err, results) => {
+        db.query(sql, [email], (err, results) => {
             if (err) {
                 console.error('Error en la consulta a la base de datos:', err);
             }
 
             if (results.length === 0) {
-                return res.json({ mensaje: 'Usuario incorrecto' });
+                return res.json({ mensaje: 'Usuario ONG incorrecto' });
             }
-            if (results.lenght > 0) {
+            if (results.length > 0) {
                 const user = results[0];
                 if (password === user.password_org) {
                     return res.json({ mensaje: 'Inicio de sesión exitoso' });
