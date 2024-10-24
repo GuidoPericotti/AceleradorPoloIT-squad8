@@ -3,20 +3,20 @@
 import React from 'react';
 import AcordionCourse from './Course/AcordionCourse';
 
-const PersonalCourses = ({ darkMode, courses }) => {
+const PersonalCourses = ({ darkMode, cursos }) => {
   return (
     <div>
-      {courses.length === 0 ? (
+      {cursos.length === 0 ? (
         <p>No hay cursos agregados.</p>
       ) : (
-        courses.map((course, index) => (
+        cursos.map((cursos, organizacion_id) => (
           <AcordionCourse
-            key={index}
-            nroItem={course.title} // Título del curso
-            teacher={course.teacher} // Docente
-            description={course.description} // Descripción del curso
-            startDate={course.startDate} // Fecha de inicio
-            endDate={course.endDate} // Fecha de finalización
+            key={organizacion_id}
+            nroItem={cursos.nombre_curso} // Título del curso
+            teacher={cursos.docente_curso} // Docente
+            description={cursos.descripcion_curso} // Descripción del curso
+            startDate={cursos.fechaInicio_curso} // Fecha de inicio
+            endDate={cursos.fechaCierre_curso} // Fecha de finalización
             darkMode={darkMode}
           />
         ))

@@ -45,6 +45,7 @@ const handleLoginOng = async (data) =>{
     console.log(response)
     if (response.data.success ) {
       setMessage('¡Inicio de sesión Exitoso!');
+      localStorage.setItem('userId', response.data.userId);
       navigate('/ong-client')
     } else {
       setMessage('¡Algo ha fallado!');          
