@@ -3,10 +3,10 @@ const router = express.Router();
 const cursosController = require('../controllers/cursosController');
 
 //Rutas para gestionar cursos
-router.get('/', cursosController.getAllCursos);
-router.get('/:id', cursosController.getCursoById);
-router.post('/', cursosController.createCurso);
-router.put('/:id', cursosController.updateCurso);
-router.delete('/:id', cursosController.deleteCurso);
+router.get('/curso', cursosController.getAllCursos);
+router.get('/curso/:id', cursosController.getCursoById);
+router.post('/curso', cursosController.createCurso);
+router.put('/curso/:id', cursosController.updateCurso);
+router.delete('/curso/:id', cursosController.deleteCurso);
 
 module.exports = router;

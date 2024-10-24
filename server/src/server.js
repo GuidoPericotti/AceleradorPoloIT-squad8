@@ -13,7 +13,7 @@ const empresaRoutes = require('../routes/empresaRoutes');
 app.use(cors());
 app.use(express.json());
 app.use('/admin_user',adminRoutes);
-app.use('/curso',cursoRoutes);
+app.use('/api/curso',cursoRoutes);
 app.use('/estudiante',estudianteRoutes);
 app.use('/api/ong',ongRoutes);
 app.use('/mentor',mentorRoutes);
