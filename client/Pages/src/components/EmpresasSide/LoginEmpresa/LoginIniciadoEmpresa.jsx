@@ -2,14 +2,11 @@ import React, { useState } from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 import SocialButton from '../../Login/LoginComponents/SocialButton';
 import EmailInput from '../../Login/LoginComponents/EmailInput';
-//import InputField from './LoginComponents/InputField';
 import PasswordInput from '../../Login/LoginComponents/PasswordInput';
-//import ConfirmPasswordInput from './LoginComponents/ConfirmPasswordInput'; // Nuevo componente
-import {FormButton} from '../../Login/LoginComponents/FormButton'; // Importación por defecto
-import { useAuth } from '../../Context/AuthContext'; // Asegúrate de que la ruta es correcta
-import { useNavigate } from 'react-router-dom';
-//import { TermsCheckbox } from './LoginComponents/TermsCheckbox';
-import {ModalLogin} from '../../Login/LoginComponents/ModalLogin'; // Asegúrate de importar ModalLogin correctamente
+import { FormButton } from '../../Login/LoginComponents/FormButton';
+
+import {  useNavigate } from 'react-router-dom';
+
 import LogoPolo from '../../../assets/logo_polo_it.png';
 import axios from 'axios';
 
@@ -18,51 +15,44 @@ const LoginIniciadoEmpresa = () => {
     defaultValues: {
       email: '',
       password: '',
-      confirmPassword: '',
-      name: ''
+      tipoOrg_id: '7'
     }
   });
 
   const {
     handleSubmit,
-    formState: { errors, isSubmitting, isValid }, // Desestructurar isValid
+    formState: { errors, isSubmitting, isValid },
     setValue,
-    trigger
-  } = methods;
+    trigger } = methods;
 
-  const { login } = useAuth();
+  
   const navigate = useNavigate();
-  const [showModal, setShowModal] = useState(false);
-  const [message, setMessage] = useState('')
   
 
-const handleLogin = async (data) =>{
+  const handleLogin = async (data) =>{
   
-  const { email, password} = data
-
-  try {
-    const response = await axios.post('http://localhost:3000/api/login', {
-      email,
-      password,
-    });
-    console.log(response)
-    if (response.data.success ) {
-      setMessage('¡Inicio de sesión Exitoso!');
-      navigate('/empresa-side')
-    } else {
+    const { email, password, } = data
+  
+    try {
+      const response = await axios.post('http://localhost:3000/api/empresa/login', {
+        email,
+        password,
+      });
+      console.log(response.data);
+  
+      if (response.data.success ) {
+        console.log('Login exitoso', response.data.success)
+        
+        navigate('/empresa-side')
+      } else {
+        console.log('¡Algo ha fallado!:',response.data.message);          
+      }
+    } catch (error) {
+      console.error();
       setMessage('¡Algo ha fallado!');          
-    }
-  } catch (error) {
-    console.error();
-    setMessage('¡Algo ha fallado!');          
-
-  }
-}
   
-  const handleModalClose = () => {
-    setShowModal(false);
-    navigate('/'); // Redirigir a la página principal
-  };
+    }
+  }
 
   return (
     <FormProvider {...methods}>
@@ -108,8 +98,8 @@ const handleLogin = async (data) =>{
               <FormButton
                 text={isSubmitting ? 'Iniciando sesión' : 'Iniciar sesión'}
                 isSubmitting={isSubmitting}
-                isDisabled={!isValid || isSubmitting || methods.watch('password') !== methods.watch('confirmPassword')}
-                id='createEmpresaUser'
+                isDisabled={!isValid || isSubmitting}
+                onClick={handleLogin}
               />
             </form>
           </div>

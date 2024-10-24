@@ -31,8 +31,34 @@ const updateEmpresaUser = (req, res) => {
     });
 };
 
+function inicioEmpresa(req, res) {
+    const { email, password } = req.body;
+    try {
+        const sql = 'SELECT * FROM empresas WHERE email_empresa = ?';
+        db.query(sql, [email], (err, results) => {
+            if (err) {
+                console.error('Error en la consulta a la base de datos:', err);
+            }
+
+            if (results.length === 0) {
+                return res.json({ mensaje: 'Usuario Empresa incorrecto' });
+            }
+            const user = results[0];
+            console.log(user.password_empresa,password)
+            if (password === user.password_org) {
+                return res.json({ success: true, message: 'Inicio de sesión exitoso' });
+            } else {
+                return res.json({ success: true, message: 'Usuario o contraseña incorrecta'});
+            }
+        });
+    } catch (err) {
+        return res.json({ mensaje: 'Error interno al iniciar sesión' });
+    }
+}
+
 module.exports = {
     getEmpresaById,
     createEmpresaUser,
-    updateEmpresaUser
+    updateEmpresaUser,
+    inicioEmpresa,
 };

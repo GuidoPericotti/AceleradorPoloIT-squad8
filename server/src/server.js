@@ -18,7 +18,7 @@ app.use('/estudiante',estudianteRoutes);
 app.use('/api/ong',ongRoutes);
 app.use('/mentor',mentorRoutes);
 app.use('/api/login',loginRoutes);
-app.use('api/empresa',empresaRoutes)
+app.use('/api/empresa',empresaRoutes)
 
 // Rutas de la API
 app.post('http://localhost:3000/api/login', loginRoutes)
