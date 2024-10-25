@@ -94,7 +94,7 @@ function useDBandRunQueries() {
             CREATE TABLE IF NOT EXISTS cursos(
             curso_id INT AUTO_INCREMENT PRIMARY KEY,
             nombre_curso VARCHAR (50),
-            fechaIncio_curso DATE NOT NULL,
+            fechaInicio_curso DATE NOT NULL,
             fechaCierre_curso DATE NOT NULL,
             descripcion_curso VARCHAR(150),
             docente_curso VARCHAR(50) NOT NULL,

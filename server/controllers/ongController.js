@@ -44,9 +44,9 @@ function inicioOng(req, res) {
                 return res.json({ mensaje: 'Usuario ONG incorrecto' });
             }
             const user = results[0];
-            console.log(user.password_org,password)
+            console.log(user)
             if (password === user.password_org) {
-                return res.json({ success: true, message: 'Inicio de sesión exitoso' });
+                return res.json({ success: true, message: 'Inicio de sesión exitoso', organizacion_id: user.organizacion_id});
             } else {
                 return res.json({ success: true, message: 'Usuario o contraseña incorrecta'});
             }

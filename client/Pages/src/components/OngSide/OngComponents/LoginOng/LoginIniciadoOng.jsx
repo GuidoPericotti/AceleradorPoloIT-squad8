@@ -43,17 +43,15 @@ const handleLogin = async (data) =>{
     });
     console.log(response.data);
 
-    if (response.data.success ) {
-      console.log('Login exitoso', response.data.success)
-      
+    if (response.data.success) {
+      console.log('Login exitoso', response.data.organizacion_id);
+      localStorage.setItem('organizacion_id', response.data.organizacion_id);
       navigate('/ong-client')
     } else {
       console.log('¡Algo ha fallado!:',response.data.message);          
     }
   } catch (error) {
-    console.error();
-    setMessage('¡Algo ha fallado!');          
-
+    console.error();         
   }
 }
 

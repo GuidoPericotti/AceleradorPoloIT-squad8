@@ -2,11 +2,14 @@ const db = require('../db/db.js');
 
 //Obtener todos los cursos
 const getAllCursos = (req,res) => {
-    const {organizacion_id} = req.params;
-    const sql = "SELECT * FROM cursos INNER JOIN ongs ON cursos.organizacion_id = ongs.organizacion_id WHERE cursos.organizacion_id = ?";
-    db.query(sql, (err,results) => {
+    const {id} = req.params;
+    console.log(id);
+    const sql = "SELECT * FROM cursos WHERE organizacion_id = ?";
+    db.query(sql, [id], (err,results) => {
         if (err) throw err;
-        res.json(results);
+        res.json({cursos: results});
+        console.log(results);
+        console.log(id);
     });
 };
 //Obtener datos de curso

@@ -13,9 +13,9 @@ const empresaRoutes = require('../routes/empresaRoutes');
 app.use(cors());
 app.use(express.json());
 app.use('/admin_user',adminRoutes);
-app.use('/api/curso',cursoRoutes);
+// app.use('/api/curso',cursoRoutes);
 app.use('/estudiante',estudianteRoutes);
-app.use('/api/ong',ongRoutes);
+app.use('/api/ong',ongRoutes,cursoRoutes);
 app.use('/mentor',mentorRoutes);
 app.use('/api/login',loginRoutes);
 app.use('/api/empresa',empresaRoutes)
