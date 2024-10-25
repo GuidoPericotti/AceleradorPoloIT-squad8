@@ -4,19 +4,19 @@ import SocialButton from '../../../Login/LoginComponents/SocialButton';
 import EmailInput from '../../../Login/LoginComponents/EmailInput';
 import PasswordInput from '../../../Login/LoginComponents/PasswordInput';
 import { FormButton } from '../../../Login/LoginComponents/FormButton';
-import { useAuth } from '../../../Context/AuthContext';
-import { Navigate, useNavigate } from 'react-router-dom';
-import { ModalLogin } from '../../../Login/LoginComponents/ModalLogin';
+
+import {  useNavigate } from 'react-router-dom';
+
 import LogoPolo from '../../../../assets/logo_polo_it.png';
 import axios from 'axios';
+
 
 const LoginIniciadoOng = () => {
   const methods = useForm({
     defaultValues: {
       email: '',
       password: '',
-      confirmPassword: '',
-      name: ''
+      tipoOrg_id: '6'
     }
   });
 
@@ -24,31 +24,31 @@ const LoginIniciadoOng = () => {
     handleSubmit,
     formState: { errors, isSubmitting, isValid },
     setValue,
-    trigger,
-    watch
-  } = methods;
-  const { login } = useAuth();
+    trigger } = methods;
+
+  
   const navigate = useNavigate();
-  const [showModal, setShowModal] = useState(false);
-  const [message, setMessage] = useState('')
+ 
+  
   
 
-const handleLoginOng = async (data) =>{
+const handleLogin = async (data) =>{
   
-  const { email, password} = data
+  const { email, password, } = data
 
   try {
-    const response = await axios.post('http://localhost:3000/api/login', {
+    const response = await axios.post('http://localhost:3000/api/ong/login', {
       email,
       password,
     });
-    console.log(response)
+    console.log(response.data);
+
     if (response.data.success ) {
-      setMessage('¡Inicio de sesión Exitoso!');
-      localStorage.setItem('userId', response.data.userId);
+      console.log('Login exitoso', response.data.success)
+      
       navigate('/ong-client')
     } else {
-      setMessage('¡Algo ha fallado!');          
+      console.log('¡Algo ha fallado!:',response.data.message);          
     }
   } catch (error) {
     console.error();
@@ -56,10 +56,8 @@ const handleLoginOng = async (data) =>{
 
   }
 }
-  const handleModalClose = () => {
-    setShowModal(false);
-    navigate('/');
-  };
+
+
 
   return (
     <FormProvider {...methods}>
@@ -84,7 +82,7 @@ const handleLoginOng = async (data) =>{
                   register={methods.register}
                   trigger={trigger}
                   className="peer block w-full appearance-none rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2 text-gray-700 dark:text-gray-300 placeholder-transparent focus:border-sky-500 dark:focus:border-sky-500 focus:outline-none focus:ring-0"
-                  id="email_ong"
+                  id="email_org"
                 />
                 {errors.email && (
                   <p className="text-red-500 text-xs mt-1">El formato del email es incorrecto</p>
@@ -92,7 +90,9 @@ const handleLoginOng = async (data) =>{
               </div>
               <div className="mb-4 relative">
                 <PasswordInput 
-                  id="password_ong"
+                  id="password_org"
+                  onChange={(value) => methods.setValue('password', value)}
+
                 />
                 {errors.password && (
                   <p className="text-red-500 text-xs mt-1">La contraseña no es correcta.</p>
@@ -102,7 +102,7 @@ const handleLoginOng = async (data) =>{
                 text={isSubmitting ? 'Iniciando sesión' : 'Iniciar sesión'}
                 isSubmitting={isSubmitting}
                 isDisabled={!isValid || isSubmitting}
-                onClick={handleLoginOng}
+                onClick={handleLogin}
               />
             </form>
           </div>
