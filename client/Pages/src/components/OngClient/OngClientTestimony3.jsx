@@ -17,7 +17,7 @@ export const OngClientTestimony3 = ({ darkMode }) => {
           </section>
 
           <section className="flex justify-around mt-4">
-            <table className="table-auto w-full text-left">
+            <table className="table-auto w-full text-left adms:-ml-10">
               <thead>
                 <tr className="flex justify-around mb-8">
                   <th className="px-4 py-2 uppercase flex flex-col items-center">
