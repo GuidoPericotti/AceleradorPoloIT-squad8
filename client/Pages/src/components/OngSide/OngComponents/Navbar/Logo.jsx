@@ -7,7 +7,7 @@ export const Logo = () => {
             <img
                 src={LogoPolo}
                 alt="Polo-it icon"
-                className='h-24'
+                className='h-32'
                 loading="lazy"
             />
         </NavLink>
