@@ -25,7 +25,7 @@ export const EmpresaLogin = () => {
       return (
         <>
           <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />    
-          <div className={`pt-20 min-h-screen ${darkMode ? 'bg-gray-900' : 'bg-[#F3F9F6]'}`}>
+          <div className={`pt-11 min-h-screen ${darkMode ? 'bg-gray-900' : 'bg-[#F3F9F6]'}`}>
             <LoginIniciadoEmpresa darkMode={darkMode} setDarkMode={setDarkMode} />
           </div>
         </>

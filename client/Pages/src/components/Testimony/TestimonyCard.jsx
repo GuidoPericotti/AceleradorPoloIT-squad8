@@ -20,7 +20,7 @@ export const TestimonyCard = ({ darkMode, index }) => {
       <section className="p-6 ">
         <header>
           <h3 className={`uppercase tracking-wide text-sm font-semibold ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-            Testimony
+            Testimonio
           </h3>
           <h2 className={`block mt-1 text-lg leading-tight font-medium ${darkMode ? 'text-white' : 'text-gray-900'}`}>
             {user.name}
@@ -30,7 +30,7 @@ export const TestimonyCard = ({ darkMode, index }) => {
           </p>
         </header>
         <p className={`${darkMode ? 'text-white' : 'text-gray-900'}`}>
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel arcu eget justo."
+          {user.descripcion}
         </p>
       </section>
     </article>

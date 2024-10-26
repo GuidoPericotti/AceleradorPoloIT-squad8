@@ -20,14 +20,19 @@ const DashboardLayout = ({ darkMode }) => {
       if (id) {
         axios.get(`http://localhost:3000/api/ong/${id}/curso`) // Hacer la petición
       .then((response) =>{
-        console.log(response.data);
-        setCursos(response.data.cursos);
+        console.log(response.data);//Acceso al objeto cursos
+        console.log(response.data.cursos);//Acceso al array
+        console.log(response.data.cursos[0]);//Acceso al primer objeto
+        console.log(response.data.cursos[0].curso_id);//Acceso a un elemento del primer objeto
+        const fetchedCursos = response.data.cursos;
+        setCursos(fetchedCursos);
+        localStorage.setItem('cursos', JSON.stringify(fetchedCursos)); // Almacenamos en localStorage
         setShowCursos(true);
-        console.log(response);
-        navigate('/personal-courses')
-      }) 
+        navigate('/personal-courses');
+      })} else {
+        console.error('No se encontraron cursos en la respuesta.');
       }
-      } catch (error) {
+    } catch (error) {
         console.error('Error fetching courses:', error);
     } 
   };

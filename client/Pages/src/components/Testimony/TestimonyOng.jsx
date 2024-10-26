@@ -1,30 +1,28 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { TestimonyCard } from './TestimonyCard';
-import { testimonies } from './testimonies'; // Importa el JSON desde el archivo testimonies.js
+import { testimonies } from './testimonies';
 
 export const TestimonyOng = ({ Title, darkMode }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollRef = useRef(null);
 
-  // Duplica el array para crear el efecto de bucle infinito
   const duplicatedTestimonies = [...testimonies, ...testimonies];
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => {
-        // Si llegamos al final del array original, volvemos al inicio del array duplicado
         const newIndex = prevIndex + 1;
         if (newIndex >= testimonies.length) {
-          scrollRef.current.style.transition = 'none'; // Desactiva la transición para el reinicio
+          scrollRef.current.style.transition = 'none'; // Desactiva la transición temporalmente
           setTimeout(() => {
-            scrollRef.current.style.transition = 'transform 0.3s ease-in-out'; // Reactiva la transición
+            scrollRef.current.style.transition = 'transform 0.4s ease-in-out'; // Reactiva la transición suave
             setCurrentIndex(0);
-          }, 300); // Tiempo que coincide con la duración de la transición
+          }, 300);
         } else {
           return newIndex;
         }
       });
-    }, 3000); // Ajusta este valor para controlar la velocidad de transición
+    }, 1000); // Velocidad más rápida (2 segundos)
 
     return () => clearInterval(interval);
   }, [testimonies.length]);

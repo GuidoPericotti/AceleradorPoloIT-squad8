@@ -38,7 +38,7 @@ export const Navbar = ({ darkMode, setDarkMode }) => {
       <nav className="max-w-7xl mx-auto px-4 text-black dark:text-white">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <NavLink to='/' className="flex-shrink-0 w-12 h-12 admlg:w-24 admlg:h-24 bg-transparent">
+          <NavLink to='/' className="flex-shrink-0 w-12 h-12 admlg:w-32 admlg:h-32 bg-transparent">
             <img src={LogoPolo} alt="Polo-it icon" className="w-full h-full object-contain" />
           </NavLink>
 
@@ -72,14 +72,14 @@ export const Navbar = ({ darkMode, setDarkMode }) => {
                 <option value="ong">ONG</option>
               </select>
             </div>
-            <div className=" px-3">
+            <div className=" px-3 adms:-mr-10 admlg:mr-3">
                 <NavLink to='/crear-cuenta' onClick={toggleMenu}><Login /></NavLink>
               </div>
 
             {/* Botón del menú hamburguesa - visible en móvil */}
             <button
               onClick={toggleMenu}
-              className="adms:ml-20 admlg:hidden inline-flex items-center justify-center p-2 rounded-md text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none"
+              className="adms:ml-10 admlg:hidden inline-flex items-center justify-center p-2 rounded-md text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none"
             >
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 

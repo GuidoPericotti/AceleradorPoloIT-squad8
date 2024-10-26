@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { ToggleSwitch } from '../NavbarComponents/ToggleSwitch';
 import LogoPolo from '../../assets/logo_polo_it.png'
@@ -19,7 +18,7 @@ export const NavbarAdmin = ({ darkMode, setDarkMode }) => {
     <header className="fixed top-0 w-full z-50 bg-[#C6E5D6] dark:bg-gray-900 shadow rounded-md">
       <nav className="mt-2 ml-3 mr-3 text-black dark:text-white">
         <div className="flex items-center justify-between w-full h-16">
-          <NavLink to='/' className="flex-shrink-0 w-20 h-20 bg-transparent">
+          <NavLink to='/' className="flex-shrink-0 w-24 h-24 bg-transparent">
             <img src={LogoPolo} alt="Polo-it icon" />
           </NavLink>
           <div className="flex-grow"></div>
@@ -29,7 +28,7 @@ export const NavbarAdmin = ({ darkMode, setDarkMode }) => {
             <li><NavLink to='/proyectos'>Proyectos</NavLink></li>
             <li><NavLink to='/participantes'>Participantes</NavLink></li>
             <li><NavLink to='/mentores'>Mentores</NavLink></li>
-            {/* <li><NavLink to='/admin' >Admin</NavLink></li>  se añade vista admin temporal para ver la creacion 
+            {/* <li><NavLink to='/admin' >Admin</NavLink></li>  se aÃ±ade vista admin temporal para ver la creacion 
           </ul> */}
           <div className="flex-grow"></div>
           <div className="p-2 bg-[#C6E5D6] mr-5 dark:bg-gray-900">

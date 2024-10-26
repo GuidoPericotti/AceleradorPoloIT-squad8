@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { CardPrincipal } from '../components/AdminComponents/CardPrincipal'
+import CardPrincipal from '../components/AdminComponents/CardPrincipal'
 // import { Footer } from './Footer'
 import { NavbarAdmin } from '../components/AdminComponents/NavbarAdmin'
 
