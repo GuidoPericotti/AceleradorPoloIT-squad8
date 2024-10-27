@@ -14,11 +14,12 @@ const getAllCursos = (req,res) => {
 };
 //Obtener datos de curso
 const getCursoById = (req,res) => {
-    const {id} = req.params;
-    const sql = 'SELECT * FROM cursos WHERE id=?';
-    db.query(sql,[id], (err, result) => {
+    const {curso_id} = req.params;
+    const sql = 'SELECT * FROM cursos WHERE curso_id = ?';
+    db.query(sql,[curso_id], (err, result) => {
         if (err) throw err;
         res.json(result);
+        console.log(curso_id);
     });
 };
 
