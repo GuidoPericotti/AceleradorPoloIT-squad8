@@ -19,8 +19,8 @@ const PersonalCourses = ({ courseTitle }) => {
 const CourseForm = ({ 
   onSubmit, 
   onCancel, 
-  courseTitle, 
-  setCourseTitle, 
+  nroItem, 
+  setNroItem, 
   description, 
   setDescription, 
   courseTeacher, 
@@ -34,8 +34,8 @@ const CourseForm = ({
     <form onSubmit={onSubmit}>
       <InputField
         label="Título del Curso"
-        value={courseTitle}
-        onChange={(e) => setCourseTitle(e.target.value)}
+        value={nroItem}
+        onChange={(e) => setNroItem(e.target.value)}
         id='nombre_curso'
       />
       <InputField

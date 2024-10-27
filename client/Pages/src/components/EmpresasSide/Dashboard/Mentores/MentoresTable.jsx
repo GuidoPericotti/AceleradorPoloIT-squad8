@@ -61,7 +61,7 @@ export const MentoresTable = ({ darkMode }) => {
   };
 
   return (
-    <div className={`overflow-x-auto ${darkMode ? 'bg-gray-800 text-white' : 'bg-[#C6E5D6] text-black'}`}>
+    <div className={` overflow-x-auto ${darkMode ? 'bg-gray-800 text-white' : 'bg-[#C6E5D6] text-black'}`}>
       <div className="relative m-[2px] mb-3 mr-5 float-left">
         <SearchBarMentores value={searchTerm} onChange={setSearchTerm} darkMode={darkMode} />
       </div>

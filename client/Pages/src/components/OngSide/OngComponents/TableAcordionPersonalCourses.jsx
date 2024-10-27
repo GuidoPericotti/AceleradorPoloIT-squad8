@@ -8,8 +8,8 @@ export const TableAcordionPersonalCourses = () => {
     return (
     <div className={`relative ${darkMode ? 'dark' : ''}`}>       
         <NavbarOng darkMode={darkMode} setDarkMode={setDarkMode} />
-        <section className='mt-32'>
-            <PersonalCourses />
+        <section className='mt-20'>
+            <PersonalCourses darkMode={darkMode}/>
         </section>
     </div>
   )

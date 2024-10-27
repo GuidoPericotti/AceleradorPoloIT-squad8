@@ -51,47 +51,33 @@ const DashboardLayout = ({ darkMode }) => {
   };
 
   return (
-    <div className={`relative pt-[87px] ${darkMode ? 'bg-gray-600' : 'bg-[#D8EEE3]'}`}>
-      {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-40" onClick={() => setIsModalOpen(false)} />
-      )}
-
-      <div className={`relative ${isModalOpen ? 'filter blur-sm' : ''} ${darkMode ? 'bg-gray-600' : 'bg-[#D8EEE3]'}`}>
-        <section className="grid place-items-center z-10">
-          <div className={`grid grid-cols-1 admlg:grid-cols-2 gap-6 w-full max-w-[800px] h-28 ${darkMode ? 'bg-gray-600' : 'bg-[#D8EEE3]'}`}>
-             <DashboardCard
-              title="Perfil"
-              bgColor="bg-[#034AA6]"
-              onClick={handleCardPerfilClick} // Alterna entre abrir y cerrar PerfilOng
-              darkMode={darkMode}
-            /> 
-            <DashboardCard
-              title="Mis Cursos"
-              bgColor="bg-green-500"
-              onClick={handleCardCursosClick} // Abrir el modal para añadir curso
-              darkMode={darkMode}
-            />
-          </div>
-        </section>
-
-        <div className={`mt-8 max-w-[1400px] ${darkMode ? 'bg-gray-600 text-white' : 'bg-[#D8EEE3] text-black'} min-h-[400px]`}>
-          {/* {activeSection === 'personal-courses' && <TableAcordionPersonalCourses darkMode={darkMode} cursos={cursos} />} */}
-          {activeSection === 'perfilOng' && <PerfilOng darkMode={darkMode} />}
-          {activeSection === 'default' && (
-            <p className={`text-center ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>Seleccione una opción</p>
-          )}
-        </div>
+    <div className={`relative min-h-screen pt-[87px] ${darkMode ? 'bg-gray-600' : 'bg-[#D8EEE3]'}`}>
+  {isModalOpen && (
+    <div className="fixed inset-0 bg-black bg-opacity-50 z-40" onClick={() => setIsModalOpen(false)} />
+  )}
+  <div className={`mt-5 relative ${isModalOpen ? 'filter blur-sm' : ''}`}>
+    <section className="grid place-items-center z-10">
+      <div className="grid grid-cols-1 admlg:grid-cols-2 gap-6 w-full max-w-[800px] h-28">
+        <DashboardCard title="Perfil" bgColor="bg-[#034AA6]" onClick={handleCardPerfilClick} darkMode={darkMode} />
+        <DashboardCard title="Mis Cursos" bgColor="bg-green-500" onClick={handleCardCursosClick} darkMode={darkMode} />
       </div>
-
-      <div className="relative z-50">
-        <DashboardModal
-          isOpen={isModalOpen} // Mostrar el modal si isModalOpen es true
-          onClose={() => setIsModalOpen(false)} // Cerrar el modal
-          darkMode={darkMode}
-          onAddCourse={handleAddCourse} // Añadir curso
-        />
-      </div>
+    </section>
+    <div className="-mt-14 ml-20 max-w-[1400px] min-h-[400px]">
+      {activeSection === 'perfilOng' && <PerfilOng darkMode={darkMode} />}
+      
     </div>
+  </div>
+  <section className="z-50 pl-[100px] -pt-[150px]">
+
+    <DashboardModal 
+      isOpen={isModalOpen} 
+      onClose={() => setIsModalOpen(false)} 
+      darkMode={darkMode} 
+      onAddCourse={handleAddCourse} 
+      />
+  </section>
+</div>
+
   );
 };
 
