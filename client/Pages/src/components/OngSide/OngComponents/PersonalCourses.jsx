@@ -1,5 +1,4 @@
 
-
 import React, { useState } from 'react';
 import AcordionCourse from './Course/AcordionCourse';
 import { useNavigate } from 'react-router-dom';
@@ -19,7 +18,27 @@ const PersonalCourses = ({ darkMode }) => {
   };
 
   const handleBtn = () => {
-    navigate('/ong-client')
+    navigate('/ong-client');
+  };
+
+  const openEditStudentModal = (student) => {
+    console.log('Editar estudiante:', student);
+    // Lógica para abrir el modal de edición
+  };
+
+  const openDeleteModal = (student) => {
+    console.log('Eliminar estudiante:', student);
+    // Lógica para abrir el modal de eliminación
+  };
+
+  const handleEditClick = (e, curso) => {
+    e.stopPropagation(); // Previene la propagación del evento
+    openEditStudentModal(curso);
+  };
+
+  const handleDeleteClick = (e, curso) => {
+    e.stopPropagation(); // Previene la propagación del evento
+    openDeleteModal(curso);
   };
 
   return (
@@ -57,31 +76,46 @@ const PersonalCourses = ({ darkMode }) => {
 
           {/* Tabla de cursos */}
           <div className={`min-w-full mt-16 ${darkMode ? 'bg-gray-700 text-white' : 'bg-[#82C7A5] text-black'} rounded-lg`}>
-            <div className="grid grid-cols-5 gap-4 py-3 px-4 font-semibold">
-              <span className="text-left">Título del curso</span>
-              <span className="text-left -ml-14">Docente</span>
-              <span className="text-left -ml-28">Descripción del curso</span>
-              <span className="text-left ml-20">Fecha de inicio</span>
-              <span className="text-left">Fecha de finalización</span>
-            </div>
+          <table className="min-w-full divide-y divide-gray-200 table-fixed">
+          <thead className="bg-gray-200">
+            <tr>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Título del curso</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Docente</th>
+              <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Descripción del curso</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fecha de inicio</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fecha de finalización</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Acciones</th>
+            </tr>
+          </thead>
+  <tbody className="bg-white divide-y divide-gray-200">
+    {cursosDesdeStorage.map((curso) => {
+      const fechaInicio = new Date(curso.fechaInicio_curso).toLocaleDateString('es-ES', { year: 'numeric', month: 'short', day: 'numeric' });
+      const fechaCierre = new Date(curso.fechaCierre_curso).toLocaleDateString('es-ES', { year: 'numeric', month: 'short', day: 'numeric' });
 
-            {/* Mapea cada curso y lo pasa al acordeón */}
-            {cursosDesdeStorage.map((curso) => {
-              const fechaInicio = new Date(curso.fechaInicio_curso).toLocaleDateString('es-ES', { year: 'numeric', month: 'short', day: 'numeric' });
-              const fechaCierre = new Date(curso.fechaCierre_curso).toLocaleDateString('es-ES', { year: 'numeric', month: 'short', day: 'numeric' });
-              
-              return (
-                <AcordionCourse
-                  key={curso.curso_id}
-                  nroItem={curso.nombre_curso}
-                  teacher={curso.docente_curso}
-                  description={curso.descripcion_curso}
-                  startDate={fechaInicio}
-                  endDate={fechaCierre}
-                  darkMode={darkMode}
-                />
-              );
-            })}
+      return (
+        <React.Fragment key={curso.curso_id}>
+          {/* Acordeón siempre visible */}
+          <tr>
+            <td colSpan={6} className="py-4">
+              <AcordionCourse
+                key={curso.curso_id}
+                nroItem={curso.nombre_curso}
+                teacher={curso.docente_curso}
+                description={curso.descripcion_curso}
+                startDate={fechaInicio}
+                endDate={fechaCierre}
+                darkMode={darkMode}
+                onEdit={(e) => handleEditClick(e, curso)} // Prop para manejar la edición
+                onDelete={(e) => handleDeleteClick(e, curso)} // Prop para manejar la eliminación
+              />
+            </td>
+          </tr>
+        </React.Fragment>
+      );
+    })}
+  </tbody>
+</table>
+
           </div>
         </div>
       )}
