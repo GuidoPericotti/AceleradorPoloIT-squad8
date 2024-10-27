@@ -50,8 +50,8 @@ const AcordionCourse = ({
               <td className="px-6 text-xl font-bold">{nroItem}</td>
               <td className="px-6">{teacher}</td>
               <td className='px-4 text-sm'>{description}</td>
-              <td className="px-6 text-sm ">Inicio: {startDate}</td>
-              <td className="px-6 text-sm ">Fin: {endDate}</td>
+              <td className="px-6 text-sm ">{startDate}</td>
+              <td className="px-6 text-sm ">{endDate}</td>
               <td className="px-6 text-right">
                 <div className="flex justify-end space-x-4">
                   <button onClick={handleEdit} className="text-blue-500">
@@ -85,7 +85,7 @@ const AcordionCourse = ({
           onEditCourse={handleEdit}
           courseData={{
             id,
-            title,
+            nroItem,
             teacher,
             description,
             startDate,
