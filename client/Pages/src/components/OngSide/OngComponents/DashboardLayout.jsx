@@ -5,6 +5,7 @@ import PersonalCourses from './PersonalCourses';
 import axios from 'axios';
 import PerfilOng from './Students/PerfilOng';
 import {Navigate, useNavigate} from 'react-router-dom';
+import { TableAcordionPersonalCourses } from './TableAcordionPersonalCourses';
 
 const DashboardLayout = ({ darkMode }) => {
   const [activeSection, setActiveSection] = useState('default');
@@ -58,12 +59,12 @@ const DashboardLayout = ({ darkMode }) => {
       <div className={`relative ${isModalOpen ? 'filter blur-sm' : ''} ${darkMode ? 'bg-gray-600' : 'bg-[#D8EEE3]'}`}>
         <section className="grid place-items-center z-10">
           <div className={`grid grid-cols-1 admlg:grid-cols-2 gap-6 w-full max-w-[800px] h-28 ${darkMode ? 'bg-gray-600' : 'bg-[#D8EEE3]'}`}>
-            {/* <DashboardCard
+             <DashboardCard
               title="Perfil"
               bgColor="bg-[#034AA6]"
               onClick={handleCardPerfilClick} // Alterna entre abrir y cerrar PerfilOng
               darkMode={darkMode}
-            /> */}
+            /> 
             <DashboardCard
               title="Mis Cursos"
               bgColor="bg-green-500"
@@ -74,7 +75,7 @@ const DashboardLayout = ({ darkMode }) => {
         </section>
 
         <div className={`mt-8 max-w-[1400px] ${darkMode ? 'bg-gray-600 text-white' : 'bg-[#D8EEE3] text-black'} min-h-[400px]`}>
-          {activeSection === 'personal-courses' && <PersonalCourses darkMode={darkMode} cursos={cursos} />}
+          {/* {activeSection === 'personal-courses' && <TableAcordionPersonalCourses darkMode={darkMode} cursos={cursos} />} */}
           {activeSection === 'perfilOng' && <PerfilOng darkMode={darkMode} />}
           {activeSection === 'default' && (
             <p className={`text-center ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>Seleccione una opción</p>

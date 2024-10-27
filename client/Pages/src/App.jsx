@@ -15,7 +15,7 @@ import { OngUserSide } from './Pages/OngUserSide';
 import {OngLogin} from './components/OngSide/OngComponents/LoginOng/OngLogin'
 import { EmpresaLogin } from './components/EmpresasSide/LoginEmpresa/EmpresaLogin';
 import { AdminLogin } from './components/AdminComponents/AdminLogin/AdminLogin';
-import PersonalCourses from './components/OngSide/OngComponents/PersonalCourses';
+import { TableAcordionPersonalCourses } from './components/OngSide/OngComponents/TableAcordionPersonalCourses';
 
 const App = () => {
   return (
@@ -35,7 +35,7 @@ const App = () => {
           <Route path="/ong-client" element={<OngUserSide />} />
           <Route path="/admin" element={<AdminPage />} />
           <Route path="/empresa-side" element={<EmpresaSide />} />
-          <Route path="/personal-courses" element={<PersonalCourses/>} />
+          <Route path="/personal-courses" element={<TableAcordionPersonalCourses/>} />
           {/* Redireccionar rutas no encontradas */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>

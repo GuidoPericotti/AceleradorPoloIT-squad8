@@ -60,8 +60,8 @@ export const StudentsTable = ({darkMode}) => {
   };
 
   return (
-    <section className={`bg-[#82C7A5] mb-5 dark:bg-gray-700  ${darkMode ? 'bg-gray-600 text-white' : 'bg-[#D8EEE3] text-black'}`}>
-      <div className="overflow-x-auto dark:bg-gray-700 bg-[#A4D7BC]">
+    <section className={`bg-[#C3E8D5] mb-5 dark:bg-gray-700  ${darkMode ? 'bg-gray-600 text-white' : 'bg-[#D8EEE3] text-black'}`}>
+      <div className="overflow-x-auto dark:bg-gray-700 bg-[#E1F5EB]">
         <div className="flex justify-around items-center mb-4">
           <div className="relative m-[2px] mb-3">
             <label htmlFor="inputSearch" className="sr-only">Search</label>
