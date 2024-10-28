@@ -9,11 +9,11 @@ const mentorRoutes = require('../routes/mentorRoutes');
 const cors = require('cors');
 const loginRoutes = require('../routes/loginRoutes.js');
 const empresaRoutes = require('../routes/empresaRoutes');
-
+const db = require('../db/db.js')
 app.use(cors());
 app.use(express.json());
 app.use('/admin_user',adminRoutes);
-// app.use('/api/curso',cursoRoutes);
+app.use('/api/curso',cursoRoutes);
 app.use('/estudiante',estudianteRoutes);
 app.use('/api/ong',ongRoutes,cursoRoutes);
 app.use('/mentor',mentorRoutes);
