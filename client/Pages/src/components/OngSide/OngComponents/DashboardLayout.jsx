@@ -15,11 +15,12 @@ const DashboardLayout = ({ darkMode }) => {
   const [showCursos, setShowCursos] = useState(false);
   const navigate = useNavigate();
   const handleCardCursosClick = () => {
-    const id = localStorage.getItem('organizacion_id')
-    console.log(localStorage.getItem('organizacion_id')) 
+    const organizacion_id = localStorage.getItem('organizacion_id')
+    console.log(localStorage.getItem('organizacion_id'))
+    
     try {
-      if (id) {
-        axios.get(`http://localhost:3000/api/ong/${id}/curso`) // Hacer la petición
+      if (organizacion_id) {
+        axios.get(`http://localhost:3000/api/ong/${organizacion_id}/curso`) // Hacer la petición
       .then((response) =>{
         console.log(response.data);//Acceso al objeto cursos
         console.log(response.data.cursos);//Acceso al array

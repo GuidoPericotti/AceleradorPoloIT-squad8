@@ -36,12 +36,27 @@ const createCurso = (req,res) => {
 //Editar curso
 const updateCurso = (req, res) => {
     const {id} = req.params;
-    const {nombre, fechaCreacion, fechaCierre, docente} = req.body;
-    const sql = 'UPDATE cursos SET nombre_curso = ?, fechaInicio_curso = ?, fechaCierre_curso = ?, docente_curso = ?';
-    db.query(sql,[nombre, fechaCreacion, fechaCierre, docente, id], (err, result) => {
+    const idCurso = parseInt(id, 10);
+     // Verificar si la conversión fue exitosa y si idCurso es un número válido
+     if (isNaN(idCurso)) {
+        return res.status(400).json({ mensaje: "ID del curso no es válido" });
+    }
+
+    const {nombre_curso, fechaInicio_curso, fechaCierre_curso, docente_curso, descripcion_curso, organizacion_id} = req.body;
+    const sql = 'UPDATE cursos SET nombre_curso = ?, fechaInicio_curso = ?, fechaCierre_curso = ?,  descripcion_curso = ?,docente_curso = ? WHERE curso_id = ?';
+    db.query(sql,[ nombre_curso, fechaInicio_curso, fechaCierre_curso,  descripcion_curso,docente_curso, organizacion_id , id] ,(err, result) => {
         if (err) throw err;
+        console.log(`Ejecutando SQL: ${sql}, con parámetros: [${nombre_curso}, ${fechaInicio_curso}, ${fechaCierre_curso}, ${docente_curso},${descripcion_curso}, ${idCurso},${organizacion_id}]`);
         res.json({ mensaje: "Curso actualizado correctamente"});
-    });
+        console.log(result)
+       // console.log(nombre_curso, fechaInicio_curso, fechaCierre_curso, docente_curso, descripcion_curso, organizacion_id)
+        
+       if (result.affectedRows === 0) {
+        return { mensaje: "Curso no encontrado" };
+    }
+
+    res.json({ mensaje: "Curso actualizado correctamente" });
+});
 };
 
 //Eliminar curso

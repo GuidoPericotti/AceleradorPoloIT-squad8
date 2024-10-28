@@ -84,7 +84,7 @@ function useDBandRunQueries() {
             facebook_org VARCHAR (50) NOT NULL,
             twitter_org VARCHAR (50) NOT NULL,
             web_org VARCHAR (50) NOT NULL,
-            fechaCreacion_org DATETIME DEFAULT CURRENT_TIMESTAMP(),
+            Creacifechaon_org DATETIME DEFAULT CURRENT_TIMESTAMP(),
             tipoOrg_id INT NOT NULL,
             FOREIGN KEY (tipoOrg_id) REFERENCES tipoOrg (tipoOrg_id)
     )`;

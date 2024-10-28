@@ -100,11 +100,13 @@ const PersonalCourses = ({ darkMode }) => {
                       <td colSpan={6} className="py-4">
                         <AcordionCourse
                           key={curso.curso_id}
-                          nroItem={curso.nombre_curso}
-                          teacher={curso.docente_curso}
-                          description={curso.descripcion_curso}
-                          startDate={fechaInicio}
-                          endDate={fechaCierre}
+                          curso_id={curso.curso_id}
+                          organizacion_id={curso.organizacion_id}
+                          nombre_curso={curso.nombre_curso}
+                          docente_curso={curso.docente_curso}
+                          descripcion_curso={curso.descripcion_curso}
+                          fechaInicio_curso={fechaInicio}
+                          fechaCierre_curso={fechaCierre}
                           darkMode={darkMode}
                           onEdit={(e) => handleEditClick(e, curso)} // Prop para manejar la edición
                           onDelete={(e) => handleDeleteClick(e, curso)} // Prop para manejar la eliminación

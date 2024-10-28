@@ -5,13 +5,12 @@ import { useState } from 'react';
 
 
 const AcordionCourse = ({ 
-  nroItem, 
-  id,
-  title,
-  teacher, 
-  description, 
-  startDate, 
-  endDate, 
+  curso_id,
+  nombre_curso,
+  docente_curso, 
+  descripcion_curso, 
+  fechaInicio_curso, 
+  fechaCierre_curso, 
   darkMode, 
   organizacion_id, // Añade organizacion_id aquí
   onEdit, 
@@ -26,15 +25,13 @@ const AcordionCourse = ({
 
   const handleEdit = async (e) => {
     e.stopPropagation();
-    const id = localStorage.getItem('curso_id');
-    console.log(id);
+  
     
     try {
-      const response = await axios.get(`http://localhost:3000/api/ong/${organizacion_id}/curso/${id}`);
+      const response = await axios.get(`http://localhost:3000/api/ong/${organizacion_id}/curso/${curso_id}`);
       setCourseData(response.data);
       setShowEditModal(true);
-      const fetchedCurso = response.data.curso;
-      console.log(response)
+      const fetchedCurso = response.data;
       localStorage.setItem('curso_id', JSON.stringify(fetchedCurso)); // Almacenamos en localStorage
 
     } catch (error) {
@@ -48,11 +45,11 @@ const AcordionCourse = ({
         <table onClick={handleCardClick} className="cursor-pointer w-full text-left table-fixed">
           <tbody>
             <tr>
-              <td className="px-6 text-xl font-bold">{nroItem}</td>
-              <td className="px-6">{teacher}</td>
-              <td className='px-4 text-sm'>{description}</td>
-              <td className="px-6 text-sm ">{startDate}</td>
-              <td className="px-6 text-sm ">{endDate}</td>
+              <td className="px-6 text-xl font-bold">{nombre_curso}</td>
+              <td className="px-6">{docente_curso}</td>
+              <td className='px-4 text-sm'>{descripcion_curso}</td>
+              <td className="px-6 text-sm ">{fechaInicio_curso}</td>
+              <td className="px-6 text-sm ">{fechaCierre_curso}</td>
               <td className="px-6 text-right">
                 <div className="flex justify-end space-x-4">
                   <button onClick={handleEdit} className="text-blue-500">
@@ -61,7 +58,7 @@ const AcordionCourse = ({
                   <button 
                     onClick={(e) => { 
                       e.stopPropagation(); 
-                      onDelete(id); 
+                      onDelete(curso_id); 
                     }} 
                     className="text-red-500"
                   >
@@ -84,13 +81,14 @@ const AcordionCourse = ({
         <EditCourseModal
           onClose={() => setShowEditModal(false)}
           onEditCourse={handleEdit}
-          courseData={{
-            id,
-            nroItem,
-            teacher,
-            description,
-            startDate,
-            endDate
+          fetchedCurso={{
+            curso_id,
+            nombre_curso,
+            docente_curso,
+            descripcion_curso,
+            fechaInicio_curso,
+            fechaCierre_curso,
+            organizacion_id
           }}
         />
       )}

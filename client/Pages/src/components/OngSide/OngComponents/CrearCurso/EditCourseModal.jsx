@@ -5,46 +5,51 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 //axio.
-const EditCourseModal = ({ onClose, onEditCourse, courseData }) => {
+const EditCourseModal = ({ onClose, onEditCourse, fetchedCurso }) => {
   const [curso_id, setCurso_id] = useState('');
-  const [nroItem, setNroItem] = useState('');
-  const [courseTeacher, setCourseTeacher] = useState('');
-  const [description, setDescription] = useState('');
-  const [startDate, setStartDate] = useState('');
-  const [endDate, setEndDate] = useState('');
+  const [nombre_curso, setNombre_curso] = useState('');
+  const [docente_curso, setDocente_curso] = useState('');
+  const [descripcion_curso, setDescripcion_curso] = useState('');
+  const [fechaInicio_curso, setFechaInicio_curso] = useState('');
+  const [fechaCierre_curso, setFechaCierre_curso] = useState('');
+  const [organizacion_id, setOrganizacion_id] = useState('');
 
   // Cargar los datos del curso cuando el modal se abre
   useEffect(() => {
-    if (courseData) {
-      setCurso_id(courseData.curso_id);
-      setNroItem(courseData.nroItem || '');
-      setCourseTeacher(courseData.teacher || '');
-      setDescription(courseData.description || '');
-      setStartDate(courseData.startDate || '');
-      setEndDate(courseData.endDate || '');
+    if (fetchedCurso) {
+      
+      setCurso_id(fetchedCurso.curso_id);
+      setNombre_curso(fetchedCurso.nombre_curso || '');
+      setDocente_curso(fetchedCurso.docente_curso || '');
+      setDescripcion_curso(fetchedCurso.descripcion_curso || '');
+      setFechaInicio_curso(fetchedCurso.fechaInicio_curso || '');
+      setFechaCierre_curso(fetchedCurso.fechaCierre_curso || '');
+      setOrganizacion_id(fetchedCurso.organizacion_id);
     }
-  }, [courseData]);
+  }, [fetchedCurso]);
   
-  console.log(courseData)
+  console.log(fetchedCurso.curso_id)
   const handleSubmit = async (e) => {
     e.preventDefault();
     onEditCourse({
       curso_id, // Mantener el ID original del curso
-      nroItem,
-      teacher: courseTeacher,
-      description,
-      startDate,
-      endDate
+      nombre_curso,
+      docente_curso,
+      descripcion_curso,
+      fechaInicio_curso,
+      fechaCierre_curso,
+      organizacion_id
     })
     try {
       // Realizar la solicitud PUT a la API
-      const response = await axios.put(`http://localhost:3000/api/ong/${organizacion_id}/curso/${id}}`, {
+      const response = await axios.put(`http://localhost:3000/api/ong/${organizacion_id}/curso/${curso_id}`, {
         curso_id,
-        nroItem,
-        teacher: courseTeacher,
-        description,
-        startDate,
-        endDate
+        nombre_curso,
+        docente_curso,
+        descripcion_curso,
+        fechaInicio_curso,
+        fechaCierre_curso,
+        organizacion_id,
       });
 
       console.log('Curso actualizado:', response.data); // Maneja la respuesta de éxito
@@ -61,16 +66,20 @@ const EditCourseModal = ({ onClose, onEditCourse, courseData }) => {
       <CourseForm
         onSubmit={handleSubmit}
         onCancel={onClose}
-        nroItem={nroItem}
-        setNroItem={setNroItem}
-        courseTeacher={courseTeacher}
-        setCourseTeacher={setCourseTeacher}
-        description={description}
-        setDescription={setDescription}
-        startDate={startDate}
-        setStartDate={setStartDate}
-        endDate={endDate}
-        setEndDate={setEndDate}
+        nombre_curso={nombre_curso}
+        setNombre_curso={setNombre_curso}
+        docente_curso={docente_curso}
+        setDocente_curso={setDocente_curso}
+        descripcion_curso={descripcion_curso}
+        setDescripcion_curso={setDescripcion_curso}
+        fechaInicio_curso={fechaInicio_curso}
+        setFechaInicio_curso={setFechaInicio_curso}
+        fechaCierre_curso={fechaCierre_curso}
+        setFechaCierre_curso={setFechaCierre_curso}
+        curso_id={curso_id}
+        setCurso_id={setCurso_id}
+        organizacion_id={organizacion_id}
+        setOrganizacion_id={setOrganizacion_id}
       />
     </Modal>
   );
