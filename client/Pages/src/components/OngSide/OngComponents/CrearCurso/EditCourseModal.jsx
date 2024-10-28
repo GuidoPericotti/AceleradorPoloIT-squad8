@@ -28,7 +28,6 @@ const EditCourseModal = ({ onClose, onEditCourse, fetchedCurso }) => {
     }
   }, [fetchedCurso]);
   
-  console.log(fetchedCurso.curso_id)
   const handleSubmit = async (e) => {
     e.preventDefault();
     onEditCourse({
@@ -42,7 +41,8 @@ const EditCourseModal = ({ onClose, onEditCourse, fetchedCurso }) => {
     })
     try {
       // Realizar la solicitud PUT a la API
-      const response = await axios.put(`http://localhost:3000/api/ong/${organizacion_id}/curso/${curso_id}`, {
+      console.log(curso_id)
+      const response = await axios.put(`http://localhost:3000/api/ong/${organizacion_id}/curso/${fetchedCurso.curso_id}`, {
         curso_id,
         nombre_curso,
         docente_curso,

@@ -14,7 +14,7 @@ const AcordionCourse = ({
   darkMode, 
   organizacion_id, // Añade organizacion_id aquí
   onEdit, 
-  onDelete 
+  onDelete
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
@@ -24,7 +24,7 @@ const AcordionCourse = ({
   };
 
   const handleEdit = async (e) => {
-    e.stopPropagation();
+    // e.stopPropagation();
   
     
     try {

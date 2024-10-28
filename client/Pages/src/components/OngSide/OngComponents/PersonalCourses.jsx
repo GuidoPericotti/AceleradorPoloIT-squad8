@@ -89,34 +89,43 @@ const PersonalCourses = ({ darkMode }) => {
                 </tr>
               </thead>
               <tbody className={`${darkMode ? 'bg-gray-800' : 'bg-[#D8EEE3]'} divide-y divide-gray-200`}>
-                {cursosDesdeStorage.map((curso) => {
-                  const fechaInicio = new Date(curso.fechaInicio_curso).toLocaleDateString('es-ES', { year: 'numeric', month: 'short', day: 'numeric' });
-                const fechaCierre = new Date(curso.fechaCierre_curso).toLocaleDateString('es-ES', { year: 'numeric', month: 'short', day: 'numeric' });
-  
-                return (
-                  <React.Fragment key={curso.curso_id}>
-                    {/* Acordeón siempre visible */}
-                    <tr>
-                      <td colSpan={6} className="py-4">
-                        <AcordionCourse
-                          key={curso.curso_id}
-                          curso_id={curso.curso_id}
-                          organizacion_id={curso.organizacion_id}
-                          nombre_curso={curso.nombre_curso}
-                          docente_curso={curso.docente_curso}
-                          descripcion_curso={curso.descripcion_curso}
-                          fechaInicio_curso={fechaInicio}
-                          fechaCierre_curso={fechaCierre}
-                          darkMode={darkMode}
-                          onEdit={(e) => handleEditClick(e, curso)} // Prop para manejar la edición
-                          onDelete={(e) => handleDeleteClick(e, curso)} // Prop para manejar la eliminación
-                        />
-                      </td>
-                    </tr>
-                  </React.Fragment>
-                );
-                })}
-              </tbody>
+  {cursosDesdeStorage.map((curso) => {
+    // Función para formatear las fechas
+    const formatDate = (date) => {
+      const day = String(date.getDate()).padStart(2, '0');
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const year = date.getFullYear();
+      
+      return `${year}/${month}/${day}`; // Cambiamos el formato aquí
+    };
+    
+    const fechaInicio = formatDate(new Date(curso.fechaInicio_curso));
+    const fechaCierre = formatDate(new Date(curso.fechaCierre_curso));
+
+    return (
+      <React.Fragment key={curso.curso_id}>
+        {/* Acordeón siempre visible */}
+        <tr>
+          <td colSpan={6} className="py-4">
+            <AcordionCourse
+              key={curso.curso_id}
+              curso_id={curso.curso_id}
+              organizacion_id={curso.organizacion_id}
+              nombre_curso={curso.nombre_curso}
+              docente_curso={curso.docente_curso}
+              descripcion_curso={curso.descripcion_curso}
+              fechaInicio_curso={fechaInicio}
+              fechaCierre_curso={fechaCierre}
+              darkMode={darkMode}
+              onEdit={(e) => handleEditClick(e, curso)} // Prop para manejar la edición
+              onDelete={(e) => handleDeleteClick(e, curso)} // Prop para manejar la eliminación
+            />
+          </td>
+        </tr>
+      </React.Fragment>
+    );
+  })}
+</tbody>
             </table>
           </div>
           <div className={`w-full h-16 ${darkMode ? 'bg-gray-800' : 'bg-[#D8EEE3]'}`}></div>

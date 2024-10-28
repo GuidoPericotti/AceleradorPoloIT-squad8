@@ -35,28 +35,34 @@ const createCurso = (req,res) => {
 
 //Editar curso
 const updateCurso = (req, res) => {
-    const {id} = req.params;
+    const { id } = req.params;
     const idCurso = parseInt(id, 10);
-     // Verificar si la conversión fue exitosa y si idCurso es un número válido
-     if (isNaN(idCurso)) {
+    
+    // Verificar si la conversión fue exitosa y si idCurso es un número válido
+    if (isNaN(idCurso)) {
         return res.status(400).json({ mensaje: "ID del curso no es válido" });
     }
+    console.log(req.body)
+    // Leer los datos directamente de req.body
+    const { nombre_curso, fechaInicio_curso, fechaCierre_curso, docente_curso, descripcion_curso } = req.body;
+    console.log(req.body)
+    const sql = 'UPDATE cursos SET nombre_curso = ?, docente_curso = ?, descripcion_curso = ?, fechaInicio_curso = ?, fechaCierre_curso = ? WHERE curso_id = ?';
 
-    const {nombre_curso, fechaInicio_curso, fechaCierre_curso, docente_curso, descripcion_curso, organizacion_id} = req.body;
-    const sql = 'UPDATE cursos SET nombre_curso = ?, fechaInicio_curso = ?, fechaCierre_curso = ?,  descripcion_curso = ?,docente_curso = ? WHERE curso_id = ?';
-    db.query(sql,[ nombre_curso, fechaInicio_curso, fechaCierre_curso,  descripcion_curso,docente_curso, organizacion_id , id] ,(err, result) => {
-        if (err) throw err;
-        console.log(`Ejecutando SQL: ${sql}, con parámetros: [${nombre_curso}, ${fechaInicio_curso}, ${fechaCierre_curso}, ${docente_curso},${descripcion_curso}, ${idCurso},${organizacion_id}]`);
-        res.json({ mensaje: "Curso actualizado correctamente"});
-        console.log(result)
-       // console.log(nombre_curso, fechaInicio_curso, fechaCierre_curso, docente_curso, descripcion_curso, organizacion_id)
+    // Asegúrate de que el orden de los parámetros sea el correcto
+    db.query(sql, [nombre_curso, docente_curso, descripcion_curso, fechaInicio_curso, fechaCierre_curso, idCurso], (err, result) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ mensaje: "Error en la consulta de actualización" });
+        }
         
-       if (result.affectedRows === 0) {
-        return { mensaje: "Curso no encontrado" };
-    }
+        console.log(`Ejecutando SQL: ${sql}, con parámetros: [${nombre_curso}, ${docente_curso}, ${descripcion_curso}, ${fechaInicio_curso}, ${fechaCierre_curso}, ${idCurso}]`);
 
-    res.json({ mensaje: "Curso actualizado correctamente" });
-});
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ mensaje: "Curso no encontrado" });
+        }
+
+        return res.json({ mensaje: "Curso actualizado correctamente" });
+    });
 };
 
 //Eliminar curso

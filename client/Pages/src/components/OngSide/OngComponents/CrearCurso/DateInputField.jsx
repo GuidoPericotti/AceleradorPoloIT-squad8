@@ -9,8 +9,8 @@ const DateInputField = ({ label, value, onChange }) => {
         className="mt-1 p-2 w-28 border rounded-lg"
         value={value}
         onChange={onChange}
-        placeholder="dd/mm/aaaa"
-        pattern="\d{2}/\d{2}/\d{4}" // validación de formato
+        placeholder="aaaa/mm/dd"
+        pattern="\d{4}/\d{2}/\d{2}" // validación de formato
         maxLength="10" // limita la longitud de la cadena a 10 caracteres
       />
     </div>
