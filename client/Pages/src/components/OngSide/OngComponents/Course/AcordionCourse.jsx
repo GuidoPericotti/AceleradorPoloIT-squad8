@@ -27,14 +27,15 @@ const AcordionCourse = ({
   const handleEdit = async (e) => {
     e.stopPropagation();
     const id = localStorage.getItem('curso_id');
-    console.log(localStorage.getItem('curso_id'));
+    console.log(id);
     
     try {
       const response = await axios.get(`http://localhost:3000/api/ong/${organizacion_id}/curso/${id}`);
       setCourseData(response.data);
       setShowEditModal(true);
       const fetchedCurso = response.data.curso;
-      localStorage.setItem('curso', JSON.stringify(fetchedCurso)); // Almacenamos en localStorage
+      console.log(response)
+      localStorage.setItem('curso_id', JSON.stringify(fetchedCurso)); // Almacenamos en localStorage
 
     } catch (error) {
       console.error("Error al obtener los datos del curso:", error);

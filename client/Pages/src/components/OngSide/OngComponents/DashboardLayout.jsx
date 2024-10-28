@@ -28,6 +28,7 @@ const DashboardLayout = ({ darkMode }) => {
         const fetchedCursos = response.data.cursos;
         setCursos(fetchedCursos);
         localStorage.setItem('cursos', JSON.stringify(fetchedCursos)); // Almacenamos en localStorage
+        localStorage.setItem('curso_id', response.data.cursos[0].curso_id);
         setShowCursos(true);
         navigate('/personal-courses');
       })} else {

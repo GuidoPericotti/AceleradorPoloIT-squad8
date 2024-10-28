@@ -37,7 +37,7 @@ const createCurso = (req,res) => {
 const updateCurso = (req, res) => {
     const {id} = req.params;
     const {nombre, fechaCreacion, fechaCierre, docente} = req.body;
-    const sql = 'UPDATE cursos SET nombre = ?, fechaCreacion = ?, fechaCierre = ?, docente = ?';
+    const sql = 'UPDATE cursos SET nombre_curso = ?, fechaInicio_curso = ?, fechaCierre_curso = ?, docente_curso = ?';
     db.query(sql,[nombre, fechaCreacion, fechaCierre, docente, id], (err, result) => {
         if (err) throw err;
         res.json({ mensaje: "Curso actualizado correctamente"});

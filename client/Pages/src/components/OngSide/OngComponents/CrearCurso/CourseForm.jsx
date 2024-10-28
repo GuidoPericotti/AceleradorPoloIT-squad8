@@ -66,7 +66,8 @@ const CourseForm = ({
         />
       </div>
       <div className='flex justify-center pt-3'>
-        <ButtonGroup onCancel={onCancel} />
+        <ButtonGroup 
+        onCancel={onCancel}/>
       </div>
     </form>
   );
