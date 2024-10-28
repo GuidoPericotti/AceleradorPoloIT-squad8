@@ -7,7 +7,7 @@ const PasswordInput = () => {
 
   return (
     <div className="relative">
-      <p className="block font-medium text-gray-500 dark:text-gray-400 text-sm mb-1">
+      <p className="block font-medium text-black dark:text-gray-400 text-sm mb-1">
         Contraseña
       </p>
       <InputField
