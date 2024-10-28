@@ -15,7 +15,7 @@ const ConfirmPasswordInput = ({ value, onChange }) => {
         ariaLabel="Confirmar Contraseña"
         value={value}
         onChange={onChange}
-        placeholder={'Confirmar contraseña'}
+        placeholder="Confirmar contraseña"
         {...register('confirmPassword', {
           validate: (value) => {
             const password = getValues('password');
